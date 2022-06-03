@@ -1,5 +1,5 @@
-# RISC-V-Assembly 
-Microcomputer technology (RISC-V &amp; assembly) course with projects &amp; tests
+# RISC-V-Assembly :floppy_disk:
+Microcomputer technology (RISC-V &amp; assembly) course with projects &amp; tests :trackball:
 
 ## Contains a number of labs &amp; software for assembly and interactions with a RISC-V MCU
 
@@ -7,7 +7,7 @@ Microcomputer technology (RISC-V &amp; assembly) course with projects &amp; test
 - Contains all the software for the RISC-V MCU :electric_plug:
 
 ### Projects
-- Divided into 6 labs with 2 tasks in each 
+- Divided into 6 labs with 2 tasks in each :bulb:
 
 ### RISCV/ASSEMBLY SOFTWARE 💻
 - Contains the drive-rutines for download &amp; init :mag:
