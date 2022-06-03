@@ -1,0 +1,1540 @@
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 1
+
+
+   1              		.file	"main.c"
+   2              		.option nopic
+   3              		.attribute arch, "rv32i2p0_m2p0_a2p0_c2p0"
+   4              		.attribute unaligned_access, 0
+   5              		.attribute stack_align, 16
+   6              		.text
+   7              	.Ltext0:
+   8              		.cfi_sections	.debug_frame
+   9              		.section	.text.lightControl,"ax",@progbits
+  10              		.align	1
+  11              		.globl	lightControl
+  13              	lightControl:
+  14              	.LFB2:
+  15              		.file 1 "main.c"
+   1:main.c        **** #include "gd32vf103.h"
+   2:main.c        **** #include "drivers.h"
+   3:main.c        **** #include "dac.h"
+   4:main.c        **** #include "pwm.h"
+   5:main.c        **** 
+   6:main.c        **** int lightControl(int key,int *lightPower,int *counter,int *registerOne,int *registerTwo)
+   7:main.c        **** {
+  16              		.loc 1 7 1
+  17              		.cfi_startproc
+  18              	.LVL0:
+   8:main.c        ****   switch(key){ //Control Values for Percentage 0-9 --> Max Value 100%, Don't Care 10-12, 13 Load Va
+  19              		.loc 1 8 3
+  20 0000 BD47     		li	a5,15
+  21 0002 63E4A71A 		bgtu	a0,a5,.L35
+  22 0006 B7070000 		lui	a5,%hi(.L4)
+  23 000a 93870700 		addi	a5,a5,%lo(.L4)
+  24 000e 0A05     		slli	a0,a0,2
+  25              	.LVL1:
+  26 0010 3E95     		add	a0,a0,a5
+  27 0012 1C41     		lw	a5,0(a0)
+   7:main.c        ****   switch(key){ //Control Values for Percentage 0-9 --> Max Value 100%, Don't Care 10-12, 13 Load Va
+  28              		.loc 1 7 1 is_stmt 0
+  29 0014 0111     		addi	sp,sp,-32
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 32
+  32 0016 22CC     		sw	s0,24(sp)
+  33 0018 06CE     		sw	ra,28(sp)
+  34              		.cfi_offset 8, -8
+  35              		.cfi_offset 1, -4
+  36 001a 3284     		mv	s0,a2
+  37              		.loc 1 8 3
+  38 001c 8287     		jr	a5
+  39              		.section	.rodata.lightControl,"a",@progbits
+  40              		.align	2
+  41              		.align	2
+  42              	.L4:
+  43 0000 00000000 		.word	.L16
+  44 0004 00000000 		.word	.L15
+  45 0008 00000000 		.word	.L14
+  46 000c 00000000 		.word	.L13
+  47 0010 00000000 		.word	.L12
+  48 0014 00000000 		.word	.L11
+  49 0018 00000000 		.word	.L10
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 2
+
+
+  50 001c 00000000 		.word	.L9
+  51 0020 00000000 		.word	.L8
+  52 0024 00000000 		.word	.L7
+  53 0028 00000000 		.word	.L2
+  54 002c 00000000 		.word	.L2
+  55 0030 00000000 		.word	.L2
+  56 0034 00000000 		.word	.L6
+  57 0038 00000000 		.word	.L5
+  58 003c 00000000 		.word	.L3
+  59              		.section	.text.lightControl
+  60              	.L5:
+   9:main.c        ****     
+  10:main.c        ****     case 0: if(*counter>-1){(*counter=*counter+1); *lightPower=*lightPower+(0*160); if(*counter==0)
+  11:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+  12:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+  13:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+  14:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+  15:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+  16:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+  17:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+  18:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+  19:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+  20:main.c        ****     case 10: return;
+  21:main.c        ****     case 11: return;
+  22:main.c        ****     case 12: return;
+  23:main.c        ****     case 13: if(*counter==-1) //Load Value
+  24:main.c        ****     {
+  25:main.c        ****       T1setPWMch2(0);
+  26:main.c        ****     }
+  27:main.c        ****     if(*counter==0) //Load 1:st Value
+  28:main.c        ****     {
+  29:main.c        ****       T1setPWMch2(*registerOne);
+  30:main.c        ****       *lightPower=0;
+  31:main.c        ****     } 
+  32:main.c        ****     if(*counter==1) //Load 2:nd Value
+  33:main.c        ****     {
+  34:main.c        ****       *registerOne=(*registerOne * 10);
+  35:main.c        ****       *registerTwo=(*lightPower + *registerOne);
+  36:main.c        ****       T1setPWMch2(*registerTwo);
+  37:main.c        ****       *lightPower=0;
+  38:main.c        ****       *registerOne=(*registerOne / 10);
+  39:main.c        ****     } 
+  40:main.c        ****     if(*counter==2) //Load 3:rd Value, Allways 100%
+  41:main.c        ****     {
+  42:main.c        ****       T1setPWMch2(15998);
+  43:main.c        ****     }  
+  44:main.c        ****     return;
+  45:main.c        ****     case 14: if(*counter==0) //Remove Last Value
+  61              		.loc 1 45 14 is_stmt 1
+  62              		.loc 1 45 17 is_stmt 0
+  63 001e 1C42     		lw	a5,0(a2)
+  64              		.loc 1 45 16
+  65 0020 63800714 		beq	a5,zero,.L48
+  46:main.c        ****     {
+  47:main.c        ****       *registerOne=0;
+  48:main.c        ****       *lightPower=0;
+  49:main.c        ****       *counter=-1;
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 3
+
+
+  50:main.c        ****     } 
+  51:main.c        ****     if(*counter==1)
+  66              		.loc 1 51 5 is_stmt 1
+  67              		.loc 1 51 7 is_stmt 0
+  68 0024 8546     		li	a3,1
+  69              	.LVL2:
+  70 0026 639DD71A 		bne	a5,a3,.L33
+  52:main.c        ****     {
+  53:main.c        ****       *registerTwo=0;
+  71              		.loc 1 53 7 is_stmt 1
+  72              		.loc 1 53 19 is_stmt 0
+  73 002a 23200700 		sw	zero,0(a4)
+  54:main.c        ****       *lightPower=0;
+  74              		.loc 1 54 7 is_stmt 1
+  75              		.loc 1 54 18 is_stmt 0
+  76 002e 23A00500 		sw	zero,0(a1)
+  55:main.c        ****       *counter=0;
+  77              		.loc 1 55 7 is_stmt 1
+  78              		.loc 1 55 15 is_stmt 0
+  79 0032 23200600 		sw	zero,0(a2)
+  56:main.c        ****     } 
+  57:main.c        ****     if(*counter==2)
+  80              		.loc 1 57 5 is_stmt 1
+  81              	.LVL3:
+  82              	.L2:
+  58:main.c        ****     {
+  59:main.c        ****       *counter=1;
+  60:main.c        ****     } 
+  61:main.c        ****     return;
+  62:main.c        ****     case 15: T1setPWMch2(0); //Remove All Read Values
+  63:main.c        ****       *counter=-1; 
+  64:main.c        ****       *registerOne=0;
+  65:main.c        ****       *registerTwo=0;
+  66:main.c        ****       return;             
+  67:main.c        ****   } 
+  68:main.c        **** 
+  69:main.c        **** }
+  83              		.loc 1 69 1 is_stmt 0 discriminator 10
+  84 0036 F240     		lw	ra,28(sp)
+  85              		.cfi_remember_state
+  86              		.cfi_restore 1
+  87 0038 6244     		lw	s0,24(sp)
+  88              		.cfi_restore 8
+  89              	.LVL4:
+  90 003a 0561     		addi	sp,sp,32
+  91              	.LCFI1:
+  92              		.cfi_def_cfa_offset 0
+  93 003c 8280     		jr	ra
+  94              	.LVL5:
+  95              	.L6:
+  96              	.LCFI2:
+  97              		.cfi_restore_state
+  23:main.c        ****     {
+  98              		.loc 1 23 14 is_stmt 1
+  23:main.c        ****     {
+  99              		.loc 1 23 17 is_stmt 0
+ 100 003e 1C42     		lw	a5,0(a2)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 4
+
+
+  23:main.c        ****     {
+ 101              		.loc 1 23 16
+ 102 0040 7D56     		li	a2,-1
+ 103 0042 6385C714 		beq	a5,a2,.L49
+  27:main.c        ****     {
+ 104              		.loc 1 27 5 is_stmt 1
+  27:main.c        ****     {
+ 105              		.loc 1 27 7 is_stmt 0
+ 106 0046 63840712 		beq	a5,zero,.L50
+ 107              	.LVL6:
+ 108              	.L30:
+  32:main.c        ****     {
+ 109              		.loc 1 32 5 is_stmt 1
+  32:main.c        ****     {
+ 110              		.loc 1 32 7 is_stmt 0
+ 111 004a 0546     		li	a2,1
+ 112 004c 6380C716 		beq	a5,a2,.L51
+ 113              	.L31:
+  40:main.c        ****     {
+ 114              		.loc 1 40 5 is_stmt 1
+  40:main.c        ****     {
+ 115              		.loc 1 40 7 is_stmt 0
+ 116 0050 0947     		li	a4,2
+ 117 0052 E392E7FE 		bne	a5,a4,.L2
+  42:main.c        ****     }  
+ 118              		.loc 1 42 7 is_stmt 1
+ 119 0056 1165     		li	a0,16384
+ 120 0058 1305E5E7 		addi	a0,a0,-386
+ 121 005c 97000000 		call	T1setPWMch2
+ 121      E7800000 
+ 122              	.LVL7:
+ 123 0064 C9BF     		j	.L2
+ 124              	.LVL8:
+ 125              	.L16:
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 126              		.loc 1 10 13
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 127              		.loc 1 10 16 is_stmt 0
+ 128 0066 1C42     		lw	a5,0(a2)
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 129              		.loc 1 10 15
+ 130 0068 E3C707FC 		blt	a5,zero,.L2
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 131              		.loc 1 10 29 is_stmt 1 discriminator 1
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 132              		.loc 1 10 47 is_stmt 0 discriminator 1
+ 133 006c 8507     		addi	a5,a5,1
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 134              		.loc 1 10 38 discriminator 1
+ 135 006e 1CC2     		sw	a5,0(a2)
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 136              		.loc 1 10 52 is_stmt 1 discriminator 1
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 137              		.loc 1 10 85 discriminator 1
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 138              		.loc 1 10 128 discriminator 1
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 5
+
+
+ 139              		.loc 1 10 130 is_stmt 0 discriminator 1
+ 140 0070 0D47     		li	a4,3
+ 141              	.LVL9:
+ 142 0072 E392E7FC 		bne	a5,a4,.L2
+ 143 0076 29A8     		j	.L20
+ 144              	.LVL10:
+ 145              	.L14:
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 146              		.loc 1 12 13 is_stmt 1
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 147              		.loc 1 12 31 is_stmt 0
+ 148 0078 1C42     		lw	a5,0(a2)
+ 149 007a 8507     		addi	a5,a5,1
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 150              		.loc 1 12 22
+ 151 007c 1CC2     		sw	a5,0(a2)
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 152              		.loc 1 12 36 is_stmt 1
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 153              		.loc 1 12 59 is_stmt 0
+ 154 007e 9C41     		lw	a5,0(a1)
+ 155 0080 93870714 		addi	a5,a5,320
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 156              		.loc 1 12 47
+ 157 0084 9CC1     		sw	a5,0(a1)
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 158              		.loc 1 12 69 is_stmt 1
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 159              		.loc 1 12 72 is_stmt 0
+ 160 0086 1842     		lw	a4,0(a2)
+ 161              	.LVL11:
+  12:main.c        ****     case 3: (*counter=*counter+1); *lightPower=*lightPower+(3*160); if(*counter==0){*registerOne=*l
+ 162              		.loc 1 12 71
+ 163 0088 1DC3     		beq	a4,zero,.L46
+ 164              	.L28:
+  19:main.c        ****     case 10: return;
+ 165              		.loc 1 19 112 is_stmt 1 discriminator 3
+  19:main.c        ****     case 10: return;
+ 166              		.loc 1 19 114 is_stmt 0 discriminator 3
+ 167 008a 8D47     		li	a5,3
+ 168 008c E315F7FA 		bne	a4,a5,.L2
+ 169              	.L20:
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 170              		.loc 1 10 144 is_stmt 1 discriminator 6
+  10:main.c        ****     case 1: (*counter=*counter+1); *lightPower=*lightPower+(1*160); if(*counter==0){*registerOne=*l
+ 171              		.loc 1 10 152 is_stmt 0 discriminator 6
+ 172 0090 8947     		li	a5,2
+ 173 0092 1CC0     		sw	a5,0(s0)
+ 174              		.loc 1 69 1 discriminator 6
+ 175 0094 F240     		lw	ra,28(sp)
+ 176              		.cfi_remember_state
+ 177              		.cfi_restore 1
+ 178 0096 6244     		lw	s0,24(sp)
+ 179              		.cfi_restore 8
+ 180              	.LVL12:
+ 181 0098 0561     		addi	sp,sp,32
+ 182              	.LCFI3:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 6
+
+
+ 183              		.cfi_def_cfa_offset 0
+ 184 009a 8280     		jr	ra
+ 185              	.LVL13:
+ 186              	.L13:
+ 187              	.LCFI4:
+ 188              		.cfi_restore_state
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 189              		.loc 1 13 13 is_stmt 1
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 190              		.loc 1 13 31 is_stmt 0
+ 191 009c 1C42     		lw	a5,0(a2)
+ 192 009e 8507     		addi	a5,a5,1
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 193              		.loc 1 13 22
+ 194 00a0 1CC2     		sw	a5,0(a2)
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 195              		.loc 1 13 36 is_stmt 1
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 196              		.loc 1 13 59 is_stmt 0
+ 197 00a2 9C41     		lw	a5,0(a1)
+ 198 00a4 9387071E 		addi	a5,a5,480
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 199              		.loc 1 13 47
+ 200 00a8 9CC1     		sw	a5,0(a1)
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 201              		.loc 1 13 69 is_stmt 1
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 202              		.loc 1 13 72 is_stmt 0
+ 203 00aa 1842     		lw	a4,0(a2)
+ 204              	.LVL14:
+  13:main.c        ****     case 4: (*counter=*counter+1); *lightPower=*lightPower+(4*160); if(*counter==0){*registerOne=*l
+ 205              		.loc 1 13 71
+ 206 00ac 79FF     		bne	a4,zero,.L28
+ 207              	.L46:
+  19:main.c        ****     case 10: return;
+ 208              		.loc 1 19 85 is_stmt 1 discriminator 1
+  19:main.c        ****     case 10: return;
+ 209              		.loc 1 19 97 is_stmt 0 discriminator 1
+ 210 00ae 9CC2     		sw	a5,0(a3)
+ 211 00b0 1840     		lw	a4,0(s0)
+ 212 00b2 E1BF     		j	.L28
+ 213              	.LVL15:
+ 214              	.L15:
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 215              		.loc 1 11 13 is_stmt 1
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 216              		.loc 1 11 31 is_stmt 0
+ 217 00b4 1C42     		lw	a5,0(a2)
+ 218 00b6 8507     		addi	a5,a5,1
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 219              		.loc 1 11 22
+ 220 00b8 1CC2     		sw	a5,0(a2)
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 221              		.loc 1 11 36 is_stmt 1
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 222              		.loc 1 11 59 is_stmt 0
+ 223 00ba 9C41     		lw	a5,0(a1)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 7
+
+
+ 224 00bc 9387070A 		addi	a5,a5,160
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 225              		.loc 1 11 47
+ 226 00c0 9CC1     		sw	a5,0(a1)
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 227              		.loc 1 11 69 is_stmt 1
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 228              		.loc 1 11 72 is_stmt 0
+ 229 00c2 1842     		lw	a4,0(a2)
+ 230              	.LVL16:
+  11:main.c        ****     case 2: (*counter=*counter+1); *lightPower=*lightPower+(2*160); if(*counter==0){*registerOne=*l
+ 231              		.loc 1 11 71
+ 232 00c4 79F3     		bne	a4,zero,.L28
+ 233 00c6 E5B7     		j	.L46
+ 234              	.LVL17:
+ 235              	.L12:
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 236              		.loc 1 14 13 is_stmt 1
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 237              		.loc 1 14 31 is_stmt 0
+ 238 00c8 1C42     		lw	a5,0(a2)
+ 239 00ca 8507     		addi	a5,a5,1
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 240              		.loc 1 14 22
+ 241 00cc 1CC2     		sw	a5,0(a2)
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 242              		.loc 1 14 36 is_stmt 1
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 243              		.loc 1 14 59 is_stmt 0
+ 244 00ce 9C41     		lw	a5,0(a1)
+ 245 00d0 93870728 		addi	a5,a5,640
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 246              		.loc 1 14 47
+ 247 00d4 9CC1     		sw	a5,0(a1)
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 248              		.loc 1 14 69 is_stmt 1
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 249              		.loc 1 14 72 is_stmt 0
+ 250 00d6 1842     		lw	a4,0(a2)
+ 251              	.LVL18:
+  14:main.c        ****     case 5: (*counter=*counter+1); *lightPower=*lightPower+(5*160); if(*counter==0){*registerOne=*l
+ 252              		.loc 1 14 71
+ 253 00d8 4DFB     		bne	a4,zero,.L28
+ 254 00da D1BF     		j	.L46
+ 255              	.LVL19:
+ 256              	.L11:
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 257              		.loc 1 15 13 is_stmt 1
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 258              		.loc 1 15 31 is_stmt 0
+ 259 00dc 1C42     		lw	a5,0(a2)
+ 260 00de 8507     		addi	a5,a5,1
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 261              		.loc 1 15 22
+ 262 00e0 1CC2     		sw	a5,0(a2)
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 263              		.loc 1 15 36 is_stmt 1
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 8
+
+
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 264              		.loc 1 15 59 is_stmt 0
+ 265 00e2 9C41     		lw	a5,0(a1)
+ 266 00e4 93870732 		addi	a5,a5,800
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 267              		.loc 1 15 47
+ 268 00e8 9CC1     		sw	a5,0(a1)
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 269              		.loc 1 15 69 is_stmt 1
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 270              		.loc 1 15 72 is_stmt 0
+ 271 00ea 1842     		lw	a4,0(a2)
+ 272              	.LVL20:
+  15:main.c        ****     case 6: (*counter=*counter+1); *lightPower=*lightPower+(6*160); if(*counter==0){*registerOne=*l
+ 273              		.loc 1 15 71
+ 274 00ec 59FF     		bne	a4,zero,.L28
+ 275 00ee C1B7     		j	.L46
+ 276              	.LVL21:
+ 277              	.L10:
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 278              		.loc 1 16 13 is_stmt 1
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 279              		.loc 1 16 31 is_stmt 0
+ 280 00f0 1C42     		lw	a5,0(a2)
+ 281 00f2 8507     		addi	a5,a5,1
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 282              		.loc 1 16 22
+ 283 00f4 1CC2     		sw	a5,0(a2)
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 284              		.loc 1 16 36 is_stmt 1
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 285              		.loc 1 16 59 is_stmt 0
+ 286 00f6 9C41     		lw	a5,0(a1)
+ 287 00f8 9387073C 		addi	a5,a5,960
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 288              		.loc 1 16 47
+ 289 00fc 9CC1     		sw	a5,0(a1)
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 290              		.loc 1 16 69 is_stmt 1
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 291              		.loc 1 16 72 is_stmt 0
+ 292 00fe 1842     		lw	a4,0(a2)
+ 293              	.LVL22:
+  16:main.c        ****     case 7: (*counter=*counter+1); *lightPower=*lightPower+(7*160); if(*counter==0){*registerOne=*l
+ 294              		.loc 1 16 71
+ 295 0100 49F7     		bne	a4,zero,.L28
+ 296 0102 75B7     		j	.L46
+ 297              	.LVL23:
+ 298              	.L9:
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 299              		.loc 1 17 13 is_stmt 1
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 300              		.loc 1 17 31 is_stmt 0
+ 301 0104 1C42     		lw	a5,0(a2)
+ 302 0106 8507     		addi	a5,a5,1
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 303              		.loc 1 17 22
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 9
+
+
+ 304 0108 1CC2     		sw	a5,0(a2)
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 305              		.loc 1 17 36 is_stmt 1
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 306              		.loc 1 17 59 is_stmt 0
+ 307 010a 9C41     		lw	a5,0(a1)
+ 308 010c 93870746 		addi	a5,a5,1120
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 309              		.loc 1 17 47
+ 310 0110 9CC1     		sw	a5,0(a1)
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 311              		.loc 1 17 69 is_stmt 1
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 312              		.loc 1 17 72 is_stmt 0
+ 313 0112 1842     		lw	a4,0(a2)
+ 314              	.LVL24:
+  17:main.c        ****     case 8: (*counter=*counter+1); *lightPower=*lightPower+(8*160); if(*counter==0){*registerOne=*l
+ 315              		.loc 1 17 71
+ 316 0114 3DFB     		bne	a4,zero,.L28
+ 317 0116 61BF     		j	.L46
+ 318              	.LVL25:
+ 319              	.L8:
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 320              		.loc 1 18 13 is_stmt 1
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 321              		.loc 1 18 31 is_stmt 0
+ 322 0118 1C42     		lw	a5,0(a2)
+ 323 011a 8507     		addi	a5,a5,1
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 324              		.loc 1 18 22
+ 325 011c 1CC2     		sw	a5,0(a2)
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 326              		.loc 1 18 36 is_stmt 1
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 327              		.loc 1 18 59 is_stmt 0
+ 328 011e 9C41     		lw	a5,0(a1)
+ 329 0120 93870750 		addi	a5,a5,1280
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 330              		.loc 1 18 47
+ 331 0124 9CC1     		sw	a5,0(a1)
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 332              		.loc 1 18 69 is_stmt 1
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 333              		.loc 1 18 72 is_stmt 0
+ 334 0126 1842     		lw	a4,0(a2)
+ 335              	.LVL26:
+  18:main.c        ****     case 9: (*counter=*counter+1); *lightPower=*lightPower+(9*160); if(*counter==0){*registerOne=*l
+ 336              		.loc 1 18 71
+ 337 0128 2DF3     		bne	a4,zero,.L28
+ 338 012a 51B7     		j	.L46
+ 339              	.LVL27:
+ 340              	.L7:
+  19:main.c        ****     case 10: return;
+ 341              		.loc 1 19 13 is_stmt 1
+  19:main.c        ****     case 10: return;
+ 342              		.loc 1 19 31 is_stmt 0
+ 343 012c 1C42     		lw	a5,0(a2)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 10
+
+
+ 344 012e 8507     		addi	a5,a5,1
+  19:main.c        ****     case 10: return;
+ 345              		.loc 1 19 22
+ 346 0130 1CC2     		sw	a5,0(a2)
+  19:main.c        ****     case 10: return;
+ 347              		.loc 1 19 36 is_stmt 1
+  19:main.c        ****     case 10: return;
+ 348              		.loc 1 19 59 is_stmt 0
+ 349 0132 9C41     		lw	a5,0(a1)
+ 350 0134 9387075A 		addi	a5,a5,1440
+  19:main.c        ****     case 10: return;
+ 351              		.loc 1 19 47
+ 352 0138 9CC1     		sw	a5,0(a1)
+  19:main.c        ****     case 10: return;
+ 353              		.loc 1 19 69 is_stmt 1
+  19:main.c        ****     case 10: return;
+ 354              		.loc 1 19 72 is_stmt 0
+ 355 013a 1842     		lw	a4,0(a2)
+ 356              	.LVL28:
+  19:main.c        ****     case 10: return;
+ 357              		.loc 1 19 71
+ 358 013c 39F7     		bne	a4,zero,.L28
+ 359 013e 85BF     		j	.L46
+ 360              	.LVL29:
+ 361              	.L3:
+  62:main.c        ****       *counter=-1; 
+ 362              		.loc 1 62 14
+ 363 0140 0145     		li	a0,0
+ 364 0142 3AC4     		sw	a4,8(sp)
+ 365 0144 36C2     		sw	a3,4(sp)
+  62:main.c        ****       *counter=-1; 
+ 366              		.loc 1 62 14 is_stmt 1
+ 367 0146 97000000 		call	T1setPWMch2
+ 367      E7800000 
+ 368              	.LVL30:
+  63:main.c        ****       *registerOne=0;
+ 369              		.loc 1 63 7
+  64:main.c        ****       *registerTwo=0;
+ 370              		.loc 1 64 19 is_stmt 0
+ 371 014e 9246     		lw	a3,4(sp)
+  63:main.c        ****       *registerOne=0;
+ 372              		.loc 1 63 15
+ 373 0150 FD57     		li	a5,-1
+  65:main.c        ****       return;             
+ 374              		.loc 1 65 19
+ 375 0152 2247     		lw	a4,8(sp)
+  63:main.c        ****       *registerOne=0;
+ 376              		.loc 1 63 15
+ 377 0154 1CC0     		sw	a5,0(s0)
+  64:main.c        ****       *registerTwo=0;
+ 378              		.loc 1 64 7 is_stmt 1
+  64:main.c        ****       *registerTwo=0;
+ 379              		.loc 1 64 19 is_stmt 0
+ 380 0156 23A00600 		sw	zero,0(a3)
+  65:main.c        ****       return;             
+ 381              		.loc 1 65 7 is_stmt 1
+  65:main.c        ****       return;             
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 11
+
+
+ 382              		.loc 1 65 19 is_stmt 0
+ 383 015a 23200700 		sw	zero,0(a4)
+  66:main.c        ****   } 
+ 384              		.loc 1 66 7 is_stmt 1
+ 385 015e E1BD     		j	.L2
+ 386              	.LVL31:
+ 387              	.L48:
+  47:main.c        ****       *lightPower=0;
+ 388              		.loc 1 47 7
+  47:main.c        ****       *lightPower=0;
+ 389              		.loc 1 47 19 is_stmt 0
+ 390 0160 23A00600 		sw	zero,0(a3)
+  48:main.c        ****       *counter=-1;
+ 391              		.loc 1 48 7 is_stmt 1
+  48:main.c        ****       *counter=-1;
+ 392              		.loc 1 48 18 is_stmt 0
+ 393 0164 23A00500 		sw	zero,0(a1)
+  49:main.c        ****     } 
+ 394              		.loc 1 49 7 is_stmt 1
+  49:main.c        ****     } 
+ 395              		.loc 1 49 15 is_stmt 0
+ 396 0168 FD57     		li	a5,-1
+ 397 016a 1CC2     		sw	a5,0(a2)
+  51:main.c        ****     {
+ 398              		.loc 1 51 5 is_stmt 1
+  57:main.c        ****     {
+ 399              		.loc 1 57 5
+ 400 016c E9B5     		j	.L2
+ 401              	.LVL32:
+ 402              	.L50:
+  29:main.c        ****       *lightPower=0;
+ 403              		.loc 1 29 7
+ 404 016e 8842     		lw	a0,0(a3)
+ 405 0170 3AC6     		sw	a4,12(sp)
+ 406 0172 2EC4     		sw	a1,8(sp)
+ 407 0174 36C2     		sw	a3,4(sp)
+ 408 0176 97000000 		call	T1setPWMch2
+ 408      E7800000 
+ 409              	.LVL33:
+  30:main.c        ****     } 
+ 410              		.loc 1 30 7
+  30:main.c        ****     } 
+ 411              		.loc 1 30 18 is_stmt 0
+ 412 017e A245     		lw	a1,8(sp)
+ 413 0180 3247     		lw	a4,12(sp)
+ 414 0182 9246     		lw	a3,4(sp)
+ 415 0184 23A00500 		sw	zero,0(a1)
+ 416 0188 1C40     		lw	a5,0(s0)
+ 417 018a C1B5     		j	.L30
+ 418              	.LVL34:
+ 419              	.L49:
+  25:main.c        ****     }
+ 420              		.loc 1 25 7
+ 421 018c 0145     		li	a0,0
+ 422 018e 3AC6     		sw	a4,12(sp)
+ 423 0190 36C4     		sw	a3,8(sp)
+ 424 0192 2EC2     		sw	a1,4(sp)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 12
+
+
+  25:main.c        ****     }
+ 425              		.loc 1 25 7 is_stmt 1
+ 426 0194 97000000 		call	T1setPWMch2
+ 426      E7800000 
+ 427              	.LVL35:
+ 428 019c 1C40     		lw	a5,0(s0)
+ 429 019e 3247     		lw	a4,12(sp)
+ 430 01a0 A246     		lw	a3,8(sp)
+ 431 01a2 9245     		lw	a1,4(sp)
+  27:main.c        ****     {
+ 432              		.loc 1 27 5
+  27:main.c        ****     {
+ 433              		.loc 1 27 7 is_stmt 0
+ 434 01a4 E39307EA 		bne	a5,zero,.L30
+ 435 01a8 D9B7     		j	.L50
+ 436              	.LVL36:
+ 437              	.L35:
+ 438              	.LCFI5:
+ 439              		.cfi_def_cfa_offset 0
+ 440              		.cfi_restore 1
+ 441              		.cfi_restore 8
+ 442              	.LVL37:
+ 443              		.loc 1 69 1
+ 444 01aa 8280     		ret
+ 445              	.LVL38:
+ 446              	.L51:
+ 447              	.LCFI6:
+ 448              		.cfi_def_cfa_offset 32
+ 449              		.cfi_offset 1, -4
+ 450              		.cfi_offset 8, -8
+  34:main.c        ****       *registerTwo=(*lightPower + *registerOne);
+ 451              		.loc 1 34 7 is_stmt 1
+  34:main.c        ****       *registerTwo=(*lightPower + *registerOne);
+ 452              		.loc 1 34 34 is_stmt 0
+ 453 01ac 9C42     		lw	a5,0(a3)
+  34:main.c        ****       *registerTwo=(*lightPower + *registerOne);
+ 454              		.loc 1 34 19
+ 455 01ae 36C4     		sw	a3,8(sp)
+  35:main.c        ****       T1setPWMch2(*registerTwo);
+ 456              		.loc 1 35 7 is_stmt 1
+  35:main.c        ****       T1setPWMch2(*registerTwo);
+ 457              		.loc 1 35 33 is_stmt 0
+ 458 01b0 2EC2     		sw	a1,4(sp)
+  34:main.c        ****       *registerTwo=(*lightPower + *registerOne);
+ 459              		.loc 1 34 34
+ 460 01b2 13952700 		slli	a0,a5,2
+ 461 01b6 3E95     		add	a0,a0,a5
+ 462 01b8 0605     		slli	a0,a0,1
+  34:main.c        ****       *registerTwo=(*lightPower + *registerOne);
+ 463              		.loc 1 34 19
+ 464 01ba 88C2     		sw	a0,0(a3)
+  35:main.c        ****       T1setPWMch2(*registerTwo);
+ 465              		.loc 1 35 33
+ 466 01bc 9C41     		lw	a5,0(a1)
+ 467 01be 3E95     		add	a0,a0,a5
+  35:main.c        ****       T1setPWMch2(*registerTwo);
+ 468              		.loc 1 35 19
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 13
+
+
+ 469 01c0 08C3     		sw	a0,0(a4)
+  36:main.c        ****       *lightPower=0;
+ 470              		.loc 1 36 7 is_stmt 1
+ 471 01c2 97000000 		call	T1setPWMch2
+ 471      E7800000 
+ 472              	.LVL39:
+  37:main.c        ****       *registerOne=(*registerOne / 10);
+ 473              		.loc 1 37 7
+  37:main.c        ****       *registerOne=(*registerOne / 10);
+ 474              		.loc 1 37 18 is_stmt 0
+ 475 01ca 9245     		lw	a1,4(sp)
+  38:main.c        ****     } 
+ 476              		.loc 1 38 34
+ 477 01cc A246     		lw	a3,8(sp)
+ 478 01ce 2947     		li	a4,10
+  37:main.c        ****       *registerOne=(*registerOne / 10);
+ 479              		.loc 1 37 18
+ 480 01d0 23A00500 		sw	zero,0(a1)
+  38:main.c        ****     } 
+ 481              		.loc 1 38 7 is_stmt 1
+  38:main.c        ****     } 
+ 482              		.loc 1 38 34 is_stmt 0
+ 483 01d4 9C42     		lw	a5,0(a3)
+ 484 01d6 B3C7E702 		div	a5,a5,a4
+  38:main.c        ****     } 
+ 485              		.loc 1 38 19
+ 486 01da 9CC2     		sw	a5,0(a3)
+ 487 01dc 1C40     		lw	a5,0(s0)
+ 488 01de 8DBD     		j	.L31
+ 489              	.LVL40:
+ 490              	.L33:
+  57:main.c        ****     {
+ 491              		.loc 1 57 5 is_stmt 1
+  57:main.c        ****     {
+ 492              		.loc 1 57 7 is_stmt 0
+ 493 01e0 0947     		li	a4,2
+ 494              	.LVL41:
+ 495 01e2 E39AE7E4 		bne	a5,a4,.L2
+  59:main.c        ****     } 
+ 496              		.loc 1 59 7 is_stmt 1
+  59:main.c        ****     } 
+ 497              		.loc 1 59 15 is_stmt 0
+ 498 01e6 14C2     		sw	a3,0(a2)
+ 499 01e8 B9B5     		j	.L2
+ 500              		.cfi_endproc
+ 501              	.LFE2:
+ 503              		.section	.text.startup.main,"ax",@progbits
+ 504              		.align	1
+ 505              		.globl	main
+ 507              	main:
+ 508              	.LFB3:
+  70:main.c        **** 
+  71:main.c        **** int main(void){
+ 509              		.loc 1 71 15 is_stmt 1
+ 510              		.cfi_startproc
+  72:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0;
+ 511              		.loc 1 72 5
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 14
+
+
+ 512              	.LVL42:
+  73:main.c        ****     int *lightPower=0;
+ 513              		.loc 1 73 5
+  74:main.c        ****     int *counter=-1;
+  75:main.c        ****     int *registerOne=0;
+  76:main.c        ****     int *registerTwo=0;
+  77:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 514              		.loc 1 77 9 is_stmt 0
+ 515 0000 B7070000 		lui	a5,%hi(.LANCHOR0)
+  71:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0;
+ 516              		.loc 1 71 15
+ 517 0004 5971     		addi	sp,sp,-112
+ 518              	.LCFI7:
+ 519              		.cfi_def_cfa_offset 112
+  74:main.c        ****     int *counter=-1;
+ 520              		.loc 1 74 10
+ 521 0006 7D57     		li	a4,-1
+ 522              		.loc 1 77 9
+ 523 0008 93870700 		addi	a5,a5,%lo(.LANCHOR0)
+  74:main.c        ****     int *counter=-1;
+ 524              		.loc 1 74 10
+ 525 000c 3AC2     		sw	a4,4(sp)
+  71:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0;
+ 526              		.loc 1 71 15
+ 527 000e 86D6     		sw	ra,108(sp)
+ 528 0010 A2D4     		sw	s0,104(sp)
+ 529 0012 A6D2     		sw	s1,100(sp)
+ 530 0014 CAD0     		sw	s2,96(sp)
+ 531 0016 CECE     		sw	s3,92(sp)
+ 532 0018 D2CC     		sw	s4,88(sp)
+ 533 001a D6CA     		sw	s5,84(sp)
+ 534              		.cfi_offset 1, -4
+ 535              		.cfi_offset 8, -8
+ 536              		.cfi_offset 9, -12
+ 537              		.cfi_offset 18, -16
+ 538              		.cfi_offset 19, -20
+ 539              		.cfi_offset 20, -24
+ 540              		.cfi_offset 21, -28
+  73:main.c        ****     int *lightPower=0;
+ 541              		.loc 1 73 10
+ 542 001c 02C0     		sw	zero,0(sp)
+  74:main.c        ****     int *counter=-1;
+ 543              		.loc 1 74 5 is_stmt 1
+  75:main.c        ****     int *registerTwo=0;
+ 544              		.loc 1 75 5
+  75:main.c        ****     int *registerTwo=0;
+ 545              		.loc 1 75 10 is_stmt 0
+ 546 001e 02C4     		sw	zero,8(sp)
+  76:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 547              		.loc 1 76 5 is_stmt 1
+  76:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 548              		.loc 1 76 10 is_stmt 0
+ 549 0020 02C6     		sw	zero,12(sp)
+ 550              		.loc 1 77 5 is_stmt 1
+ 551              		.loc 1 77 9 is_stmt 0
+ 552 0022 1808     		addi	a4,sp,16
+ 553 0024 93860704 		addi	a3,a5,64
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 15
+
+
+ 554              	.L53:
+ 555 0028 03A80700 		lw	a6,0(a5)
+ 556 002c C843     		lw	a0,4(a5)
+ 557 002e 8C47     		lw	a1,8(a5)
+ 558 0030 D047     		lw	a2,12(a5)
+ 559 0032 23200701 		sw	a6,0(a4)
+ 560 0036 48C3     		sw	a0,4(a4)
+ 561 0038 0CC7     		sw	a1,8(a4)
+ 562 003a 50C7     		sw	a2,12(a4)
+ 563 003c C107     		addi	a5,a5,16
+ 564 003e 4107     		addi	a4,a4,16
+ 565 0040 E394D7FE 		bne	a5,a3,.L53
+  78:main.c        ****     int dac=0, speed=-100;
+ 566              		.loc 1 78 5 is_stmt 1
+ 567              	.LVL43:
+  79:main.c        **** 
+  80:main.c        ****     t5omsi();                               // Initialize timer5 1kHz
+ 568              		.loc 1 80 5
+ 569 0044 97000000 		call	t5omsi
+ 569      E7800000 
+ 570              	.LVL44:
+  81:main.c        ****     colinit();                              // Initialize column toolbox
+ 571              		.loc 1 81 5
+ 572 004c 97000000 		call	colinit
+ 572      E7800000 
+ 573              	.LVL45:
+  82:main.c        ****     l88init();                              // Initialize 8*8 led toolbox
+ 574              		.loc 1 82 5
+ 575 0054 97000000 		call	l88init
+ 575      E7800000 
+ 576              	.LVL46:
+  83:main.c        ****     keyinit();                              // Initialize keyboard toolbox
+ 577              		.loc 1 83 5
+ 578 005c 97000000 		call	keyinit
+ 578      E7800000 
+ 579              	.LVL47:
+  84:main.c        ****     DAC0powerUpInit();                      // Initialize DAC0/PA4 toolbox
+ 580              		.loc 1 84 5
+ 581 0064 97000000 		call	DAC0powerUpInit
+ 581      E7800000 
+ 582              	.LVL48:
+  85:main.c        ****     T1powerUpInitPWM(0x1);                  // Timer #1, Ch #2 PWM
+ 583              		.loc 1 85 5
+ 584 006c 0545     		li	a0,1
+ 585 006e 97000000 		call	T1powerUpInitPWM
+ 585      E7800000 
+ 586              	.LVL49:
+  86:main.c        ****     T1powerUpInitPWM(0x1);                  // Timer #1, Ch #2 & 3 PWM
+ 587              		.loc 1 86 5
+ 588 0076 0545     		li	a0,1
+ 589 0078 97000000 		call	T1powerUpInitPWM
+ 589      E7800000 
+ 590              	.LVL50:
+  87:main.c        ****     T1setPWMch2(0);
+ 591              		.loc 1 87 5
+ 592 0080 0145     		li	a0,0
+ 593 0082 97000000 		call	T1setPWMch2
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 16
+
+
+ 593      E7800000 
+ 594              	.LVL51:
+  78:main.c        **** 
+ 595              		.loc 1 78 9 is_stmt 0
+ 596 008a 8144     		li	s1,0
+  72:main.c        ****     int *lightPower=0;
+ 597              		.loc 1 72 15
+ 598 008c 814A     		li	s5,0
+  72:main.c        ****     int *lightPower=0;
+ 599              		.loc 1 72 9
+ 600 008e 0144     		li	s0,0
+  88:main.c        **** 
+  89:main.c        ****     while (1) {
+  90:main.c        ****  
+  91:main.c        ****         if (t5expq()) {                     // Manage periodic tasks
+  92:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+  93:main.c        ****             ms++;                           // ...One second heart beat
+  94:main.c        ****             if (ms==1000){
+ 601              		.loc 1 94 16
+ 602 0090 130A803E 		li	s4,1000
+ 603              	.LVL52:
+ 604              	.L54:
+  89:main.c        ****  
+ 605              		.loc 1 89 5 is_stmt 1
+  91:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 606              		.loc 1 91 9
+  91:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 607              		.loc 1 91 13 is_stmt 0
+ 608 0094 97000000 		call	t5expq
+ 608      E7800000 
+ 609              	.LVL53:
+  91:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 610              		.loc 1 91 12
+ 611 009c 65DD     		beq	a0,zero,.L54
+  92:main.c        ****             ms++;                           // ...One second heart beat
+ 612              		.loc 1 92 13 is_stmt 1
+  93:main.c        ****             if (ms==1000){
+ 613              		.loc 1 93 15 is_stmt 0
+ 614 009e 0504     		addi	s0,s0,1
+ 615              	.LVL54:
+  92:main.c        ****             ms++;                           // ...One second heart beat
+ 616              		.loc 1 92 13
+ 617 00a0 97000000 		call	colset
+ 617      E7800000 
+ 618              	.LVL55:
+  95:main.c        ****               ms=0;
+  96:main.c        ****               l88mem(0,s++);
+  97:main.c        ****             }
+  98:main.c        ****             if ((key=keyscan())>=0) {       // ...Any key pressed?
+  99:main.c        ****               l88mem(1,lookUpTbl[key]);
+ 100:main.c        ****               lightControl(lookUpTbl[key],&lightPower,&counter,&registerOne,&registerTwo);
+ 101:main.c        ****             }
+ 102:main.c        ****             DAC0set(dac++);                 // DAC0 Unit test
+ 619              		.loc 1 102 13
+ 620 00a8 93891400 		addi	s3,s1,1
+  92:main.c        ****             ms++;                           // ...One second heart beat
+ 621              		.loc 1 92 13
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 17
+
+
+ 622 00ac 97000000 		call	l88row
+ 622      E7800000 
+ 623              	.LVL56:
+  93:main.c        ****             if (ms==1000){
+ 624              		.loc 1 93 13 is_stmt 1
+  94:main.c        ****               ms=0;
+ 625              		.loc 1 94 13
+  94:main.c        ****               ms=0;
+ 626              		.loc 1 94 16 is_stmt 0
+ 627 00b4 63054405 		beq	s0,s4,.L62
+ 628              	.LVL57:
+ 629              	.L55:
+  98:main.c        ****               l88mem(1,lookUpTbl[key]);
+ 630              		.loc 1 98 13 is_stmt 1
+  98:main.c        ****               l88mem(1,lookUpTbl[key]);
+ 631              		.loc 1 98 22 is_stmt 0
+ 632 00b8 97000000 		call	keyscan
+ 632      E7800000 
+ 633              	.LVL58:
+  99:main.c        ****               lightControl(lookUpTbl[key],&lightPower,&counter,&registerOne,&registerTwo);
+ 634              		.loc 1 99 15 is_stmt 1
+ 635 00c0 93172500 		slli	a5,a0,2
+  98:main.c        ****               l88mem(1,lookUpTbl[key]);
+ 636              		.loc 1 98 22 is_stmt 0
+ 637 00c4 2A87     		mv	a4,a0
+ 638              	.LVL59:
+  99:main.c        ****               lightControl(lookUpTbl[key],&lightPower,&counter,&registerOne,&registerTwo);
+ 639              		.loc 1 99 15
+ 640 00c6 9408     		addi	a3,sp,80
+ 641 00c8 B697     		add	a5,a3,a5
+ 642 00ca 0545     		li	a0,1
+ 643              	.LVL60:
+  98:main.c        ****               l88mem(1,lookUpTbl[key]);
+ 644              		.loc 1 98 16
+ 645 00cc 63420702 		blt	a4,zero,.L56
+  99:main.c        ****               lightControl(lookUpTbl[key],&lightPower,&counter,&registerOne,&registerTwo);
+ 646              		.loc 1 99 15
+ 647 00d0 03A907FC 		lw	s2,-64(a5)
+ 648 00d4 CA85     		mv	a1,s2
+ 649 00d6 97000000 		call	l88mem
+ 649      E7800000 
+ 650              	.LVL61:
+ 100:main.c        ****             }
+ 651              		.loc 1 100 15 is_stmt 1
+ 652 00de 7800     		addi	a4,sp,12
+ 653 00e0 3400     		addi	a3,sp,8
+ 654 00e2 5000     		addi	a2,sp,4
+ 655 00e4 8A85     		mv	a1,sp
+ 656 00e6 4A85     		mv	a0,s2
+ 657 00e8 97000000 		call	lightControl
+ 657      E7800000 
+ 658              	.LVL62:
+ 659              	.L56:
+ 660              		.loc 1 102 13
+ 661 00f0 2685     		mv	a0,s1
+ 662 00f2 97000000 		call	DAC0set
+ 662      E7800000 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 18
+
+
+ 663              	.LVL63:
+ 664 00fa CE84     		mv	s1,s3
+ 665 00fc 61BF     		j	.L54
+ 666              	.LVL64:
+ 667              	.L62:
+  95:main.c        ****               l88mem(0,s++);
+ 668              		.loc 1 95 15
+  96:main.c        ****             }
+ 669              		.loc 1 96 15
+ 670 00fe D685     		mv	a1,s5
+ 671 0100 0145     		li	a0,0
+ 672 0102 850A     		addi	s5,s5,1
+ 673              	.LVL65:
+ 674 0104 97000000 		call	l88mem
+ 674      E7800000 
+ 675              	.LVL66:
+  95:main.c        ****               l88mem(0,s++);
+ 676              		.loc 1 95 17 is_stmt 0
+ 677 010c 0144     		li	s0,0
+ 678 010e 6DB7     		j	.L55
+ 679              		.cfi_endproc
+ 680              	.LFE3:
+ 682              		.section	.rodata
+ 683              		.align	2
+ 684              		.set	.LANCHOR0,. + 0
+ 685              	.LC0:
+ 686 0000 01000000 		.word	1
+ 687 0004 04000000 		.word	4
+ 688 0008 07000000 		.word	7
+ 689 000c 0E000000 		.word	14
+ 690 0010 02000000 		.word	2
+ 691 0014 05000000 		.word	5
+ 692 0018 08000000 		.word	8
+ 693 001c 00000000 		.word	0
+ 694 0020 03000000 		.word	3
+ 695 0024 06000000 		.word	6
+ 696 0028 09000000 		.word	9
+ 697 002c 0F000000 		.word	15
+ 698 0030 0A000000 		.word	10
+ 699 0034 0B000000 		.word	11
+ 700 0038 0C000000 		.word	12
+ 701 003c 0D000000 		.word	13
+ 702              		.text
+ 703              	.Letext0:
+ 704              		.file 2 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 705              		.file 3 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 706              		.file 4 "drivers.h"
+ 707              		.file 5 "dac.h"
+ 708              		.file 6 "pwm.h"
+ 709              		.file 7 "../../firmware/GD32VF103_standard_peripheral/system_gd32vf103.h"
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:13     .text.lightControl:0000000000000000 lightControl
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:17     .text.lightControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:19     .text.lightControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:20     .text.lightControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:29     .text.lightControl:0000000000000014 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:31     .text.lightControl:0000000000000016 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:34     .text.lightControl:000000000000001a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:35     .text.lightControl:000000000000001a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:38     .text.lightControl:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:62     .text.lightControl:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:63     .text.lightControl:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:65     .text.lightControl:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:67     .text.lightControl:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:68     .text.lightControl:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:72     .text.lightControl:000000000000002a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:73     .text.lightControl:000000000000002a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:75     .text.lightControl:000000000000002e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:76     .text.lightControl:000000000000002e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:78     .text.lightControl:0000000000000032 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:79     .text.lightControl:0000000000000032 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:83     .text.lightControl:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:84     .text.lightControl:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:85     .text.lightControl:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:86     .text.lightControl:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:88     .text.lightControl:000000000000003a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:92     .text.lightControl:000000000000003c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:97     .text.lightControl:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:99     .text.lightControl:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:100    .text.lightControl:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:102    .text.lightControl:0000000000000040 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:105    .text.lightControl:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:106    .text.lightControl:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:110    .text.lightControl:000000000000004a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:111    .text.lightControl:000000000000004a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:115    .text.lightControl:0000000000000050 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:116    .text.lightControl:0000000000000050 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:119    .text.lightControl:0000000000000056 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:127    .text.lightControl:0000000000000066 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:128    .text.lightControl:0000000000000066 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:130    .text.lightControl:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:132    .text.lightControl:000000000000006c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:133    .text.lightControl:000000000000006c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:135    .text.lightControl:000000000000006e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:137    .text.lightControl:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:138    .text.lightControl:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:139    .text.lightControl:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:140    .text.lightControl:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:147    .text.lightControl:0000000000000078 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:148    .text.lightControl:0000000000000078 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:151    .text.lightControl:000000000000007c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:153    .text.lightControl:000000000000007e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:154    .text.lightControl:000000000000007e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:157    .text.lightControl:0000000000000084 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:159    .text.lightControl:0000000000000086 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:160    .text.lightControl:0000000000000086 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 20
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:163    .text.lightControl:0000000000000088 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:166    .text.lightControl:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:167    .text.lightControl:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:171    .text.lightControl:0000000000000090 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:172    .text.lightControl:0000000000000090 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:175    .text.lightControl:0000000000000094 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:176    .text.lightControl:0000000000000096 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:177    .text.lightControl:0000000000000096 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:179    .text.lightControl:0000000000000098 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:183    .text.lightControl:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:188    .text.lightControl:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:190    .text.lightControl:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:191    .text.lightControl:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:194    .text.lightControl:00000000000000a0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:196    .text.lightControl:00000000000000a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:197    .text.lightControl:00000000000000a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:200    .text.lightControl:00000000000000a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:202    .text.lightControl:00000000000000aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:203    .text.lightControl:00000000000000aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:206    .text.lightControl:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:209    .text.lightControl:00000000000000ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:210    .text.lightControl:00000000000000ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:216    .text.lightControl:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:217    .text.lightControl:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:220    .text.lightControl:00000000000000b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:222    .text.lightControl:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:223    .text.lightControl:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:226    .text.lightControl:00000000000000c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:228    .text.lightControl:00000000000000c2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:229    .text.lightControl:00000000000000c2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:232    .text.lightControl:00000000000000c4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:237    .text.lightControl:00000000000000c8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:238    .text.lightControl:00000000000000c8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:241    .text.lightControl:00000000000000cc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:243    .text.lightControl:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:244    .text.lightControl:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:247    .text.lightControl:00000000000000d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:249    .text.lightControl:00000000000000d6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:250    .text.lightControl:00000000000000d6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:253    .text.lightControl:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:258    .text.lightControl:00000000000000dc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:259    .text.lightControl:00000000000000dc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:262    .text.lightControl:00000000000000e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:264    .text.lightControl:00000000000000e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:265    .text.lightControl:00000000000000e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:268    .text.lightControl:00000000000000e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:270    .text.lightControl:00000000000000ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:271    .text.lightControl:00000000000000ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:274    .text.lightControl:00000000000000ec .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:279    .text.lightControl:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:280    .text.lightControl:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:283    .text.lightControl:00000000000000f4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:285    .text.lightControl:00000000000000f6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:286    .text.lightControl:00000000000000f6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:289    .text.lightControl:00000000000000fc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:291    .text.lightControl:00000000000000fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:292    .text.lightControl:00000000000000fe .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 21
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:295    .text.lightControl:0000000000000100 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:300    .text.lightControl:0000000000000104 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:301    .text.lightControl:0000000000000104 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:304    .text.lightControl:0000000000000108 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:306    .text.lightControl:000000000000010a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:307    .text.lightControl:000000000000010a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:310    .text.lightControl:0000000000000110 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:312    .text.lightControl:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:313    .text.lightControl:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:316    .text.lightControl:0000000000000114 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:321    .text.lightControl:0000000000000118 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:322    .text.lightControl:0000000000000118 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:325    .text.lightControl:000000000000011c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:327    .text.lightControl:000000000000011e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:328    .text.lightControl:000000000000011e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:331    .text.lightControl:0000000000000124 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:333    .text.lightControl:0000000000000126 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:334    .text.lightControl:0000000000000126 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:337    .text.lightControl:0000000000000128 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:342    .text.lightControl:000000000000012c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:343    .text.lightControl:000000000000012c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:346    .text.lightControl:0000000000000130 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:348    .text.lightControl:0000000000000132 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:349    .text.lightControl:0000000000000132 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:352    .text.lightControl:0000000000000138 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:354    .text.lightControl:000000000000013a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:355    .text.lightControl:000000000000013a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:358    .text.lightControl:000000000000013c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:363    .text.lightControl:0000000000000140 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:367    .text.lightControl:0000000000000146 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:370    .text.lightControl:000000000000014e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:371    .text.lightControl:000000000000014e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:373    .text.lightControl:0000000000000150 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:375    .text.lightControl:0000000000000152 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:377    .text.lightControl:0000000000000154 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:379    .text.lightControl:0000000000000156 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:380    .text.lightControl:0000000000000156 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:382    .text.lightControl:000000000000015a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:383    .text.lightControl:000000000000015a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:385    .text.lightControl:000000000000015e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:389    .text.lightControl:0000000000000160 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:390    .text.lightControl:0000000000000160 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:392    .text.lightControl:0000000000000164 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:393    .text.lightControl:0000000000000164 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:395    .text.lightControl:0000000000000168 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:396    .text.lightControl:0000000000000168 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:399    .text.lightControl:000000000000016c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:400    .text.lightControl:000000000000016c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:404    .text.lightControl:000000000000016e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:411    .text.lightControl:000000000000017e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:412    .text.lightControl:000000000000017e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:421    .text.lightControl:000000000000018c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:426    .text.lightControl:0000000000000194 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:433    .text.lightControl:00000000000001a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:434    .text.lightControl:00000000000001a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:439    .text.lightControl:00000000000001aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:440    .text.lightControl:00000000000001aa .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 22
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:441    .text.lightControl:00000000000001aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:444    .text.lightControl:00000000000001aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:448    .text.lightControl:00000000000001ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:449    .text.lightControl:00000000000001ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:450    .text.lightControl:00000000000001ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:452    .text.lightControl:00000000000001ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:453    .text.lightControl:00000000000001ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:455    .text.lightControl:00000000000001ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:457    .text.lightControl:00000000000001b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:458    .text.lightControl:00000000000001b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:460    .text.lightControl:00000000000001b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:464    .text.lightControl:00000000000001ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:466    .text.lightControl:00000000000001bc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:469    .text.lightControl:00000000000001c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:471    .text.lightControl:00000000000001c2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:474    .text.lightControl:00000000000001ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:475    .text.lightControl:00000000000001ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:477    .text.lightControl:00000000000001cc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:480    .text.lightControl:00000000000001d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:482    .text.lightControl:00000000000001d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:483    .text.lightControl:00000000000001d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:486    .text.lightControl:00000000000001da .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:492    .text.lightControl:00000000000001e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:493    .text.lightControl:00000000000001e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:497    .text.lightControl:00000000000001e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:498    .text.lightControl:00000000000001e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:500    .text.lightControl:00000000000001ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:507    .text.startup.main:0000000000000000 main
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:510    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:511    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:513    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:514    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:515    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:517    .text.startup.main:0000000000000004 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:519    .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:521    .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:523    .text.startup.main:0000000000000008 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:525    .text.startup.main:000000000000000c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:527    .text.startup.main:000000000000000e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:534    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:535    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:536    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:537    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:538    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:539    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:540    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:542    .text.startup.main:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:544    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:545    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:546    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:548    .text.startup.main:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:549    .text.startup.main:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:551    .text.startup.main:0000000000000022 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:552    .text.startup.main:0000000000000022 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:568    .text.startup.main:0000000000000044 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:569    .text.startup.main:0000000000000044 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:572    .text.startup.main:000000000000004c .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 23
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:575    .text.startup.main:0000000000000054 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:578    .text.startup.main:000000000000005c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:581    .text.startup.main:0000000000000064 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:584    .text.startup.main:000000000000006c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:588    .text.startup.main:0000000000000076 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:592    .text.startup.main:0000000000000080 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:596    .text.startup.main:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:598    .text.startup.main:000000000000008c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:600    .text.startup.main:000000000000008e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:602    .text.startup.main:0000000000000090 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:606    .text.startup.main:0000000000000094 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:607    .text.startup.main:0000000000000094 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:608    .text.startup.main:0000000000000094 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:611    .text.startup.main:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:613    .text.startup.main:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:614    .text.startup.main:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:617    .text.startup.main:00000000000000a0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:620    .text.startup.main:00000000000000a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:622    .text.startup.main:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:625    .text.startup.main:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:626    .text.startup.main:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:627    .text.startup.main:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:631    .text.startup.main:00000000000000b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:632    .text.startup.main:00000000000000b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:635    .text.startup.main:00000000000000c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:637    .text.startup.main:00000000000000c4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:640    .text.startup.main:00000000000000c6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:645    .text.startup.main:00000000000000cc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:647    .text.startup.main:00000000000000d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:652    .text.startup.main:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:661    .text.startup.main:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:669    .text.startup.main:00000000000000fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:670    .text.startup.main:00000000000000fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:677    .text.startup.main:000000000000010c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:679    .text.startup.main:0000000000000110 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:684    .rodata:0000000000000000 .LANCHOR0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:503    .text.lightControl:00000000000001ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:682    .text.startup.main:0000000000000110 .L0 
+                     .debug_frame:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:42     .rodata.lightControl:0000000000000000 .L4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:437    .text.lightControl:00000000000001aa .L35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:387    .text.lightControl:0000000000000160 .L48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:490    .text.lightControl:00000000000001e0 .L33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:419    .text.lightControl:000000000000018c .L49
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:402    .text.lightControl:000000000000016e .L50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:446    .text.lightControl:00000000000001ac .L51
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:82     .text.lightControl:0000000000000036 .L2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:169    .text.lightControl:0000000000000090 .L20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:207    .text.lightControl:00000000000000ae .L46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:164    .text.lightControl:000000000000008a .L28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:108    .text.lightControl:000000000000004a .L30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:113    .text.lightControl:0000000000000050 .L31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:125    .text.lightControl:0000000000000066 .L16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:214    .text.lightControl:00000000000000b4 .L15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:145    .text.lightControl:0000000000000078 .L14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:186    .text.lightControl:000000000000009c .L13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:235    .text.lightControl:00000000000000c8 .L12
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 24
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:256    .text.lightControl:00000000000000dc .L11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:277    .text.lightControl:00000000000000f0 .L10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:298    .text.lightControl:0000000000000104 .L9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:319    .text.lightControl:0000000000000118 .L8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:340    .text.lightControl:000000000000012c .L7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:95     .text.lightControl:000000000000003e .L6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:60     .text.lightControl:000000000000001e .L5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:361    .text.lightControl:0000000000000140 .L3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:554    .text.startup.main:0000000000000028 .L53
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:604    .text.startup.main:0000000000000094 .L54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:667    .text.startup.main:00000000000000fe .L62
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:659    .text.startup.main:00000000000000f0 .L56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:629    .text.startup.main:00000000000000b8 .L55
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1233   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2127   .debug_str:000000000000018f .LASF34
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2115   .debug_str:0000000000000158 .LASF35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2081   .debug_str:0000000000000066 .LASF36
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2055   .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2063   .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2103   .debug_str:0000000000000113 .LASF0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2135   .debug_str:0000000000000226 .LASF1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2079   .debug_str:0000000000000058 .LASF2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2123   .debug_str:000000000000017d .LASF3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2085   .debug_str:00000000000000ba .LASF4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2071   .debug_str:000000000000001f .LASF5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2095   .debug_str:00000000000000ec .LASF9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2083   .debug_str:00000000000000a8 .LASF6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2113   .debug_str:000000000000014a .LASF7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2077   .debug_str:0000000000000041 .LASF8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2129   .debug_str:0000000000000209 .LASF10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2117   .debug_str:000000000000015f .LASF37
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2133   .debug_str:000000000000021a .LASF11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2099   .debug_str:00000000000000fe .LASF19
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:508    .text.startup.main:0000000000000000 .LFB3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:680    .text.startup.main:0000000000000110 .LFE3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1529   .debug_loc:0000000000000000 .LLST6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1542   .debug_loc:0000000000000021 .LLST7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1569   .debug_loc:0000000000000064 .LLST8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1581   .debug_loc:0000000000000083 .LLST9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2093   .debug_str:00000000000000e7 .LASF12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2067   .debug_str:000000000000000c .LASF13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2089   .debug_str:00000000000000d7 .LASF14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2065   .debug_str:0000000000000000 .LASF15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2075   .debug_str:0000000000000035 .LASF16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2087   .debug_str:00000000000000cd .LASF17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1592   .debug_loc:00000000000000a1 .LLST10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2109   .debug_str:0000000000000138 .LASF18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:570    .text.startup.main:000000000000004c .LVL44
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:573    .text.startup.main:0000000000000054 .LVL45
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:576    .text.startup.main:000000000000005c .LVL46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:579    .text.startup.main:0000000000000064 .LVL47
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:582    .text.startup.main:000000000000006c .LVL48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:586    .text.startup.main:0000000000000076 .LVL49
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:590    .text.startup.main:0000000000000080 .LVL50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:594    .text.startup.main:000000000000008a .LVL51
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:609    .text.startup.main:000000000000009c .LVL53
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:618    .text.startup.main:00000000000000a8 .LVL55
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 25
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:623    .text.startup.main:00000000000000b4 .LVL56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:633    .text.startup.main:00000000000000c0 .LVL58
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:650    .text.startup.main:00000000000000de .LVL61
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:658    .text.startup.main:00000000000000f0 .LVL62
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:663    .text.startup.main:00000000000000fa .LVL63
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:675    .text.startup.main:000000000000010c .LVL66
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2073   .debug_str:0000000000000028 .LASF20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:14     .text.lightControl:0000000000000000 .LFB2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:501    .text.lightControl:00000000000001ea .LFE2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1612   .debug_loc:00000000000000d6 .LLST0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1655   .debug_loc:000000000000013e .LLST1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1680   .debug_loc:0000000000000178 .LLST2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1751   .debug_loc:000000000000021f .LLST3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1789   .debug_loc:0000000000000282 .LLST4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:1854   .debug_loc:000000000000031c .LLST5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:122    .text.lightControl:0000000000000064 .LVL7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:368    .text.lightControl:000000000000014e .LVL30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:409    .text.lightControl:000000000000017e .LVL33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:427    .text.lightControl:000000000000019c .LVL35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:472    .text.lightControl:00000000000001ca .LVL39
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2107   .debug_str:0000000000000131 .LASF21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2069   .debug_str:0000000000000017 .LASF22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2139   .debug_str:0000000000000239 .LASF23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2125   .debug_str:0000000000000187 .LASF24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2101   .debug_str:0000000000000103 .LASF25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2105   .debug_str:0000000000000120 .LASF26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2111   .debug_str:000000000000013e .LASF27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2119   .debug_str:000000000000016f .LASF28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2097   .debug_str:00000000000000f7 .LASF29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2121   .debug_str:0000000000000176 .LASF30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2131   .debug_str:0000000000000212 .LASF31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2137   .debug_str:0000000000000232 .LASF32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:2091   .debug_str:00000000000000df .LASF33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:518    .text.startup.main:0000000000000006 .LCFI7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:512    .text.startup.main:0000000000000000 .LVL42
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:603    .text.startup.main:0000000000000094 .LVL52
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:615    .text.startup.main:00000000000000a0 .LVL54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:666    .text.startup.main:00000000000000fe .LVL64
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:638    .text.startup.main:00000000000000c6 .LVL59
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:643    .text.startup.main:00000000000000cc .LVL60
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:567    .text.startup.main:0000000000000044 .LVL43
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:30     .text.lightControl:0000000000000016 .LCFI0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:91     .text.lightControl:000000000000003c .LCFI1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:96     .text.lightControl:000000000000003e .LCFI2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:182    .text.lightControl:000000000000009a .LCFI3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:187    .text.lightControl:000000000000009c .LCFI4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:438    .text.lightControl:00000000000001aa .LCFI5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:447    .text.lightControl:00000000000001ac .LCFI6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:18     .text.lightControl:0000000000000000 .LVL0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:25     .text.lightControl:0000000000000010 .LVL1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:436    .text.lightControl:00000000000001aa .LVL36
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:442    .text.lightControl:00000000000001aa .LVL37
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:81     .text.lightControl:0000000000000036 .LVL3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:94     .text.lightControl:000000000000003e .LVL5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:107    .text.lightControl:000000000000004a .LVL6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:124    .text.lightControl:0000000000000066 .LVL8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:386    .text.lightControl:0000000000000160 .LVL31
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s 			page 26
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:401    .text.lightControl:000000000000016e .LVL32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:418    .text.lightControl:000000000000018c .LVL34
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:445    .text.lightControl:00000000000001ac .LVL38
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:489    .text.lightControl:00000000000001e0 .LVL40
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:89     .text.lightControl:000000000000003a .LVL4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:180    .text.lightControl:0000000000000098 .LVL12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:185    .text.lightControl:000000000000009c .LVL13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:69     .text.lightControl:0000000000000026 .LVL2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:141    .text.lightControl:0000000000000072 .LVL9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:144    .text.lightControl:0000000000000078 .LVL10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:161    .text.lightControl:0000000000000088 .LVL11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:204    .text.lightControl:00000000000000ac .LVL14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:213    .text.lightControl:00000000000000b4 .LVL15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:230    .text.lightControl:00000000000000c4 .LVL16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:234    .text.lightControl:00000000000000c8 .LVL17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:251    .text.lightControl:00000000000000d8 .LVL18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:255    .text.lightControl:00000000000000dc .LVL19
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:272    .text.lightControl:00000000000000ec .LVL20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:276    .text.lightControl:00000000000000f0 .LVL21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:293    .text.lightControl:0000000000000100 .LVL22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:297    .text.lightControl:0000000000000104 .LVL23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:314    .text.lightControl:0000000000000114 .LVL24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:318    .text.lightControl:0000000000000118 .LVL25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:335    .text.lightControl:0000000000000128 .LVL26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:339    .text.lightControl:000000000000012c .LVL27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:356    .text.lightControl:000000000000013c .LVL28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:360    .text.lightControl:0000000000000140 .LVL29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:494    .text.lightControl:00000000000001e2 .LVL41
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccAisqPj.s:711    .debug_info:0000000000000000 .Ldebug_info0
+
+UNDEFINED SYMBOLS
+T1setPWMch2
+t5omsi
+colinit
+l88init
+keyinit
+DAC0powerUpInit
+T1powerUpInitPWM
+t5expq
+colset
+l88row
+keyscan
+l88mem
+DAC0set

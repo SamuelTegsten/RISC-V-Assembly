@@ -1,0 +1,1121 @@
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 1
+
+
+   1              		.file	"main.c"
+   2              		.option nopic
+   3              		.attribute arch, "rv32i2p0_m2p0_a2p0_c2p0"
+   4              		.attribute unaligned_access, 0
+   5              		.attribute stack_align, 16
+   6              		.text
+   7              	.Ltext0:
+   8              		.cfi_sections	.debug_frame
+   9              		.section	.text.batteryLevel,"ax",@progbits
+  10              		.align	1
+  11              		.globl	batteryLevel
+  13              	batteryLevel:
+  14              	.LFB2:
+  15              		.file 1 "main.c"
+   1:main.c        **** #include "gd32vf103.h"
+   2:main.c        **** #include "drivers.h"
+   3:main.c        **** #include "lcd.h"
+   4:main.c        **** 
+   5:main.c        **** void batteryLevel(key)
+   6:main.c        **** {
+  16              		.loc 1 6 1
+  17              		.cfi_startproc
+  18              	.LVL0:
+   7:main.c        ****   switch(key)
+  19              		.loc 1 7 3
+  20 0000 9147     		li	a5,4
+  21 0002 63EAA70C 		bgtu	a0,a5,.L1
+  22 0006 B7070000 		lui	a5,%hi(.L4)
+  23 000a 93870700 		addi	a5,a5,%lo(.L4)
+  24 000e 0A05     		slli	a0,a0,2
+  25              	.LVL1:
+  26 0010 3E95     		add	a0,a0,a5
+  27 0012 1C41     		lw	a5,0(a0)
+   6:main.c        ****   switch(key)
+  28              		.loc 1 6 1 is_stmt 0
+  29 0014 4111     		addi	sp,sp,-16
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 16
+   8:main.c        ****   {
+   9:main.c        ****     case 0: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,126,TRANSPARENT,BLACK); return;
+  10:main.c        ****     case 1: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,127,TRANSPARENT,BLACK); return;
+  11:main.c        ****     case 2: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,128,TRANSPARENT,BLACK); return;
+  12:main.c        ****     case 3: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,129,TRANSPARENT,BLACK); return;
+  13:main.c        ****     case 4: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,130,TRANSPARENT,BLACK); return;
+  32              		.loc 1 13 13
+  33 0016 4167     		li	a4,65536
+   6:main.c        ****   switch(key)
+  34              		.loc 1 6 1
+  35 0018 06C6     		sw	ra,12(sp)
+  36              		.cfi_offset 1, -4
+  37              		.loc 1 13 13
+  38 001a 13070780 		addi	a4,a4,-2048
+  39 001e 93066004 		li	a3,70
+  40 0022 5146     		li	a2,20
+  41 0024 93052003 		li	a1,50
+  42 0028 2945     		li	a0,10
+   7:main.c        ****   {
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 2
+
+
+  43              		.loc 1 7 3
+  44 002a 8287     		jr	a5
+  45              		.section	.rodata.batteryLevel,"a",@progbits
+  46              		.align	2
+  47              		.align	2
+  48              	.L4:
+  49 0000 00000000 		.word	.L8
+  50 0004 00000000 		.word	.L7
+  51 0008 00000000 		.word	.L6
+  52 000c 00000000 		.word	.L5
+  53 0010 00000000 		.word	.L3
+  54              		.section	.text.batteryLevel
+  55              	.L5:
+  12:main.c        ****     case 4: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,130,TRANSPARENT,BLACK); return;
+  56              		.loc 1 12 13 is_stmt 1
+  57 002c 97000000 		call	LCD_Fill
+  57      E7800000 
+  58              	.LVL2:
+  12:main.c        ****     case 4: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,130,TRANSPARENT,BLACK); return;
+  59              		.loc 1 12 40
+  14:main.c        ****   }
+  15:main.c        **** }
+  60              		.loc 1 15 1 is_stmt 0
+  61 0034 B240     		lw	ra,12(sp)
+  62              		.cfi_remember_state
+  63              		.cfi_restore 1
+  12:main.c        ****     case 4: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,130,TRANSPARENT,BLACK); return;
+  64              		.loc 1 12 40
+  65 0036 0147     		li	a4,0
+  66              		.loc 1 15 1
+  12:main.c        ****     case 4: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,130,TRANSPARENT,BLACK); return;
+  67              		.loc 1 12 40
+  68 0038 8546     		li	a3,1
+  69 003a 13061008 		li	a2,129
+  13:main.c        ****   }
+  70              		.loc 1 13 40
+  71 003e 93052003 		li	a1,50
+  72 0042 2945     		li	a0,10
+  73              		.loc 1 15 1
+  74 0044 4101     		addi	sp,sp,16
+  75              	.LCFI1:
+  76              		.cfi_def_cfa_offset 0
+  13:main.c        ****   }
+  77              		.loc 1 13 40
+  78 0046 17030000 		tail	LCD_ShowChar
+  78      67000300 
+  79              	.LVL3:
+  80              	.L3:
+  81              	.LCFI2:
+  82              		.cfi_restore_state
+  13:main.c        ****   }
+  83              		.loc 1 13 13 is_stmt 1
+  84 004e 97000000 		call	LCD_Fill
+  84      E7800000 
+  85              	.LVL4:
+  13:main.c        ****   }
+  86              		.loc 1 13 40
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 3
+
+
+  87              		.loc 1 15 1 is_stmt 0
+  88 0056 B240     		lw	ra,12(sp)
+  89              		.cfi_remember_state
+  90              		.cfi_restore 1
+  13:main.c        ****   }
+  91              		.loc 1 13 40
+  92 0058 0147     		li	a4,0
+  93              		.loc 1 15 1
+  13:main.c        ****   }
+  94              		.loc 1 13 40
+  95 005a 8546     		li	a3,1
+  96 005c 13062008 		li	a2,130
+  97 0060 93052003 		li	a1,50
+  98 0064 2945     		li	a0,10
+  99              		.loc 1 15 1
+ 100 0066 4101     		addi	sp,sp,16
+ 101              	.LCFI3:
+ 102              		.cfi_def_cfa_offset 0
+  13:main.c        ****   }
+ 103              		.loc 1 13 40
+ 104 0068 17030000 		tail	LCD_ShowChar
+ 104      67000300 
+ 105              	.LVL5:
+ 106              	.L8:
+ 107              	.LCFI4:
+ 108              		.cfi_restore_state
+   9:main.c        ****     case 1: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,127,TRANSPARENT,BLACK); return;
+ 109              		.loc 1 9 13 is_stmt 1
+ 110 0070 97000000 		call	LCD_Fill
+ 110      E7800000 
+ 111              	.LVL6:
+   9:main.c        ****     case 1: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,127,TRANSPARENT,BLACK); return;
+ 112              		.loc 1 9 40
+ 113              		.loc 1 15 1 is_stmt 0
+ 114 0078 B240     		lw	ra,12(sp)
+ 115              		.cfi_remember_state
+ 116              		.cfi_restore 1
+   9:main.c        ****     case 1: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,127,TRANSPARENT,BLACK); return;
+ 117              		.loc 1 9 40
+ 118 007a 0147     		li	a4,0
+ 119              		.loc 1 15 1
+   9:main.c        ****     case 1: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,127,TRANSPARENT,BLACK); return;
+ 120              		.loc 1 9 40
+ 121 007c 8546     		li	a3,1
+ 122 007e 1306E007 		li	a2,126
+  13:main.c        ****   }
+ 123              		.loc 1 13 40
+ 124 0082 93052003 		li	a1,50
+ 125 0086 2945     		li	a0,10
+ 126              		.loc 1 15 1
+ 127 0088 4101     		addi	sp,sp,16
+ 128              	.LCFI5:
+ 129              		.cfi_def_cfa_offset 0
+  13:main.c        ****   }
+ 130              		.loc 1 13 40
+ 131 008a 17030000 		tail	LCD_ShowChar
+ 131      67000300 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 4
+
+
+ 132              	.LVL7:
+ 133              	.L7:
+ 134              	.LCFI6:
+ 135              		.cfi_restore_state
+  10:main.c        ****     case 2: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,128,TRANSPARENT,BLACK); return;
+ 136              		.loc 1 10 13 is_stmt 1
+ 137 0092 97000000 		call	LCD_Fill
+ 137      E7800000 
+ 138              	.LVL8:
+  10:main.c        ****     case 2: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,128,TRANSPARENT,BLACK); return;
+ 139              		.loc 1 10 40
+ 140              		.loc 1 15 1 is_stmt 0
+ 141 009a B240     		lw	ra,12(sp)
+ 142              		.cfi_remember_state
+ 143              		.cfi_restore 1
+  10:main.c        ****     case 2: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,128,TRANSPARENT,BLACK); return;
+ 144              		.loc 1 10 40
+ 145 009c 0147     		li	a4,0
+ 146              		.loc 1 15 1
+  10:main.c        ****     case 2: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,128,TRANSPARENT,BLACK); return;
+ 147              		.loc 1 10 40
+ 148 009e 8546     		li	a3,1
+ 149 00a0 1306F007 		li	a2,127
+  13:main.c        ****   }
+ 150              		.loc 1 13 40
+ 151 00a4 93052003 		li	a1,50
+ 152 00a8 2945     		li	a0,10
+ 153              		.loc 1 15 1
+ 154 00aa 4101     		addi	sp,sp,16
+ 155              	.LCFI7:
+ 156              		.cfi_def_cfa_offset 0
+  13:main.c        ****   }
+ 157              		.loc 1 13 40
+ 158 00ac 17030000 		tail	LCD_ShowChar
+ 158      67000300 
+ 159              	.LVL9:
+ 160              	.L6:
+ 161              	.LCFI8:
+ 162              		.cfi_restore_state
+  11:main.c        ****     case 3: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,129,TRANSPARENT,BLACK); return;
+ 163              		.loc 1 11 13 is_stmt 1
+ 164 00b4 97000000 		call	LCD_Fill
+ 164      E7800000 
+ 165              	.LVL10:
+  11:main.c        ****     case 3: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,129,TRANSPARENT,BLACK); return;
+ 166              		.loc 1 11 40
+ 167              		.loc 1 15 1 is_stmt 0
+ 168 00bc B240     		lw	ra,12(sp)
+ 169              		.cfi_restore 1
+  11:main.c        ****     case 3: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,129,TRANSPARENT,BLACK); return;
+ 170              		.loc 1 11 40
+ 171 00be 0147     		li	a4,0
+ 172              		.loc 1 15 1
+  11:main.c        ****     case 3: LCD_Fill(10,50,20,70,RED); LCD_ShowChar(10,50,129,TRANSPARENT,BLACK); return;
+ 173              		.loc 1 11 40
+ 174 00c0 8546     		li	a3,1
+ 175 00c2 13060008 		li	a2,128
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 5
+
+
+  13:main.c        ****   }
+ 176              		.loc 1 13 40
+ 177 00c6 93052003 		li	a1,50
+ 178 00ca 2945     		li	a0,10
+ 179              		.loc 1 15 1
+ 180 00cc 4101     		addi	sp,sp,16
+ 181              	.LCFI9:
+ 182              		.cfi_def_cfa_offset 0
+  13:main.c        ****   }
+ 183              		.loc 1 13 40
+ 184 00ce 17030000 		tail	LCD_ShowChar
+ 184      67000300 
+ 185              	.LVL11:
+ 186              	.L1:
+ 187 00d6 8280     		ret
+ 188              		.cfi_endproc
+ 189              	.LFE2:
+ 191              		.section	.text.startup.main,"ax",@progbits
+ 192              		.align	1
+ 193              		.globl	main
+ 195              	main:
+ 196              	.LFB3:
+  16:main.c        **** 
+  17:main.c        **** int main(void){
+ 197              		.loc 1 17 15 is_stmt 1
+ 198              		.cfi_startproc
+  18:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0, idle=0;
+ 199              		.loc 1 18 5
+ 200              	.LVL12:
+  19:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 201              		.loc 1 19 5
+ 202              		.loc 1 19 9 is_stmt 0
+ 203 0000 B7070000 		lui	a5,%hi(.LANCHOR0)
+  17:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0, idle=0;
+ 204              		.loc 1 17 15
+ 205 0004 1571     		addi	sp,sp,-224
+ 206              	.LCFI10:
+ 207              		.cfi_def_cfa_offset 224
+ 208              		.loc 1 19 9
+ 209 0006 93860700 		addi	a3,a5,%lo(.LANCHOR0)
+  17:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0, idle=0;
+ 210              		.loc 1 17 15
+ 211 000a 86CF     		sw	ra,220(sp)
+ 212 000c A2CD     		sw	s0,216(sp)
+ 213 000e A6CB     		sw	s1,212(sp)
+ 214 0010 CAC9     		sw	s2,208(sp)
+ 215 0012 CEC7     		sw	s3,204(sp)
+ 216 0014 D2C5     		sw	s4,200(sp)
+ 217 0016 D6C3     		sw	s5,196(sp)
+ 218 0018 DAC1     		sw	s6,192(sp)
+ 219 001a 5EDF     		sw	s7,188(sp)
+ 220 001c 62DD     		sw	s8,184(sp)
+ 221              		.cfi_offset 1, -4
+ 222              		.cfi_offset 8, -8
+ 223              		.cfi_offset 9, -12
+ 224              		.cfi_offset 18, -16
+ 225              		.cfi_offset 19, -20
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 6
+
+
+ 226              		.cfi_offset 20, -24
+ 227              		.cfi_offset 21, -28
+ 228              		.cfi_offset 22, -32
+ 229              		.cfi_offset 23, -36
+ 230              		.cfi_offset 24, -40
+ 231              		.loc 1 19 9
+ 232 001e 93870700 		addi	a5,a5,%lo(.LANCHOR0)
+ 233 0022 7800     		addi	a4,sp,12
+ 234 0024 13860604 		addi	a2,a3,64
+ 235              	.L15:
+ 236 0028 83A80700 		lw	a7,0(a5)
+ 237 002c 03A84700 		lw	a6,4(a5)
+ 238 0030 8847     		lw	a0,8(a5)
+ 239 0032 CC47     		lw	a1,12(a5)
+ 240 0034 23201701 		sw	a7,0(a4)
+ 241 0038 23220701 		sw	a6,4(a4)
+ 242 003c 08C7     		sw	a0,8(a4)
+ 243 003e 4CC7     		sw	a1,12(a4)
+ 244 0040 C107     		addi	a5,a5,16
+ 245 0042 4107     		addi	a4,a4,16
+ 246 0044 E392C7FE 		bne	a5,a2,.L15
+  20:main.c        ****     int dac=0, speed=-100;
+ 247              		.loc 1 20 5 is_stmt 1
+ 248              	.LVL13:
+  21:main.c        ****     int adcr, tmpr;
+ 249              		.loc 1 21 5
+  22:main.c        ****     char digits[10][10]={"Zero ","One  ","Two  ","Three","Four ","Five ","Six  ","Seven","Eight","N
+ 250              		.loc 1 22 5
+ 251              		.loc 1 22 10 is_stmt 0
+ 252 0048 F800     		addi	a4,sp,76
+ 253 004a 9386460A 		addi	a3,a3,164
+ 254              	.L16:
+ 255 004e 83A80700 		lw	a7,0(a5)
+ 256 0052 03A84700 		lw	a6,4(a5)
+ 257 0056 8847     		lw	a0,8(a5)
+ 258 0058 CC47     		lw	a1,12(a5)
+ 259 005a 904B     		lw	a2,16(a5)
+ 260 005c 23201701 		sw	a7,0(a4)
+ 261 0060 23220701 		sw	a6,4(a4)
+ 262 0064 08C7     		sw	a0,8(a4)
+ 263 0066 4CC7     		sw	a1,12(a4)
+ 264 0068 10CB     		sw	a2,16(a4)
+ 265 006a D107     		addi	a5,a5,20
+ 266 006c 5107     		addi	a4,a4,20
+ 267 006e E390D7FE 		bne	a5,a3,.L16
+  23:main.c        **** 
+  24:main.c        ****     t5omsi();                               // Initialize timer5 1kHz
+ 268              		.loc 1 24 5 is_stmt 1
+ 269 0072 97000000 		call	t5omsi
+ 269      E7800000 
+ 270              	.LVL14:
+  25:main.c        ****     colinit();                              // Initialize column toolbox
+ 271              		.loc 1 25 5
+ 272 007a 97000000 		call	colinit
+ 272      E7800000 
+ 273              	.LVL15:
+  26:main.c        ****     l88init();                              // Initialize 8*8 led toolbox
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 7
+
+
+ 274              		.loc 1 26 5
+ 275 0082 97000000 		call	l88init
+ 275      E7800000 
+ 276              	.LVL16:
+  27:main.c        ****     keyinit();                              // Initialize keyboard toolbox
+ 277              		.loc 1 27 5
+ 278 008a 97000000 		call	keyinit
+ 278      E7800000 
+ 279              	.LVL17:
+  28:main.c        ****     Lcd_SetType(LCD_NORMAL);                // or use LCD_INVERTED!
+ 280              		.loc 1 28 5
+ 281 0092 0145     		li	a0,0
+ 282 0094 97000000 		call	Lcd_SetType
+ 282      E7800000 
+ 283              	.LVL18:
+  29:main.c        ****     Lcd_Init();
+ 284              		.loc 1 29 5
+  30:main.c        ****     LCD_Clear(RED);
+ 285              		.loc 1 30 5 is_stmt 0
+ 286 009c C16B     		li	s7,65536
+  29:main.c        ****     Lcd_Init();
+ 287              		.loc 1 29 5
+ 288 009e 97000000 		call	Lcd_Init
+ 288      E7800000 
+ 289              	.LVL19:
+ 290              		.loc 1 30 5 is_stmt 1
+ 291 00a6 13850B80 		addi	a0,s7,-2048
+ 292 00aa 97000000 		call	LCD_Clear
+ 292      E7800000 
+ 293              	.LVL20:
+  31:main.c        ****     LCD_ShowStr(10, 10, "POLL VERSION", WHITE, TRANSPARENT);
+ 294              		.loc 1 31 5
+ 295 00b2 37060000 		lui	a2,%hi(.LC2)
+ 296 00b6 9386FBFF 		addi	a3,s7,-1
+ 297 00ba 0547     		li	a4,1
+ 298 00bc 13060600 		addi	a2,a2,%lo(.LC2)
+ 299 00c0 A945     		li	a1,10
+ 300 00c2 2945     		li	a0,10
+ 301 00c4 97000000 		call	LCD_ShowStr
+ 301      E7800000 
+ 302              	.LVL21:
+  18:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 303              		.loc 1 18 34 is_stmt 0
+ 304 00cc 014A     		li	s4,0
+  18:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 305              		.loc 1 18 25
+ 306 00ce FD59     		li	s3,-1
+  18:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 307              		.loc 1 18 15
+ 308 00d0 814A     		li	s5,0
+  18:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 309              		.loc 1 18 9
+ 310 00d2 8144     		li	s1,0
+  32:main.c        ****     //LCD_ShowChar(10,50,127,TRANSPARENT,BLACK); //127
+  33:main.c        **** 
+  34:main.c        ****     while (1) {
+  35:main.c        ****         idle++;                             // Manage Async events
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 8
+
+
+  36:main.c        ****         LCD_WR_Queue();                   // Manage LCD com queue!
+  37:main.c        **** 
+  38:main.c        ****         if (t5expq()) {                     // Manage periodic tasks
+  39:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+  40:main.c        ****             ms++;                           // ...One second heart beat
+  41:main.c        ****             if (ms==1000){
+ 311              		.loc 1 41 16
+ 312 00d4 130B803E 		li	s6,1000
+  42:main.c        ****               ms=0;
+  43:main.c        ****               l88mem(0,s++);
+  44:main.c        ****               LCD_ShowStr(10, 30, digits[s%10], WHITE, OPAQUE);
+ 313              		.loc 1 44 43
+ 314 00d8 294C     		li	s8,10
+ 315              		.loc 1 44 15
+ 316 00da FD1B     		addi	s7,s7,-1
+ 317              	.LVL22:
+ 318              	.L21:
+  18:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 319              		.loc 1 18 9
+ 320 00dc 0144     		li	s0,0
+ 321              	.LVL23:
+ 322              	.L17:
+  34:main.c        ****         idle++;                             // Manage Async events
+ 323              		.loc 1 34 5 is_stmt 1
+  35:main.c        ****         LCD_WR_Queue();                   // Manage LCD com queue!
+ 324              		.loc 1 35 9
+  35:main.c        ****         LCD_WR_Queue();                   // Manage LCD com queue!
+ 325              		.loc 1 35 13 is_stmt 0
+ 326 00de 0504     		addi	s0,s0,1
+ 327              	.LVL24:
+  36:main.c        **** 
+ 328              		.loc 1 36 9 is_stmt 1
+ 329 00e0 97000000 		call	LCD_WR_Queue
+ 329      E7800000 
+ 330              	.LVL25:
+  38:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 331              		.loc 1 38 9
+  38:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 332              		.loc 1 38 13 is_stmt 0
+ 333 00e8 97000000 		call	t5expq
+ 333      E7800000 
+ 334              	.LVL26:
+  38:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 335              		.loc 1 38 12
+ 336 00f0 7DD5     		beq	a0,zero,.L17
+  39:main.c        ****             ms++;                           // ...One second heart beat
+ 337              		.loc 1 39 13 is_stmt 1
+  40:main.c        ****             if (ms==1000){
+ 338              		.loc 1 40 15 is_stmt 0
+ 339 00f2 8504     		addi	s1,s1,1
+ 340              	.LVL27:
+  39:main.c        ****             ms++;                           // ...One second heart beat
+ 341              		.loc 1 39 13
+ 342 00f4 97000000 		call	colset
+ 342      E7800000 
+ 343              	.LVL28:
+ 344 00fc 97000000 		call	l88row
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 9
+
+
+ 344      E7800000 
+ 345              	.LVL29:
+  40:main.c        ****             if (ms==1000){
+ 346              		.loc 1 40 13 is_stmt 1
+  41:main.c        ****               ms=0;
+ 347              		.loc 1 41 13
+  41:main.c        ****               ms=0;
+ 348              		.loc 1 41 16 is_stmt 0
+ 349 0104 63806407 		beq	s1,s6,.L28
+ 350              	.LVL30:
+ 351              	.L18:
+  45:main.c        ****             }
+  46:main.c        ****             if ((key=keyscan())>=0) {       // ...Any key pressed?
+ 352              		.loc 1 46 13 is_stmt 1
+ 353              		.loc 1 46 22 is_stmt 0
+ 354 0108 97000000 		call	keyscan
+ 354      E7800000 
+ 355              	.LVL31:
+ 356 0110 AA87     		mv	a5,a0
+ 357              	.LVL32:
+ 358              		.loc 1 46 16
+ 359 0112 634B0502 		blt	a0,zero,.L19
+  47:main.c        ****               if (pKey==key) c++; else {c=0; pKey=key;}
+ 360              		.loc 1 47 15 is_stmt 1
+ 361              		.loc 1 47 31 is_stmt 0
+ 362 0116 050A     		addi	s4,s4,1
+ 363              	.LVL33:
+ 364 0118 93154A00 		slli	a1,s4,4
+ 365              		.loc 1 47 18
+ 366 011c 6384A900 		beq	s3,a0,.L20
+ 367 0120 8145     		li	a1,0
+ 368              		.loc 1 47 42
+ 369 0122 014A     		li	s4,0
+ 370              	.LVL34:
+ 371              	.L20:
+  48:main.c        ****               l88mem(1,lookUpTbl[key]+(c<<4));
+ 372              		.loc 1 48 15 is_stmt 1
+ 373              		.loc 1 48 33 is_stmt 0
+ 374 0124 13972700 		slli	a4,a5,2
+ 375 0128 1419     		addi	a3,sp,176
+ 376 012a 3697     		add	a4,a3,a4
+ 377 012c 0329C7F5 		lw	s2,-164(a4)
+ 378              		.loc 1 48 15
+ 379 0130 0545     		li	a0,1
+ 380              	.LVL35:
+  49:main.c        ****               batteryLevel(lookUpTbl[key]);
+ 381              		.loc 1 49 15
+ 382 0132 BE89     		mv	s3,a5
+  48:main.c        ****               l88mem(1,lookUpTbl[key]+(c<<4));
+ 383              		.loc 1 48 15
+ 384 0134 CA95     		add	a1,s2,a1
+ 385 0136 97000000 		call	l88mem
+ 385      E7800000 
+ 386              	.LVL36:
+ 387              		.loc 1 49 15 is_stmt 1
+ 388 013e 4A85     		mv	a0,s2
+ 389 0140 97000000 		call	batteryLevel
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 10
+
+
+ 389      E7800000 
+ 390              	.LVL37:
+ 391              	.L19:
+  50:main.c        ****             }
+  51:main.c        ****             l88mem(2,idle>>8);              // ...Performance monitor
+ 392              		.loc 1 51 13
+ 393 0148 93558440 		srai	a1,s0,8
+ 394 014c 0945     		li	a0,2
+ 395 014e 97000000 		call	l88mem
+ 395      E7800000 
+ 396              	.LVL38:
+  52:main.c        ****             l88mem(3,idle); idle=0;
+ 397              		.loc 1 52 13
+ 398 0156 A285     		mv	a1,s0
+ 399 0158 0D45     		li	a0,3
+ 400 015a 97000000 		call	l88mem
+ 400      E7800000 
+ 401              	.LVL39:
+ 402              		.loc 1 52 29
+ 403 0162 ADBF     		j	.L21
+ 404              	.LVL40:
+ 405              	.L28:
+  42:main.c        ****               l88mem(0,s++);
+ 406              		.loc 1 42 15
+  43:main.c        ****               LCD_ShowStr(10, 30, digits[s%10], WHITE, OPAQUE);
+ 407              		.loc 1 43 15
+ 408 0164 D685     		mv	a1,s5
+ 409 0166 0145     		li	a0,0
+ 410 0168 97000000 		call	l88mem
+ 410      E7800000 
+ 411              	.LVL41:
+ 412 0170 850A     		addi	s5,s5,1
+ 413              	.LVL42:
+  44:main.c        ****             }
+ 414              		.loc 1 44 15
+  44:main.c        ****             }
+ 415              		.loc 1 44 43 is_stmt 0
+ 416 0172 B3E78A03 		rem	a5,s5,s8
+  44:main.c        ****             }
+ 417              		.loc 1 44 15
+ 418 0176 0147     		li	a4,0
+ 419 0178 DE86     		mv	a3,s7
+ 420 017a F945     		li	a1,30
+ 421 017c 2945     		li	a0,10
+  42:main.c        ****               l88mem(0,s++);
+ 422              		.loc 1 42 17
+ 423 017e 8144     		li	s1,0
+  44:main.c        ****             }
+ 424              		.loc 1 44 41
+ 425 0180 13962700 		slli	a2,a5,2
+ 426 0184 3E96     		add	a2,a2,a5
+ 427 0186 0606     		slli	a2,a2,1
+  44:main.c        ****             }
+ 428              		.loc 1 44 15
+ 429 0188 FC00     		addi	a5,sp,76
+ 430 018a 3E96     		add	a2,a5,a2
+ 431 018c 97000000 		call	LCD_ShowStr
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 11
+
+
+ 431      E7800000 
+ 432              	.LVL43:
+ 433 0194 95BF     		j	.L18
+ 434              		.cfi_endproc
+ 435              	.LFE3:
+ 437              		.section	.rodata
+ 438              		.align	2
+ 439              		.set	.LANCHOR0,. + 0
+ 440              	.LC0:
+ 441 0000 01000000 		.word	1
+ 442 0004 04000000 		.word	4
+ 443 0008 07000000 		.word	7
+ 444 000c 0E000000 		.word	14
+ 445 0010 02000000 		.word	2
+ 446 0014 05000000 		.word	5
+ 447 0018 08000000 		.word	8
+ 448 001c 00000000 		.word	0
+ 449 0020 03000000 		.word	3
+ 450 0024 06000000 		.word	6
+ 451 0028 09000000 		.word	9
+ 452 002c 0F000000 		.word	15
+ 453 0030 0A000000 		.word	10
+ 454 0034 0B000000 		.word	11
+ 455 0038 0C000000 		.word	12
+ 456 003c 0D000000 		.word	13
+ 457              	.LC1:
+ 458 0040 5A65726F 		.string	"Zero "
+ 458      2000
+ 459 0046 00000000 		.zero	4
+ 460 004a 4F6E6520 		.string	"One  "
+ 460      2000
+ 461 0050 00000000 		.zero	4
+ 462 0054 54776F20 		.string	"Two  "
+ 462      2000
+ 463 005a 00000000 		.zero	4
+ 464 005e 54687265 		.string	"Three"
+ 464      6500
+ 465 0064 00000000 		.zero	4
+ 466 0068 466F7572 		.string	"Four "
+ 466      2000
+ 467 006e 00000000 		.zero	4
+ 468 0072 46697665 		.string	"Five "
+ 468      2000
+ 469 0078 00000000 		.zero	4
+ 470 007c 53697820 		.string	"Six  "
+ 470      2000
+ 471 0082 00000000 		.zero	4
+ 472 0086 53657665 		.string	"Seven"
+ 472      6E00
+ 473 008c 00000000 		.zero	4
+ 474 0090 45696768 		.string	"Eight"
+ 474      7400
+ 475 0096 00000000 		.zero	4
+ 476 009a 4E696E65 		.string	"Nine "
+ 476      2000
+ 477 00a0 00000000 		.zero	4
+ 478              		.section	.rodata.main.str1.4,"aMS",@progbits,1
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 12
+
+
+ 479              		.align	2
+ 480              	.LC2:
+ 481 0000 504F4C4C 		.string	"POLL VERSION"
+ 481      20564552 
+ 481      53494F4E 
+ 481      00
+ 482              		.text
+ 483              	.Letext0:
+ 484              		.file 2 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 485              		.file 3 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 486              		.file 4 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\lib\\gcc\\riscv64-unkno
+ 487              		.file 5 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 488              		.file 6 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 489              		.file 7 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 490              		.file 8 "../../firmware/GD32VF103_standard_peripheral/system_gd32vf103.h"
+ 491              		.file 9 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 492              		.file 10 "lcd.h"
+ 493              		.file 11 "drivers.h"
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:13     .text.batteryLevel:0000000000000000 batteryLevel
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:17     .text.batteryLevel:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:19     .text.batteryLevel:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:20     .text.batteryLevel:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:29     .text.batteryLevel:0000000000000014 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:31     .text.batteryLevel:0000000000000016 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:33     .text.batteryLevel:0000000000000016 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:35     .text.batteryLevel:0000000000000018 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:36     .text.batteryLevel:000000000000001a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:38     .text.batteryLevel:000000000000001a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:44     .text.batteryLevel:000000000000002a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:57     .text.batteryLevel:000000000000002c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:60     .text.batteryLevel:0000000000000034 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:61     .text.batteryLevel:0000000000000034 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:62     .text.batteryLevel:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:63     .text.batteryLevel:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:65     .text.batteryLevel:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:67     .text.batteryLevel:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:68     .text.batteryLevel:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:71     .text.batteryLevel:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:74     .text.batteryLevel:0000000000000044 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:76     .text.batteryLevel:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:78     .text.batteryLevel:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:82     .text.batteryLevel:000000000000004e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:84     .text.batteryLevel:000000000000004e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:87     .text.batteryLevel:0000000000000056 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:88     .text.batteryLevel:0000000000000056 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:89     .text.batteryLevel:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:90     .text.batteryLevel:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:92     .text.batteryLevel:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:94     .text.batteryLevel:000000000000005a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:95     .text.batteryLevel:000000000000005a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:100    .text.batteryLevel:0000000000000066 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:102    .text.batteryLevel:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:104    .text.batteryLevel:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:108    .text.batteryLevel:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:110    .text.batteryLevel:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:113    .text.batteryLevel:0000000000000078 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:114    .text.batteryLevel:0000000000000078 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:115    .text.batteryLevel:000000000000007a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:116    .text.batteryLevel:000000000000007a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:118    .text.batteryLevel:000000000000007a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:120    .text.batteryLevel:000000000000007c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:121    .text.batteryLevel:000000000000007c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:124    .text.batteryLevel:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:127    .text.batteryLevel:0000000000000088 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:129    .text.batteryLevel:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:131    .text.batteryLevel:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:135    .text.batteryLevel:0000000000000092 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:137    .text.batteryLevel:0000000000000092 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:140    .text.batteryLevel:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:141    .text.batteryLevel:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:142    .text.batteryLevel:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:143    .text.batteryLevel:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:145    .text.batteryLevel:000000000000009c .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 14
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:147    .text.batteryLevel:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:148    .text.batteryLevel:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:151    .text.batteryLevel:00000000000000a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:154    .text.batteryLevel:00000000000000aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:156    .text.batteryLevel:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:158    .text.batteryLevel:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:162    .text.batteryLevel:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:164    .text.batteryLevel:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:167    .text.batteryLevel:00000000000000bc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:168    .text.batteryLevel:00000000000000bc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:169    .text.batteryLevel:00000000000000be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:171    .text.batteryLevel:00000000000000be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:173    .text.batteryLevel:00000000000000c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:174    .text.batteryLevel:00000000000000c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:177    .text.batteryLevel:00000000000000c6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:180    .text.batteryLevel:00000000000000cc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:182    .text.batteryLevel:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:184    .text.batteryLevel:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:188    .text.batteryLevel:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:195    .text.startup.main:0000000000000000 main
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:198    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:199    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:201    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:202    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:203    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:205    .text.startup.main:0000000000000004 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:207    .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:209    .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:211    .text.startup.main:000000000000000a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:221    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:222    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:223    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:224    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:225    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:226    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:227    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:228    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:229    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:230    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:232    .text.startup.main:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:249    .text.startup.main:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:250    .text.startup.main:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:251    .text.startup.main:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:252    .text.startup.main:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:269    .text.startup.main:0000000000000072 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:272    .text.startup.main:000000000000007a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:275    .text.startup.main:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:278    .text.startup.main:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:281    .text.startup.main:0000000000000092 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:285    .text.startup.main:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:286    .text.startup.main:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:288    .text.startup.main:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:291    .text.startup.main:00000000000000a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:295    .text.startup.main:00000000000000b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:304    .text.startup.main:00000000000000cc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:306    .text.startup.main:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:308    .text.startup.main:00000000000000d0 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 15
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:310    .text.startup.main:00000000000000d2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:312    .text.startup.main:00000000000000d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:314    .text.startup.main:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:316    .text.startup.main:00000000000000da .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:320    .text.startup.main:00000000000000dc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:324    .text.startup.main:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:325    .text.startup.main:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:326    .text.startup.main:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:329    .text.startup.main:00000000000000e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:332    .text.startup.main:00000000000000e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:333    .text.startup.main:00000000000000e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:336    .text.startup.main:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:338    .text.startup.main:00000000000000f2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:339    .text.startup.main:00000000000000f2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:342    .text.startup.main:00000000000000f4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:347    .text.startup.main:0000000000000104 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:348    .text.startup.main:0000000000000104 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:349    .text.startup.main:0000000000000104 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:353    .text.startup.main:0000000000000108 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:354    .text.startup.main:0000000000000108 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:359    .text.startup.main:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:361    .text.startup.main:0000000000000116 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:362    .text.startup.main:0000000000000116 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:366    .text.startup.main:000000000000011c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:369    .text.startup.main:0000000000000122 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:373    .text.startup.main:0000000000000124 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:374    .text.startup.main:0000000000000124 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:379    .text.startup.main:0000000000000130 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:382    .text.startup.main:0000000000000132 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:384    .text.startup.main:0000000000000134 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:388    .text.startup.main:000000000000013e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:393    .text.startup.main:0000000000000148 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:398    .text.startup.main:0000000000000156 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:403    .text.startup.main:0000000000000162 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:407    .text.startup.main:0000000000000164 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:408    .text.startup.main:0000000000000164 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:415    .text.startup.main:0000000000000172 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:416    .text.startup.main:0000000000000172 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:418    .text.startup.main:0000000000000176 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:423    .text.startup.main:000000000000017e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:425    .text.startup.main:0000000000000180 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:429    .text.startup.main:0000000000000188 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:434    .text.startup.main:0000000000000196 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:439    .rodata:0000000000000000 .LANCHOR0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:191    .text.batteryLevel:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:437    .text.startup.main:0000000000000196 .L0 
+                     .debug_frame:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:48     .rodata.batteryLevel:0000000000000000 .L4
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:186    .text.batteryLevel:00000000000000d6 .L1
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:106    .text.batteryLevel:0000000000000070 .L8
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:133    .text.batteryLevel:0000000000000092 .L7
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:160    .text.batteryLevel:00000000000000b4 .L6
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:55     .text.batteryLevel:000000000000002c .L5
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:80     .text.batteryLevel:000000000000004e .L3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:480    .rodata.main.str1.4:0000000000000000 .LC2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:235    .text.startup.main:0000000000000028 .L15
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:254    .text.startup.main:000000000000004e .L16
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 16
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:322    .text.startup.main:00000000000000de .L17
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:405    .text.startup.main:0000000000000164 .L28
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:391    .text.startup.main:0000000000000148 .L19
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:371    .text.startup.main:0000000000000124 .L20
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:318    .text.startup.main:00000000000000dc .L21
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:351    .text.startup.main:0000000000000108 .L18
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:2572   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3619   .debug_str:00000000000002a5 .LASF148
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3601   .debug_str:000000000000025f .LASF149
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3743   .debug_str:0000000000000565 .LASF150
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3463   .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3471   .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3711   .debug_str:00000000000004c0 .LASF0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3513   .debug_str:00000000000000d9 .LASF1
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3647   .debug_str:00000000000003a7 .LASF2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3475   .debug_str:000000000000000c .LASF3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3725   .debug_str:0000000000000503 .LASF4
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3485   .debug_str:000000000000003a .LASF5
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3557   .debug_str:000000000000019d .LASF9
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3581   .debug_str:0000000000000206 .LASF6
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3543   .debug_str:0000000000000156 .LASF7
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3493   .debug_str:000000000000006e .LASF8
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3737   .debug_str:000000000000054a .LASF10
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3575   .debug_str:00000000000001e6 .LASF120
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3701   .debug_str:0000000000000499 .LASF11
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3635   .debug_str:000000000000036a .LASF12
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3509   .debug_str:00000000000000cb .LASF13
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3699   .debug_str:0000000000000491 .LASF14
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3747   .debug_str:00000000000005b4 .LASF15
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3599   .debug_str:0000000000000259 .LASF16
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3573   .debug_str:00000000000001df .LASF17
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3691   .debug_str:0000000000000471 .LASF18
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3693   .debug_str:0000000000000479 .LASF19
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3665   .debug_str:00000000000003f4 .LASF20
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3731   .debug_str:0000000000000522 .LASF21
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3643   .debug_str:000000000000038d .LASF22
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3653   .debug_str:00000000000003c4 .LASF23
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3565   .debug_str:00000000000001c2 .LASF28
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3719   .debug_str:00000000000004e9 .LASF24
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3685   .debug_str:000000000000045c .LASF25
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3559   .debug_str:00000000000001a8 .LASF26
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3741   .debug_str:0000000000000560 .LASF27
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3571   .debug_str:00000000000001da .LASF29
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3505   .debug_str:00000000000000bb .LASF30
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3763   .debug_str:00000000000005ff .LASF31
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3523   .debug_str:0000000000000101 .LASF32
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3779   .debug_str:000000000000063d .LASF33
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3621   .debug_str:000000000000031f .LASF34
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3611   .debug_str:000000000000027e .LASF35
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3697   .debug_str:0000000000000487 .LASF36
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3655   .debug_str:00000000000003cd .LASF37
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3759   .debug_str:00000000000005e5 .LASF38
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3527   .debug_str:0000000000000110 .LASF39
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3477   .debug_str:0000000000000016 .LASF40
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3473   .debug_str:0000000000000000 .LASF41
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3713   .debug_str:00000000000004cd .LASF42
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3539   .debug_str:0000000000000147 .LASF43
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 17
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3623   .debug_str:0000000000000328 .LASF44
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3677   .debug_str:000000000000042c .LASF45
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3555   .debug_str:0000000000000198 .LASF46
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3657   .debug_str:00000000000003d7 .LASF47
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3519   .debug_str:00000000000000f3 .LASF48
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3709   .debug_str:00000000000004ba .LASF49
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3667   .debug_str:00000000000003ff .LASF50
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3537   .debug_str:0000000000000140 .LASF51
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3583   .debug_str:0000000000000218 .LASF52
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3495   .debug_str:0000000000000085 .LASF53
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3531   .debug_str:0000000000000126 .LASF54
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3567   .debug_str:00000000000001ca .LASF55
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3609   .debug_str:0000000000000277 .LASF56
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3695   .debug_str:0000000000000481 .LASF57
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3511   .debug_str:00000000000000d2 .LASF58
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3515   .debug_str:00000000000000e5 .LASF59
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3753   .debug_str:00000000000005d1 .LASF60
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3707   .debug_str:00000000000004b1 .LASF61
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3547   .debug_str:000000000000016c .LASF62
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3587   .debug_str:0000000000000225 .LASF63
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3605   .debug_str:000000000000026b .LASF64
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3669   .debug_str:0000000000000407 .LASF65
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3659   .debug_str:00000000000003de .LASF66
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3687   .debug_str:0000000000000464 .LASF67
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3703   .debug_str:00000000000004a5 .LASF68
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3541   .debug_str:000000000000014f .LASF69
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3577   .debug_str:00000000000001f6 .LASF70
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3563   .debug_str:00000000000001ba .LASF71
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3675   .debug_str:0000000000000427 .LASF72
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3481   .debug_str:0000000000000026 .LASF73
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3683   .debug_str:0000000000000443 .LASF74
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3679   .debug_str:0000000000000431 .LASF75
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3629   .debug_str:0000000000000347 .LASF76
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3681   .debug_str:0000000000000439 .LASF77
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3597   .debug_str:0000000000000251 .LASF78
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3569   .debug_str:00000000000001d0 .LASF79
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3773   .debug_str:000000000000062e .LASF80
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3639   .debug_str:0000000000000376 .LASF81
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3579   .debug_str:00000000000001fe .LASF82
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3545   .debug_str:0000000000000164 .LASF83
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3603   .debug_str:0000000000000266 .LASF84
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3483   .debug_str:0000000000000031 .LASF85
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3751   .debug_str:00000000000005c7 .LASF86
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3533   .debug_str:000000000000012e .LASF87
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3525   .debug_str:000000000000010b .LASF88
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3705   .debug_str:00000000000004ac .LASF89
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3663   .debug_str:00000000000003ed .LASF90
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3591   .debug_str:0000000000000232 .LASF91
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3589   .debug_str:000000000000022b .LASF92
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3649   .debug_str:00000000000003b5 .LASF93
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3479   .debug_str:000000000000001e .LASF94
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3689   .debug_str:000000000000046b .LASF95
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3607   .debug_str:0000000000000271 .LASF96
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3727   .debug_str:0000000000000516 .LASF97
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3739   .debug_str:0000000000000553 .LASF98
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3721   .debug_str:00000000000004ef .LASF99
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3595   .debug_str:0000000000000244 .LASF100
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 18
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3761   .debug_str:00000000000005f0 .LASF101
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3631   .debug_str:0000000000000352 .LASF102
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3671   .debug_str:0000000000000410 .LASF103
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3765   .debug_str:0000000000000608 .LASF104
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3627   .debug_str:000000000000033a .LASF105
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3771   .debug_str:0000000000000620 .LASF106
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3503   .debug_str:00000000000000ad .LASF107
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3749   .debug_str:00000000000005bd .LASF108
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3593   .debug_str:0000000000000238 .LASF109
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3733   .debug_str:000000000000052a .LASF110
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3551   .debug_str:0000000000000185 .LASF111
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3501   .debug_str:000000000000009e .LASF112
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3549   .debug_str:0000000000000174 .LASF113
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3487   .debug_str:0000000000000043 .LASF114
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3489   .debug_str:0000000000000052 .LASF115
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3651   .debug_str:00000000000003bb .LASF116
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3617   .debug_str:000000000000029e .LASF117
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3615   .debug_str:0000000000000295 .LASF118
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3755   .debug_str:00000000000005d7 .LASF119
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3497   .debug_str:000000000000008e .LASF151
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3561   .debug_str:00000000000001ae .LASF121
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3735   .debug_str:0000000000000537 .LASF122
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3625   .debug_str:0000000000000330 .LASF123
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3491   .debug_str:0000000000000063 .LASF124
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3777   .debug_str:0000000000000638 .LASF152
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:196    .text.startup.main:0000000000000000 .LFB3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:435    .text.startup.main:0000000000000196 .LFE3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3247   .debug_loc:0000000000000000 .LLST2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3260   .debug_loc:0000000000000021 .LLST3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3287   .debug_loc:0000000000000064 .LLST4
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3299   .debug_loc:0000000000000083 .LLST5
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3499   .debug_str:0000000000000099 .LASF125
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3314   .debug_loc:00000000000000ac .LLST6
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3339   .debug_loc:00000000000000ed .LLST7
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3637   .debug_str:0000000000000371 .LASF126
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3351   .debug_loc:000000000000010c .LLST8
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3767   .debug_str:000000000000060d .LASF127
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3757   .debug_str:00000000000005df .LASF128
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3775   .debug_str:0000000000000633 .LASF129
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3553   .debug_str:0000000000000193 .LASF130
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3723   .debug_str:00000000000004fc .LASF131
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:270    .text.startup.main:000000000000007a .LVL14
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:273    .text.startup.main:0000000000000082 .LVL15
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:276    .text.startup.main:000000000000008a .LVL16
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:279    .text.startup.main:0000000000000092 .LVL17
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:283    .text.startup.main:000000000000009c .LVL18
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:289    .text.startup.main:00000000000000a6 .LVL19
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:293    .text.startup.main:00000000000000b2 .LVL20
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:302    .text.startup.main:00000000000000cc .LVL21
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:330    .text.startup.main:00000000000000e8 .LVL25
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:334    .text.startup.main:00000000000000f0 .LVL26
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:343    .text.startup.main:00000000000000fc .LVL28
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:345    .text.startup.main:0000000000000104 .LVL29
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:355    .text.startup.main:0000000000000110 .LVL31
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:386    .text.startup.main:000000000000013e .LVL36
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:390    .text.startup.main:0000000000000148 .LVL37
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:396    .text.startup.main:0000000000000156 .LVL38
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 19
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:401    .text.startup.main:0000000000000162 .LVL39
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:411    .text.startup.main:0000000000000170 .LVL41
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:432    .text.startup.main:0000000000000194 .LVL43
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3745   .debug_str:00000000000005a7 .LASF153
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:14     .text.batteryLevel:0000000000000000 .LFB2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:189    .text.batteryLevel:00000000000000d8 .LFE2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3372   .debug_loc:0000000000000142 .LLST0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3430   .debug_loc:00000000000001ce .LLST1
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:58     .text.batteryLevel:0000000000000034 .LVL2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:79     .text.batteryLevel:000000000000004e .LVL3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:85     .text.batteryLevel:0000000000000056 .LVL4
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:105    .text.batteryLevel:0000000000000070 .LVL5
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:111    .text.batteryLevel:0000000000000078 .LVL6
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:132    .text.batteryLevel:0000000000000092 .LVL7
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:138    .text.batteryLevel:000000000000009a .LVL8
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:159    .text.batteryLevel:00000000000000b4 .LVL9
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:165    .text.batteryLevel:00000000000000bc .LVL10
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:185    .text.batteryLevel:00000000000000d6 .LVL11
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3729   .debug_str:000000000000051b .LASF132
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3529   .debug_str:000000000000011e .LASF133
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3645   .debug_str:000000000000039f .LASF134
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3517   .debug_str:00000000000000eb .LASF135
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3673   .debug_str:000000000000041b .LASF136
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3769   .debug_str:0000000000000617 .LASF137
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3535   .debug_str:0000000000000136 .LASF138
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3717   .debug_str:00000000000004dd .LASF139
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3641   .debug_str:0000000000000380 .LASF140
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3661   .debug_str:00000000000003e6 .LASF141
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3507   .debug_str:00000000000000c4 .LASF142
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3715   .debug_str:00000000000004d6 .LASF143
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3521   .debug_str:00000000000000f9 .LASF144
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3585   .debug_str:000000000000021e .LASF145
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3633   .debug_str:0000000000000361 .LASF146
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:3613   .debug_str:0000000000000288 .LASF147
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:206    .text.startup.main:0000000000000006 .LCFI10
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:200    .text.startup.main:0000000000000000 .LVL12
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:317    .text.startup.main:00000000000000dc .LVL22
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:321    .text.startup.main:00000000000000de .LVL23
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:340    .text.startup.main:00000000000000f4 .LVL27
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:404    .text.startup.main:0000000000000164 .LVL40
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:357    .text.startup.main:0000000000000112 .LVL32
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:380    .text.startup.main:0000000000000132 .LVL35
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:370    .text.startup.main:0000000000000124 .LVL34
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:30     .text.batteryLevel:0000000000000016 .LCFI0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:75     .text.batteryLevel:0000000000000046 .LCFI1
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:81     .text.batteryLevel:000000000000004e .LCFI2
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:101    .text.batteryLevel:0000000000000068 .LCFI3
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:107    .text.batteryLevel:0000000000000070 .LCFI4
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:128    .text.batteryLevel:000000000000008a .LCFI5
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:134    .text.batteryLevel:0000000000000092 .LCFI6
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:155    .text.batteryLevel:00000000000000ac .LCFI7
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:161    .text.batteryLevel:00000000000000b4 .LCFI8
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:181    .text.batteryLevel:00000000000000ce .LCFI9
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:18     .text.batteryLevel:0000000000000000 .LVL0
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:25     .text.batteryLevel:0000000000000010 .LVL1
+C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s:495    .debug_info:0000000000000000 .Ldebug_info0
+
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\cco44jfa.s 			page 20
+
+
+UNDEFINED SYMBOLS
+LCD_Fill
+LCD_ShowChar
+t5omsi
+colinit
+l88init
+keyinit
+Lcd_SetType
+Lcd_Init
+LCD_Clear
+LCD_ShowStr
+LCD_WR_Queue
+t5expq
+colset
+l88row
+keyscan
+l88mem

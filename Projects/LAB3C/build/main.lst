@@ -1,0 +1,2757 @@
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 1
+
+
+   1              		.file	"main.c"
+   2              		.option nopic
+   3              		.attribute arch, "rv32i2p0_m2p0_a2p0_c2p0"
+   4              		.attribute unaligned_access, 0
+   5              		.attribute stack_align, 16
+   6              		.text
+   7              	.Ltext0:
+   8              		.cfi_sections	.debug_frame
+   9              		.section	.text.engineControl,"ax",@progbits
+  10              		.align	1
+  11              		.globl	engineControl
+  13              	engineControl:
+  14              	.LFB2:
+  15              		.file 1 "main.c"
+   1:main.c        **** #include "gd32vf103.h"
+   2:main.c        **** #include "drivers.h"
+   3:main.c        **** #include "dac.h"
+   4:main.c        **** #include "pwm.h"
+   5:main.c        **** 
+   6:main.c        **** void engineControl(int key, int *pthrottle)
+   7:main.c        **** {
+  16              		.loc 1 7 1
+  17              		.cfi_startproc
+  18              	.LVL0:
+   8:main.c        ****   switch(key){
+  19              		.loc 1 8 3
+   7:main.c        ****   switch(key){
+  20              		.loc 1 7 1 is_stmt 0
+  21 0000 4111     		addi	sp,sp,-16
+  22              	.LCFI0:
+  23              		.cfi_def_cfa_offset 16
+  24 0002 22C4     		sw	s0,8(sp)
+  25 0004 06C6     		sw	ra,12(sp)
+  26              		.cfi_offset 8, -8
+  27              		.cfi_offset 1, -4
+  28              		.loc 1 8 3
+  29 0006 8947     		li	a5,2
+   7:main.c        ****   switch(key){
+  30              		.loc 1 7 1
+  31 0008 2E84     		mv	s0,a1
+  32              		.loc 1 8 3
+  33 000a 630CF500 		beq	a0,a5,.L2
+  34 000e 8D47     		li	a5,3
+  35 0010 6303F51A 		beq	a0,a5,.L3
+  36 0014 8547     		li	a5,1
+  37 0016 630BF508 		beq	a0,a5,.L44
+  38              	.LVL1:
+  39              	.L1:
+   9:main.c        ****     case 1: 
+  10:main.c        ****     *pthrottle=(*pthrottle+25); 
+  11:main.c        ****     if(*pthrottle>=100){*pthrottle=100;}
+  12:main.c        ****     if(*pthrottle==0 || *pthrottle==25 || *pthrottle==50 || *pthrottle==75 || *pthrottle==100)
+  13:main.c        ****     { 
+  14:main.c        ****       T1powerUpInitPWM(0x2); 
+  15:main.c        ****       T1setPWMmotorB(*pthrottle);
+  16:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+  17:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 2
+
+
+  18:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+  19:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+  20:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+  21:main.c        ****     }
+  22:main.c        ****     if(*pthrottle==0 || *pthrottle==-25 || *pthrottle==-50 || *pthrottle==-75 || *pthrottle==-100)
+  23:main.c        ****     {
+  24:main.c        ****       T1powerUpInitPWM(0x1); 
+  25:main.c        ****       T1setPWMmotorB(*pthrottle);
+  26:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+  27:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+  28:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+  29:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+  30:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+  31:main.c        ****     }
+  32:main.c        ****     return;
+  33:main.c        **** 
+  34:main.c        ****     case 2:  
+  35:main.c        ****     *pthrottle=0; 
+  36:main.c        ****     T1setPWMch2(0); 
+  37:main.c        ****     T1setPWMmotorB(0); 
+  38:main.c        ****     l88mem(0,0); l88mem(1,120); l88mem(2,72); l88mem(3,126); l88mem(4,126); l88mem(5,66); l88mem(6,
+  39:main.c        ****     return;
+  40:main.c        **** 
+  41:main.c        ****     case 3: 
+  42:main.c        ****     *pthrottle=(*pthrottle-25); 
+  43:main.c        ****     if(*pthrottle<=-100){*pthrottle=-100;}  
+  44:main.c        ****     if(*pthrottle==0 || *pthrottle==-25 || *pthrottle==-50 || *pthrottle==-75 || *pthrottle==-100)
+  45:main.c        ****     {
+  46:main.c        ****       T1powerUpInitPWM(0x1); 
+  47:main.c        ****       T1setPWMmotorB(*pthrottle);
+  48:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+  49:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+  50:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+  51:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+  52:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+  53:main.c        ****     }
+  54:main.c        ****     if(*pthrottle==0 || *pthrottle==25 || *pthrottle==50 || *pthrottle==75 || *pthrottle==100)
+  55:main.c        ****     { 
+  56:main.c        ****       T1powerUpInitPWM(0x2); 
+  57:main.c        ****       T1setPWMmotorB(*pthrottle);
+  58:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+  59:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+  60:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+  61:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+  62:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+  63:main.c        ****     }
+  64:main.c        ****     return;
+  65:main.c        ****   }
+  66:main.c        **** }
+  40              		.loc 1 66 1
+  41 001a B240     		lw	ra,12(sp)
+  42              		.cfi_remember_state
+  43              		.cfi_restore 1
+  44 001c 2244     		lw	s0,8(sp)
+  45              		.cfi_restore 8
+  46              	.LVL2:
+  47 001e 4101     		addi	sp,sp,16
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 3
+
+
+  48              	.LCFI1:
+  49              		.cfi_def_cfa_offset 0
+  50 0020 8280     		jr	ra
+  51              	.LVL3:
+  52              	.L2:
+  53              	.LCFI2:
+  54              		.cfi_restore_state
+  35:main.c        ****     T1setPWMch2(0); 
+  55              		.loc 1 35 5 is_stmt 1
+  35:main.c        ****     T1setPWMch2(0); 
+  56              		.loc 1 35 15 is_stmt 0
+  57 0022 23A00500 		sw	zero,0(a1)
+  36:main.c        ****     T1setPWMmotorB(0); 
+  58              		.loc 1 36 5 is_stmt 1
+  59 0026 0145     		li	a0,0
+  60              	.LVL4:
+  61 0028 97000000 		call	T1setPWMch2
+  61      E7800000 
+  62              	.LVL5:
+  37:main.c        ****     l88mem(0,0); l88mem(1,120); l88mem(2,72); l88mem(3,126); l88mem(4,126); l88mem(5,66); l88mem(6,
+  63              		.loc 1 37 5
+  64 0030 0145     		li	a0,0
+  65 0032 97000000 		call	T1setPWMmotorB
+  65      E7800000 
+  66              	.LVL6:
+  38:main.c        ****     return;
+  67              		.loc 1 38 5
+  68 003a 8145     		li	a1,0
+  69 003c 0145     		li	a0,0
+  70 003e 97000000 		call	l88mem
+  70      E7800000 
+  71              	.LVL7:
+  38:main.c        ****     return;
+  72              		.loc 1 38 18
+  73 0046 93058007 		li	a1,120
+  74 004a 0545     		li	a0,1
+  75 004c 97000000 		call	l88mem
+  75      E7800000 
+  76              	.LVL8:
+  38:main.c        ****     return;
+  77              		.loc 1 38 33
+  78 0054 93058004 		li	a1,72
+  79 0058 0945     		li	a0,2
+  80 005a 97000000 		call	l88mem
+  80      E7800000 
+  81              	.LVL9:
+  38:main.c        ****     return;
+  82              		.loc 1 38 47
+  83 0062 9305E007 		li	a1,126
+  84 0066 0D45     		li	a0,3
+  85 0068 97000000 		call	l88mem
+  85      E7800000 
+  86              	.LVL10:
+  38:main.c        ****     return;
+  87              		.loc 1 38 62
+  88 0070 9305E007 		li	a1,126
+  89 0074 1145     		li	a0,4
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 4
+
+
+  90 0076 97000000 		call	l88mem
+  90      E7800000 
+  91              	.LVL11:
+  38:main.c        ****     return;
+  92              		.loc 1 38 77
+  93 007e 93052004 		li	a1,66
+  94 0082 1545     		li	a0,5
+  95 0084 97000000 		call	l88mem
+  95      E7800000 
+  96              	.LVL12:
+  38:main.c        ****     return;
+  97              		.loc 1 38 91
+  98 008c 9305E007 		li	a1,126
+  99              	.L42:
+  62:main.c        ****     }
+ 100              		.loc 1 62 113 is_stmt 0 discriminator 1
+ 101 0090 1945     		li	a0,6
+ 102 0092 97000000 		call	l88mem
+ 102      E7800000 
+ 103              	.LVL13:
+  62:main.c        ****     }
+ 104              		.loc 1 62 126 is_stmt 1 discriminator 1
+ 105 009a 8145     		li	a1,0
+ 106              	.L41:
+ 107              		.loc 1 66 1 is_stmt 0 discriminator 1
+ 108 009c 2244     		lw	s0,8(sp)
+ 109              		.cfi_remember_state
+ 110              		.cfi_restore 8
+ 111              	.LVL14:
+ 112 009e B240     		lw	ra,12(sp)
+ 113              		.cfi_restore 1
+  62:main.c        ****     }
+ 114              		.loc 1 62 126 discriminator 1
+ 115 00a0 1D45     		li	a0,7
+ 116              		.loc 1 66 1 discriminator 1
+ 117 00a2 4101     		addi	sp,sp,16
+ 118              	.LCFI3:
+ 119              		.cfi_def_cfa_offset 0
+  62:main.c        ****     }
+ 120              		.loc 1 62 126 discriminator 1
+ 121 00a4 17030000 		tail	l88mem
+ 121      67000300 
+ 122              	.LVL15:
+ 123              	.L44:
+ 124              	.LCFI4:
+ 125              		.cfi_restore_state
+  10:main.c        ****     if(*pthrottle>=100){*pthrottle=100;}
+ 126              		.loc 1 10 5 is_stmt 1
+  10:main.c        ****     if(*pthrottle>=100){*pthrottle=100;}
+ 127              		.loc 1 10 27 is_stmt 0
+ 128 00ac 9C41     		lw	a5,0(a1)
+  11:main.c        ****     if(*pthrottle==0 || *pthrottle==25 || *pthrottle==50 || *pthrottle==75 || *pthrottle==100)
+ 129              		.loc 1 11 7
+ 130 00ae 13073006 		li	a4,99
+  10:main.c        ****     if(*pthrottle>=100){*pthrottle=100;}
+ 131              		.loc 1 10 27
+ 132 00b2 E507     		addi	a5,a5,25
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 5
+
+
+  10:main.c        ****     if(*pthrottle>=100){*pthrottle=100;}
+ 133              		.loc 1 10 15
+ 134 00b4 9CC1     		sw	a5,0(a1)
+  11:main.c        ****     if(*pthrottle==0 || *pthrottle==25 || *pthrottle==50 || *pthrottle==75 || *pthrottle==100)
+ 135              		.loc 1 11 5 is_stmt 1
+  11:main.c        ****     if(*pthrottle==0 || *pthrottle==25 || *pthrottle==50 || *pthrottle==75 || *pthrottle==100)
+ 136              		.loc 1 11 7 is_stmt 0
+ 137 00b6 6349F720 		bgt	a5,a4,.L45
+  12:main.c        ****     { 
+ 138              		.loc 1 12 5 is_stmt 1
+  12:main.c        ****     { 
+ 139              		.loc 1 12 7 is_stmt 0
+ 140 00ba 639B0720 		bne	a5,zero,.L46
+ 141              	.L6:
+  14:main.c        ****       T1setPWMmotorB(*pthrottle);
+ 142              		.loc 1 14 7 is_stmt 1
+ 143 00be 0945     		li	a0,2
+ 144              	.LVL16:
+ 145 00c0 97000000 		call	T1powerUpInitPWM
+ 145      E7800000 
+ 146              	.LVL17:
+  15:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+ 147              		.loc 1 15 7
+ 148 00c8 0840     		lw	a0,0(s0)
+ 149 00ca 97000000 		call	T1setPWMmotorB
+ 149      E7800000 
+ 150              	.LVL18:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 151              		.loc 1 16 7
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 152              		.loc 1 16 10 is_stmt 0
+ 153 00d2 1C40     		lw	a5,0(s0)
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 154              		.loc 1 16 9
+ 155 00d4 638A0720 		beq	a5,zero,.L47
+ 156              	.L8:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 157              		.loc 1 17 7 is_stmt 1
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 158              		.loc 1 17 9 is_stmt 0
+ 159 00d8 6547     		li	a4,25
+ 160 00da 638AE772 		beq	a5,a4,.L48
+ 161              	.L9:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 162              		.loc 1 18 7 is_stmt 1
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 163              		.loc 1 18 9 is_stmt 0
+ 164 00de 13072003 		li	a4,50
+ 165 00e2 638FE76A 		beq	a5,a4,.L49
+ 166              	.L10:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 167              		.loc 1 19 7 is_stmt 1
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 168              		.loc 1 19 9 is_stmt 0
+ 169 00e6 1307B004 		li	a4,75
+ 170 00ea E38DE704 		beq	a5,a4,.L50
+ 171              	.L11:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 6
+
+
+  20:main.c        ****     }
+ 172              		.loc 1 20 7 is_stmt 1
+  20:main.c        ****     }
+ 173              		.loc 1 20 9 is_stmt 0
+ 174 00ee 13074006 		li	a4,100
+ 175 00f2 638DE746 		beq	a5,a4,.L51
+ 176              	.L12:
+  22:main.c        ****     {
+ 177              		.loc 1 22 5 is_stmt 1
+  22:main.c        ****     {
+ 178              		.loc 1 22 7 is_stmt 0
+ 179 00f6 85C3     		beq	a5,zero,.L15
+ 180              	.L7:
+  22:main.c        ****     {
+ 181              		.loc 1 22 22 discriminator 1
+ 182 00f8 1D57     		li	a4,-25
+ 183 00fa 638EE700 		beq	a5,a4,.L15
+  22:main.c        ****     {
+ 184              		.loc 1 22 41 discriminator 2
+ 185 00fe 1307E0FC 		li	a4,-50
+ 186 0102 638AE700 		beq	a5,a4,.L15
+  22:main.c        ****     {
+ 187              		.loc 1 22 60 discriminator 3
+ 188 0106 130750FB 		li	a4,-75
+ 189 010a 6386E700 		beq	a5,a4,.L15
+  22:main.c        ****     {
+ 190              		.loc 1 22 79 discriminator 4
+ 191 010e 1307C0F9 		li	a4,-100
+ 192 0112 E394E7F0 		bne	a5,a4,.L1
+ 193              	.L15:
+  24:main.c        ****       T1setPWMmotorB(*pthrottle);
+ 194              		.loc 1 24 7 is_stmt 1
+ 195 0116 0545     		li	a0,1
+ 196 0118 97000000 		call	T1powerUpInitPWM
+ 196      E7800000 
+ 197              	.LVL19:
+  25:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+ 198              		.loc 1 25 7
+ 199 0120 0840     		lw	a0,0(s0)
+ 200 0122 97000000 		call	T1setPWMmotorB
+ 200      E7800000 
+ 201              	.LVL20:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 202              		.loc 1 26 7
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 203              		.loc 1 26 10 is_stmt 0
+ 204 012a 1C40     		lw	a5,0(s0)
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 205              		.loc 1 26 9
+ 206 012c 63840734 		beq	a5,zero,.L52
+ 207              	.L14:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 208              		.loc 1 27 7 is_stmt 1
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 209              		.loc 1 27 9 is_stmt 0
+ 210 0130 1D57     		li	a4,-25
+ 211 0132 E386E716 		beq	a5,a4,.L53
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 7
+
+
+ 212              	.L16:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 213              		.loc 1 28 7 is_stmt 1
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 214              		.loc 1 28 9 is_stmt 0
+ 215 0136 1307E0FC 		li	a4,-50
+ 216 013a E387E70E 		beq	a5,a4,.L54
+ 217              	.L17:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 218              		.loc 1 29 7 is_stmt 1
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 219              		.loc 1 29 9 is_stmt 0
+ 220 013e 130750FB 		li	a4,-75
+ 221 0142 E388E706 		beq	a5,a4,.L55
+ 222              	.L18:
+  30:main.c        ****     }
+ 223              		.loc 1 30 7 is_stmt 1
+  30:main.c        ****     }
+ 224              		.loc 1 30 9 is_stmt 0
+ 225 0146 1307C0F9 		li	a4,-100
+ 226 014a E398E7EC 		bne	a5,a4,.L1
+  30:main.c        ****     }
+ 227              		.loc 1 30 28 is_stmt 1 discriminator 1
+ 228 014e 9305F00F 		li	a1,255
+ 229 0152 0145     		li	a0,0
+ 230 0154 97000000 		call	l88mem
+ 230      E7800000 
+ 231              	.LVL21:
+  30:main.c        ****     }
+ 232              		.loc 1 30 43 discriminator 1
+ 233 015c 93053009 		li	a1,147
+ 234 0160 0545     		li	a0,1
+ 235 0162 97000000 		call	l88mem
+ 235      E7800000 
+ 236              	.LVL22:
+  30:main.c        ****     }
+ 237              		.loc 1 30 58 discriminator 1
+ 238 016a 93053009 		li	a1,147
+ 239 016e 0945     		li	a0,2
+ 240 0170 97000000 		call	l88mem
+ 240      E7800000 
+ 241              	.LVL23:
+  30:main.c        ****     }
+ 242              		.loc 1 30 73 discriminator 1
+ 243 0178 93053009 		li	a1,147
+ 244 017c 0D45     		li	a0,3
+ 245 017e 97000000 		call	l88mem
+ 245      E7800000 
+ 246              	.LVL24:
+  30:main.c        ****     }
+ 247              		.loc 1 30 88 discriminator 1
+ 248 0186 93051008 		li	a1,129
+ 249 018a 1145     		li	a0,4
+ 250 018c 97000000 		call	l88mem
+ 250      E7800000 
+ 251              	.LVL25:
+  30:main.c        ****     }
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 8
+
+
+ 252              		.loc 1 30 103 discriminator 1
+ 253 0194 9305300F 		li	a1,243
+ 254 0198 1545     		li	a0,5
+ 255 019a 97000000 		call	l88mem
+ 255      E7800000 
+ 256              	.LVL26:
+  30:main.c        ****     }
+ 257              		.loc 1 30 118 discriminator 1
+ 258 01a2 9305300F 		li	a1,243
+ 259 01a6 1945     		li	a0,6
+ 260 01a8 97000000 		call	l88mem
+ 260      E7800000 
+ 261              	.LVL27:
+  30:main.c        ****     }
+ 262              		.loc 1 30 133 discriminator 1
+ 263 01b0 9305F00F 		li	a1,255
+ 264 01b4 E5B5     		j	.L41
+ 265              	.LVL28:
+ 266              	.L3:
+  42:main.c        ****     if(*pthrottle<=-100){*pthrottle=-100;}  
+ 267              		.loc 1 42 5
+  42:main.c        ****     if(*pthrottle<=-100){*pthrottle=-100;}  
+ 268              		.loc 1 42 27 is_stmt 0
+ 269 01b6 9C41     		lw	a5,0(a1)
+  43:main.c        ****     if(*pthrottle==0 || *pthrottle==-25 || *pthrottle==-50 || *pthrottle==-75 || *pthrottle==-100)
+ 270              		.loc 1 43 7
+ 271 01b8 1307D0F9 		li	a4,-99
+  42:main.c        ****     if(*pthrottle<=-100){*pthrottle=-100;}  
+ 272              		.loc 1 42 27
+ 273 01bc 9D17     		addi	a5,a5,-25
+  42:main.c        ****     if(*pthrottle<=-100){*pthrottle=-100;}  
+ 274              		.loc 1 42 15
+ 275 01be 9CC1     		sw	a5,0(a1)
+  43:main.c        ****     if(*pthrottle==0 || *pthrottle==-25 || *pthrottle==-50 || *pthrottle==-75 || *pthrottle==-100)
+ 276              		.loc 1 43 5 is_stmt 1
+  43:main.c        ****     if(*pthrottle==0 || *pthrottle==-25 || *pthrottle==-50 || *pthrottle==-75 || *pthrottle==-100)
+ 277              		.loc 1 43 7 is_stmt 0
+ 278 01c0 63D7E70E 		bge	a5,a4,.L20
+ 279 01c4 9307C0F9 		li	a5,-100
+ 280 01c8 9CC1     		sw	a5,0(a1)
+  44:main.c        ****     {
+ 281              		.loc 1 44 5 is_stmt 1
+ 282              	.L21:
+  46:main.c        ****       T1setPWMmotorB(*pthrottle);
+ 283              		.loc 1 46 7
+ 284 01ca 0545     		li	a0,1
+ 285              	.LVL29:
+ 286 01cc 97000000 		call	T1powerUpInitPWM
+ 286      E7800000 
+ 287              	.LVL30:
+  47:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+ 288              		.loc 1 47 7
+ 289 01d4 0840     		lw	a0,0(s0)
+ 290 01d6 97000000 		call	T1setPWMmotorB
+ 290      E7800000 
+ 291              	.LVL31:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 9
+
+
+ 292              		.loc 1 48 7
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 293              		.loc 1 48 10 is_stmt 0
+ 294 01de 1C40     		lw	a5,0(s0)
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 295              		.loc 1 48 9
+ 296 01e0 63880720 		beq	a5,zero,.L56
+ 297              	.L23:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 298              		.loc 1 49 7 is_stmt 1
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 299              		.loc 1 49 9 is_stmt 0
+ 300 01e4 1D57     		li	a4,-25
+ 301 01e6 638FE744 		beq	a5,a4,.L57
+ 302              	.L24:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 303              		.loc 1 50 7 is_stmt 1
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 304              		.loc 1 50 9 is_stmt 0
+ 305 01ea 1307E0FC 		li	a4,-50
+ 306 01ee 638FE752 		beq	a5,a4,.L58
+ 307              	.L25:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 308              		.loc 1 51 7 is_stmt 1
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 309              		.loc 1 51 9 is_stmt 0
+ 310 01f2 130750FB 		li	a4,-75
+ 311 01f6 6381E74C 		beq	a5,a4,.L59
+ 312              	.L26:
+  52:main.c        ****     }
+ 313              		.loc 1 52 7 is_stmt 1
+  52:main.c        ****     }
+ 314              		.loc 1 52 9 is_stmt 0
+ 315 01fa 1307C0F9 		li	a4,-100
+ 316 01fe 638DE72E 		beq	a5,a4,.L60
+ 317              	.L27:
+  54:main.c        ****     { 
+ 318              		.loc 1 54 5 is_stmt 1
+  54:main.c        ****     { 
+ 319              		.loc 1 54 7 is_stmt 0
+ 320 0202 85C3     		beq	a5,zero,.L30
+ 321              	.L22:
+  54:main.c        ****     { 
+ 322              		.loc 1 54 22 discriminator 1
+ 323 0204 6547     		li	a4,25
+ 324 0206 638EE700 		beq	a5,a4,.L30
+  54:main.c        ****     { 
+ 325              		.loc 1 54 40 discriminator 2
+ 326 020a 13072003 		li	a4,50
+ 327 020e 638AE700 		beq	a5,a4,.L30
+  54:main.c        ****     { 
+ 328              		.loc 1 54 58 discriminator 3
+ 329 0212 1307B004 		li	a4,75
+ 330 0216 6386E700 		beq	a5,a4,.L30
+  54:main.c        ****     { 
+ 331              		.loc 1 54 76 discriminator 4
+ 332 021a 13074006 		li	a4,100
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 10
+
+
+ 333 021e E39EE7DE 		bne	a5,a4,.L1
+ 334              	.L30:
+  56:main.c        ****       T1setPWMmotorB(*pthrottle);
+ 335              		.loc 1 56 7 is_stmt 1
+ 336 0222 0945     		li	a0,2
+ 337 0224 97000000 		call	T1powerUpInitPWM
+ 337      E7800000 
+ 338              	.LVL32:
+  57:main.c        ****       if(*pthrottle==0){T1setPWMch2(0); T1setPWMmotorB(0); l88mem(0,0); l88mem(1,120); l88mem(2,72)
+ 339              		.loc 1 57 7
+ 340 022c 0840     		lw	a0,0(s0)
+ 341 022e 97000000 		call	T1setPWMmotorB
+ 341      E7800000 
+ 342              	.LVL33:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 343              		.loc 1 58 7
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 344              		.loc 1 58 10 is_stmt 0
+ 345 0236 1C40     		lw	a5,0(s0)
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 346              		.loc 1 58 9
+ 347 0238 638A0712 		beq	a5,zero,.L61
+ 348              	.L29:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 349              		.loc 1 59 7 is_stmt 1
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 350              		.loc 1 59 9 is_stmt 0
+ 351 023c 6547     		li	a4,25
+ 352 023e 6381E76A 		beq	a5,a4,.L62
+ 353              	.L31:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 354              		.loc 1 60 7 is_stmt 1
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 355              		.loc 1 60 9 is_stmt 0
+ 356 0242 13072003 		li	a4,50
+ 357 0246 6386E762 		beq	a5,a4,.L63
+ 358              	.L32:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 359              		.loc 1 61 7 is_stmt 1
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 360              		.loc 1 61 9 is_stmt 0
+ 361 024a 1307B004 		li	a4,75
+ 362 024e 6385E738 		beq	a5,a4,.L64
+ 363              	.L33:
+  62:main.c        ****     }
+ 364              		.loc 1 62 7 is_stmt 1
+  62:main.c        ****     }
+ 365              		.loc 1 62 9 is_stmt 0
+ 366 0252 13074006 		li	a4,100
+ 367 0256 E392E7DC 		bne	a5,a4,.L1
+  62:main.c        ****     }
+ 368              		.loc 1 62 27 is_stmt 1 discriminator 1
+ 369 025a 8145     		li	a1,0
+ 370 025c 0145     		li	a0,0
+ 371 025e 97000000 		call	l88mem
+ 371      E7800000 
+ 372              	.LVL34:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 11
+
+
+  62:main.c        ****     }
+ 373              		.loc 1 62 39 discriminator 1
+ 374 0266 9305C006 		li	a1,108
+ 375 026a 0545     		li	a0,1
+ 376 026c 97000000 		call	l88mem
+ 376      E7800000 
+ 377              	.LVL35:
+  62:main.c        ****     }
+ 378              		.loc 1 62 54 discriminator 1
+ 379 0274 9305C006 		li	a1,108
+ 380 0278 0945     		li	a0,2
+ 381 027a 97000000 		call	l88mem
+ 381      E7800000 
+ 382              	.LVL36:
+  62:main.c        ****     }
+ 383              		.loc 1 62 69 discriminator 1
+ 384 0282 9305C006 		li	a1,108
+ 385 0286 0D45     		li	a0,3
+ 386 0288 97000000 		call	l88mem
+ 386      E7800000 
+ 387              	.LVL37:
+  62:main.c        ****     }
+ 388              		.loc 1 62 84 discriminator 1
+ 389 0290 9305E007 		li	a1,126
+ 390 0294 1145     		li	a0,4
+ 391 0296 97000000 		call	l88mem
+ 391      E7800000 
+ 392              	.LVL38:
+  62:main.c        ****     }
+ 393              		.loc 1 62 99 discriminator 1
+ 394 029e B145     		li	a1,12
+ 395 02a0 1545     		li	a0,5
+ 396 02a2 97000000 		call	l88mem
+ 396      E7800000 
+ 397              	.LVL39:
+  62:main.c        ****     }
+ 398              		.loc 1 62 113 discriminator 1
+ 399 02aa B145     		li	a1,12
+ 400 02ac D5B3     		j	.L42
+ 401              	.LVL40:
+ 402              	.L20:
+  44:main.c        ****     {
+ 403              		.loc 1 44 5
+  44:main.c        ****     {
+ 404              		.loc 1 44 7 is_stmt 0
+ 405 02ae 91DF     		beq	a5,zero,.L21
+  44:main.c        ****     {
+ 406              		.loc 1 44 22 discriminator 1
+ 407 02b0 1D57     		li	a4,-25
+ 408 02b2 E38CE7F0 		beq	a5,a4,.L21
+  44:main.c        ****     {
+ 409              		.loc 1 44 41 discriminator 2
+ 410 02b6 1307E0FC 		li	a4,-50
+ 411 02ba E388E7F0 		beq	a5,a4,.L21
+  44:main.c        ****     {
+ 412              		.loc 1 44 60 discriminator 3
+ 413 02be 130750FB 		li	a4,-75
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 12
+
+
+ 414 02c2 E384E7F0 		beq	a5,a4,.L21
+ 415 02c6 3DBF     		j	.L22
+ 416              	.L45:
+ 417 02c8 93074006 		li	a5,100
+ 418 02cc 9CC1     		sw	a5,0(a1)
+  12:main.c        ****     { 
+ 419              		.loc 1 12 5 is_stmt 1
+ 420 02ce C5BB     		j	.L6
+ 421              	.L46:
+  12:main.c        ****     { 
+ 422              		.loc 1 12 22 is_stmt 0 discriminator 1
+ 423 02d0 6547     		li	a4,25
+ 424 02d2 E386E7DE 		beq	a5,a4,.L6
+  12:main.c        ****     { 
+ 425              		.loc 1 12 40 discriminator 2
+ 426 02d6 13072003 		li	a4,50
+ 427 02da E382E7DE 		beq	a5,a4,.L6
+  12:main.c        ****     { 
+ 428              		.loc 1 12 58 discriminator 3
+ 429 02de 1307B004 		li	a4,75
+ 430 02e2 E39BE7E0 		bne	a5,a4,.L7
+ 431 02e6 E1BB     		j	.L6
+ 432              	.LVL41:
+ 433              	.L47:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 434              		.loc 1 16 25 is_stmt 1 discriminator 1
+ 435 02e8 0145     		li	a0,0
+ 436 02ea 97000000 		call	T1setPWMch2
+ 436      E7800000 
+ 437              	.LVL42:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 438              		.loc 1 16 41 discriminator 1
+ 439 02f2 0145     		li	a0,0
+ 440 02f4 97000000 		call	T1setPWMmotorB
+ 440      E7800000 
+ 441              	.LVL43:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 442              		.loc 1 16 60 discriminator 1
+ 443 02fc 8145     		li	a1,0
+ 444 02fe 0145     		li	a0,0
+ 445 0300 97000000 		call	l88mem
+ 445      E7800000 
+ 446              	.LVL44:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 447              		.loc 1 16 73 discriminator 1
+ 448 0308 93058007 		li	a1,120
+ 449 030c 0545     		li	a0,1
+ 450 030e 97000000 		call	l88mem
+ 450      E7800000 
+ 451              	.LVL45:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 452              		.loc 1 16 88 discriminator 1
+ 453 0316 93058004 		li	a1,72
+ 454 031a 0945     		li	a0,2
+ 455 031c 97000000 		call	l88mem
+ 455      E7800000 
+ 456              	.LVL46:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 13
+
+
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 457              		.loc 1 16 102 discriminator 1
+ 458 0324 9305E007 		li	a1,126
+ 459 0328 0D45     		li	a0,3
+ 460 032a 97000000 		call	l88mem
+ 460      E7800000 
+ 461              	.LVL47:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 462              		.loc 1 16 117 discriminator 1
+ 463 0332 9305E007 		li	a1,126
+ 464 0336 1145     		li	a0,4
+ 465 0338 97000000 		call	l88mem
+ 465      E7800000 
+ 466              	.LVL48:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 467              		.loc 1 16 132 discriminator 1
+ 468 0340 93052004 		li	a1,66
+ 469 0344 1545     		li	a0,5
+ 470 0346 97000000 		call	l88mem
+ 470      E7800000 
+ 471              	.LVL49:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 472              		.loc 1 16 146 discriminator 1
+ 473 034e 9305E007 		li	a1,126
+ 474 0352 1945     		li	a0,6
+ 475 0354 97000000 		call	l88mem
+ 475      E7800000 
+ 476              	.LVL50:
+  16:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 477              		.loc 1 16 160 discriminator 1
+ 478 035c 8145     		li	a1,0
+ 479 035e 1D45     		li	a0,7
+ 480 0360 97000000 		call	l88mem
+ 480      E7800000 
+ 481              	.LVL51:
+ 482 0368 1C40     		lw	a5,0(s0)
+ 483 036a BDB3     		j	.L8
+ 484              	.L61:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 485              		.loc 1 58 25 discriminator 1
+ 486 036c 0145     		li	a0,0
+ 487 036e 97000000 		call	T1setPWMch2
+ 487      E7800000 
+ 488              	.LVL52:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 489              		.loc 1 58 41 discriminator 1
+ 490 0376 0145     		li	a0,0
+ 491 0378 97000000 		call	T1setPWMmotorB
+ 491      E7800000 
+ 492              	.LVL53:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 493              		.loc 1 58 60 discriminator 1
+ 494 0380 8145     		li	a1,0
+ 495 0382 0145     		li	a0,0
+ 496 0384 97000000 		call	l88mem
+ 496      E7800000 
+ 497              	.LVL54:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 14
+
+
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 498              		.loc 1 58 73 discriminator 1
+ 499 038c 93058007 		li	a1,120
+ 500 0390 0545     		li	a0,1
+ 501 0392 97000000 		call	l88mem
+ 501      E7800000 
+ 502              	.LVL55:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 503              		.loc 1 58 88 discriminator 1
+ 504 039a 93058004 		li	a1,72
+ 505 039e 0945     		li	a0,2
+ 506 03a0 97000000 		call	l88mem
+ 506      E7800000 
+ 507              	.LVL56:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 508              		.loc 1 58 102 discriminator 1
+ 509 03a8 9305E007 		li	a1,126
+ 510 03ac 0D45     		li	a0,3
+ 511 03ae 97000000 		call	l88mem
+ 511      E7800000 
+ 512              	.LVL57:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 513              		.loc 1 58 117 discriminator 1
+ 514 03b6 9305E007 		li	a1,126
+ 515 03ba 1145     		li	a0,4
+ 516 03bc 97000000 		call	l88mem
+ 516      E7800000 
+ 517              	.LVL58:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 518              		.loc 1 58 132 discriminator 1
+ 519 03c4 93052004 		li	a1,66
+ 520 03c8 1545     		li	a0,5
+ 521 03ca 97000000 		call	l88mem
+ 521      E7800000 
+ 522              	.LVL59:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 523              		.loc 1 58 146 discriminator 1
+ 524 03d2 9305E007 		li	a1,126
+ 525 03d6 1945     		li	a0,6
+ 526 03d8 97000000 		call	l88mem
+ 526      E7800000 
+ 527              	.LVL60:
+  58:main.c        ****       if(*pthrottle==25){l88mem(0,0);l88mem(1,24); l88mem(2,24); l88mem(3,24); l88mem(4,24); l88mem
+ 528              		.loc 1 58 160 discriminator 1
+ 529 03e0 8145     		li	a1,0
+ 530 03e2 1D45     		li	a0,7
+ 531 03e4 97000000 		call	l88mem
+ 531      E7800000 
+ 532              	.LVL61:
+ 533 03ec 1C40     		lw	a5,0(s0)
+ 534 03ee B9B5     		j	.L29
+ 535              	.L56:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 536              		.loc 1 48 25 discriminator 1
+ 537 03f0 0145     		li	a0,0
+ 538 03f2 97000000 		call	T1setPWMch2
+ 538      E7800000 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 15
+
+
+ 539              	.LVL62:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 540              		.loc 1 48 41 discriminator 1
+ 541 03fa 0145     		li	a0,0
+ 542 03fc 97000000 		call	T1setPWMmotorB
+ 542      E7800000 
+ 543              	.LVL63:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 544              		.loc 1 48 60 discriminator 1
+ 545 0404 8145     		li	a1,0
+ 546 0406 0145     		li	a0,0
+ 547 0408 97000000 		call	l88mem
+ 547      E7800000 
+ 548              	.LVL64:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 549              		.loc 1 48 73 discriminator 1
+ 550 0410 93058007 		li	a1,120
+ 551 0414 0545     		li	a0,1
+ 552 0416 97000000 		call	l88mem
+ 552      E7800000 
+ 553              	.LVL65:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 554              		.loc 1 48 88 discriminator 1
+ 555 041e 93058004 		li	a1,72
+ 556 0422 0945     		li	a0,2
+ 557 0424 97000000 		call	l88mem
+ 557      E7800000 
+ 558              	.LVL66:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 559              		.loc 1 48 102 discriminator 1
+ 560 042c 9305E007 		li	a1,126
+ 561 0430 0D45     		li	a0,3
+ 562 0432 97000000 		call	l88mem
+ 562      E7800000 
+ 563              	.LVL67:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 564              		.loc 1 48 117 discriminator 1
+ 565 043a 9305E007 		li	a1,126
+ 566 043e 1145     		li	a0,4
+ 567 0440 97000000 		call	l88mem
+ 567      E7800000 
+ 568              	.LVL68:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 569              		.loc 1 48 132 discriminator 1
+ 570 0448 93052004 		li	a1,66
+ 571 044c 1545     		li	a0,5
+ 572 044e 97000000 		call	l88mem
+ 572      E7800000 
+ 573              	.LVL69:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 574              		.loc 1 48 146 discriminator 1
+ 575 0456 9305E007 		li	a1,126
+ 576 045a 1945     		li	a0,6
+ 577 045c 97000000 		call	l88mem
+ 577      E7800000 
+ 578              	.LVL70:
+  48:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 16
+
+
+ 579              		.loc 1 48 160 discriminator 1
+ 580 0464 8145     		li	a1,0
+ 581 0466 1D45     		li	a0,7
+ 582 0468 97000000 		call	l88mem
+ 582      E7800000 
+ 583              	.LVL71:
+ 584 0470 1C40     		lw	a5,0(s0)
+ 585 0472 8DBB     		j	.L23
+ 586              	.L52:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 587              		.loc 1 26 25 discriminator 1
+ 588 0474 0145     		li	a0,0
+ 589 0476 97000000 		call	T1setPWMch2
+ 589      E7800000 
+ 590              	.LVL72:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 591              		.loc 1 26 41 discriminator 1
+ 592 047e 0145     		li	a0,0
+ 593 0480 97000000 		call	T1setPWMmotorB
+ 593      E7800000 
+ 594              	.LVL73:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 595              		.loc 1 26 60 discriminator 1
+ 596 0488 8145     		li	a1,0
+ 597 048a 0145     		li	a0,0
+ 598 048c 97000000 		call	l88mem
+ 598      E7800000 
+ 599              	.LVL74:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 600              		.loc 1 26 73 discriminator 1
+ 601 0494 93058007 		li	a1,120
+ 602 0498 0545     		li	a0,1
+ 603 049a 97000000 		call	l88mem
+ 603      E7800000 
+ 604              	.LVL75:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 605              		.loc 1 26 88 discriminator 1
+ 606 04a2 93058004 		li	a1,72
+ 607 04a6 0945     		li	a0,2
+ 608 04a8 97000000 		call	l88mem
+ 608      E7800000 
+ 609              	.LVL76:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 610              		.loc 1 26 102 discriminator 1
+ 611 04b0 9305E007 		li	a1,126
+ 612 04b4 0D45     		li	a0,3
+ 613 04b6 97000000 		call	l88mem
+ 613      E7800000 
+ 614              	.LVL77:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 615              		.loc 1 26 117 discriminator 1
+ 616 04be 9305E007 		li	a1,126
+ 617 04c2 1145     		li	a0,4
+ 618 04c4 97000000 		call	l88mem
+ 618      E7800000 
+ 619              	.LVL78:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 17
+
+
+ 620              		.loc 1 26 132 discriminator 1
+ 621 04cc 93052004 		li	a1,66
+ 622 04d0 1545     		li	a0,5
+ 623 04d2 97000000 		call	l88mem
+ 623      E7800000 
+ 624              	.LVL79:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 625              		.loc 1 26 146 discriminator 1
+ 626 04da 9305E007 		li	a1,126
+ 627 04de 1945     		li	a0,6
+ 628 04e0 97000000 		call	l88mem
+ 628      E7800000 
+ 629              	.LVL80:
+  26:main.c        ****       if(*pthrottle==-25){l88mem(0,255); l88mem(1,231); l88mem(2,231); l88mem(3,231); l88mem(4,231)
+ 630              		.loc 1 26 160 discriminator 1
+ 631 04e8 8145     		li	a1,0
+ 632 04ea 1D45     		li	a0,7
+ 633 04ec 97000000 		call	l88mem
+ 633      E7800000 
+ 634              	.LVL81:
+ 635 04f4 1C40     		lw	a5,0(s0)
+ 636 04f6 2DB9     		j	.L14
+ 637              	.L60:
+  52:main.c        ****     }
+ 638              		.loc 1 52 28 discriminator 1
+ 639 04f8 9305F00F 		li	a1,255
+ 640 04fc 0145     		li	a0,0
+ 641 04fe 97000000 		call	l88mem
+ 641      E7800000 
+ 642              	.LVL82:
+  52:main.c        ****     }
+ 643              		.loc 1 52 43 discriminator 1
+ 644 0506 93053009 		li	a1,147
+ 645 050a 0545     		li	a0,1
+ 646 050c 97000000 		call	l88mem
+ 646      E7800000 
+ 647              	.LVL83:
+  52:main.c        ****     }
+ 648              		.loc 1 52 58 discriminator 1
+ 649 0514 93053009 		li	a1,147
+ 650 0518 0945     		li	a0,2
+ 651 051a 97000000 		call	l88mem
+ 651      E7800000 
+ 652              	.LVL84:
+  52:main.c        ****     }
+ 653              		.loc 1 52 73 discriminator 1
+ 654 0522 93053009 		li	a1,147
+ 655 0526 0D45     		li	a0,3
+ 656 0528 97000000 		call	l88mem
+ 656      E7800000 
+ 657              	.LVL85:
+  52:main.c        ****     }
+ 658              		.loc 1 52 88 discriminator 1
+ 659 0530 93051008 		li	a1,129
+ 660 0534 1145     		li	a0,4
+ 661 0536 97000000 		call	l88mem
+ 661      E7800000 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 18
+
+
+ 662              	.LVL86:
+  52:main.c        ****     }
+ 663              		.loc 1 52 103 discriminator 1
+ 664 053e 9305300F 		li	a1,243
+ 665 0542 1545     		li	a0,5
+ 666 0544 97000000 		call	l88mem
+ 666      E7800000 
+ 667              	.LVL87:
+  52:main.c        ****     }
+ 668              		.loc 1 52 118 discriminator 1
+ 669 054c 9305300F 		li	a1,243
+ 670 0550 1945     		li	a0,6
+ 671 0552 97000000 		call	l88mem
+ 671      E7800000 
+ 672              	.LVL88:
+  52:main.c        ****     }
+ 673              		.loc 1 52 133 discriminator 1
+ 674 055a 9305F00F 		li	a1,255
+ 675 055e 1D45     		li	a0,7
+ 676 0560 97000000 		call	l88mem
+ 676      E7800000 
+ 677              	.LVL89:
+ 678 0568 1C40     		lw	a5,0(s0)
+ 679 056a 61B9     		j	.L27
+ 680              	.L51:
+  20:main.c        ****     }
+ 681              		.loc 1 20 27 discriminator 1
+ 682 056c 8145     		li	a1,0
+ 683 056e 0145     		li	a0,0
+ 684 0570 97000000 		call	l88mem
+ 684      E7800000 
+ 685              	.LVL90:
+  20:main.c        ****     }
+ 686              		.loc 1 20 39 discriminator 1
+ 687 0578 9305C006 		li	a1,108
+ 688 057c 0545     		li	a0,1
+ 689 057e 97000000 		call	l88mem
+ 689      E7800000 
+ 690              	.LVL91:
+  20:main.c        ****     }
+ 691              		.loc 1 20 54 discriminator 1
+ 692 0586 9305C006 		li	a1,108
+ 693 058a 0945     		li	a0,2
+ 694 058c 97000000 		call	l88mem
+ 694      E7800000 
+ 695              	.LVL92:
+  20:main.c        ****     }
+ 696              		.loc 1 20 69 discriminator 1
+ 697 0594 9305C006 		li	a1,108
+ 698 0598 0D45     		li	a0,3
+ 699 059a 97000000 		call	l88mem
+ 699      E7800000 
+ 700              	.LVL93:
+  20:main.c        ****     }
+ 701              		.loc 1 20 84 discriminator 1
+ 702 05a2 9305E007 		li	a1,126
+ 703 05a6 1145     		li	a0,4
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 19
+
+
+ 704 05a8 97000000 		call	l88mem
+ 704      E7800000 
+ 705              	.LVL94:
+  20:main.c        ****     }
+ 706              		.loc 1 20 99 discriminator 1
+ 707 05b0 B145     		li	a1,12
+ 708 05b2 1545     		li	a0,5
+ 709 05b4 97000000 		call	l88mem
+ 709      E7800000 
+ 710              	.LVL95:
+  20:main.c        ****     }
+ 711              		.loc 1 20 113 discriminator 1
+ 712 05bc B145     		li	a1,12
+ 713 05be 1945     		li	a0,6
+ 714 05c0 97000000 		call	l88mem
+ 714      E7800000 
+ 715              	.LVL96:
+  20:main.c        ****     }
+ 716              		.loc 1 20 126 discriminator 1
+ 717 05c8 8145     		li	a1,0
+ 718 05ca 1D45     		li	a0,7
+ 719 05cc 97000000 		call	l88mem
+ 719      E7800000 
+ 720              	.LVL97:
+ 721 05d4 1C40     		lw	a5,0(s0)
+ 722 05d6 05B6     		j	.L12
+ 723              	.L64:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 724              		.loc 1 61 26 discriminator 1
+ 725 05d8 8145     		li	a1,0
+ 726 05da 0145     		li	a0,0
+ 727 05dc 97000000 		call	l88mem
+ 727      E7800000 
+ 728              	.LVL98:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 729              		.loc 1 61 38 discriminator 1
+ 730 05e4 9305E007 		li	a1,126
+ 731 05e8 0545     		li	a0,1
+ 732 05ea 97000000 		call	l88mem
+ 732      E7800000 
+ 733              	.LVL99:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 734              		.loc 1 61 53 discriminator 1
+ 735 05f2 8945     		li	a1,2
+ 736 05f4 0945     		li	a0,2
+ 737 05f6 97000000 		call	l88mem
+ 737      E7800000 
+ 738              	.LVL100:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 739              		.loc 1 61 66 discriminator 1
+ 740 05fe 9305E007 		li	a1,126
+ 741 0602 0D45     		li	a0,3
+ 742 0604 97000000 		call	l88mem
+ 742      E7800000 
+ 743              	.LVL101:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 744              		.loc 1 61 81 discriminator 1
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 20
+
+
+ 745 060c 9305E007 		li	a1,126
+ 746 0610 1145     		li	a0,4
+ 747 0612 97000000 		call	l88mem
+ 747      E7800000 
+ 748              	.LVL102:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 749              		.loc 1 61 96 discriminator 1
+ 750 061a 8945     		li	a1,2
+ 751 061c 1545     		li	a0,5
+ 752 061e 97000000 		call	l88mem
+ 752      E7800000 
+ 753              	.LVL103:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 754              		.loc 1 61 109 discriminator 1
+ 755 0626 9305E007 		li	a1,126
+ 756 062a 1945     		li	a0,6
+ 757 062c 97000000 		call	l88mem
+ 757      E7800000 
+ 758              	.LVL104:
+  61:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 759              		.loc 1 61 123 discriminator 1
+ 760 0634 8145     		li	a1,0
+ 761 0636 1D45     		li	a0,7
+ 762 0638 97000000 		call	l88mem
+ 762      E7800000 
+ 763              	.LVL105:
+ 764 0640 1C40     		lw	a5,0(s0)
+ 765 0642 01B9     		j	.L33
+ 766              	.L57:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 767              		.loc 1 49 27 discriminator 1
+ 768 0644 9305F00F 		li	a1,255
+ 769 0648 0145     		li	a0,0
+ 770 064a 97000000 		call	l88mem
+ 770      E7800000 
+ 771              	.LVL106:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 772              		.loc 1 49 42 discriminator 1
+ 773 0652 9305700E 		li	a1,231
+ 774 0656 0545     		li	a0,1
+ 775 0658 97000000 		call	l88mem
+ 775      E7800000 
+ 776              	.LVL107:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 777              		.loc 1 49 57 discriminator 1
+ 778 0660 9305700E 		li	a1,231
+ 779 0664 0945     		li	a0,2
+ 780 0666 97000000 		call	l88mem
+ 780      E7800000 
+ 781              	.LVL108:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 782              		.loc 1 49 72 discriminator 1
+ 783 066e 9305700E 		li	a1,231
+ 784 0672 0D45     		li	a0,3
+ 785 0674 97000000 		call	l88mem
+ 785      E7800000 
+ 786              	.LVL109:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 21
+
+
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 787              		.loc 1 49 87 discriminator 1
+ 788 067c 9305700E 		li	a1,231
+ 789 0680 1145     		li	a0,4
+ 790 0682 97000000 		call	l88mem
+ 790      E7800000 
+ 791              	.LVL110:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 792              		.loc 1 49 102 discriminator 1
+ 793 068a 9305700E 		li	a1,231
+ 794 068e 1545     		li	a0,5
+ 795 0690 97000000 		call	l88mem
+ 795      E7800000 
+ 796              	.LVL111:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 797              		.loc 1 49 117 discriminator 1
+ 798 0698 9305700E 		li	a1,231
+ 799 069c 1945     		li	a0,6
+ 800 069e 97000000 		call	l88mem
+ 800      E7800000 
+ 801              	.LVL112:
+  49:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 802              		.loc 1 49 132 discriminator 1
+ 803 06a6 9305F00F 		li	a1,255
+ 804 06aa 1D45     		li	a0,7
+ 805 06ac 97000000 		call	l88mem
+ 805      E7800000 
+ 806              	.LVL113:
+ 807 06b4 1C40     		lw	a5,0(s0)
+ 808 06b6 15BE     		j	.L24
+ 809              	.L59:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 810              		.loc 1 51 27 discriminator 1
+ 811 06b8 9305F00F 		li	a1,255
+ 812 06bc 0145     		li	a0,0
+ 813 06be 97000000 		call	l88mem
+ 813      E7800000 
+ 814              	.LVL114:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 815              		.loc 1 51 42 discriminator 1
+ 816 06c6 93051008 		li	a1,129
+ 817 06ca 0545     		li	a0,1
+ 818 06cc 97000000 		call	l88mem
+ 818      E7800000 
+ 819              	.LVL115:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 820              		.loc 1 51 57 discriminator 1
+ 821 06d4 9305D00F 		li	a1,253
+ 822 06d8 0945     		li	a0,2
+ 823 06da 97000000 		call	l88mem
+ 823      E7800000 
+ 824              	.LVL116:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 825              		.loc 1 51 72 discriminator 1
+ 826 06e2 93051008 		li	a1,129
+ 827 06e6 0D45     		li	a0,3
+ 828 06e8 97000000 		call	l88mem
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 22
+
+
+ 828      E7800000 
+ 829              	.LVL117:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 830              		.loc 1 51 87 discriminator 1
+ 831 06f0 93051008 		li	a1,129
+ 832 06f4 1145     		li	a0,4
+ 833 06f6 97000000 		call	l88mem
+ 833      E7800000 
+ 834              	.LVL118:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 835              		.loc 1 51 102 discriminator 1
+ 836 06fe 9305D00F 		li	a1,253
+ 837 0702 1545     		li	a0,5
+ 838 0704 97000000 		call	l88mem
+ 838      E7800000 
+ 839              	.LVL119:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 840              		.loc 1 51 117 discriminator 1
+ 841 070c 93051008 		li	a1,129
+ 842 0710 1945     		li	a0,6
+ 843 0712 97000000 		call	l88mem
+ 843      E7800000 
+ 844              	.LVL120:
+  51:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 845              		.loc 1 51 132 discriminator 1
+ 846 071a 9305F00F 		li	a1,255
+ 847 071e 1D45     		li	a0,7
+ 848 0720 97000000 		call	l88mem
+ 848      E7800000 
+ 849              	.LVL121:
+ 850 0728 1C40     		lw	a5,0(s0)
+ 851 072a C1BC     		j	.L26
+ 852              	.L58:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 853              		.loc 1 50 27 discriminator 1
+ 854 072c 9305F00F 		li	a1,255
+ 855 0730 0145     		li	a0,0
+ 856 0732 97000000 		call	l88mem
+ 856      E7800000 
+ 857              	.LVL122:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 858              		.loc 1 50 42 discriminator 1
+ 859 073a 93051008 		li	a1,129
+ 860 073e 0545     		li	a0,1
+ 861 0740 97000000 		call	l88mem
+ 861      E7800000 
+ 862              	.LVL123:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 863              		.loc 1 50 57 discriminator 1
+ 864 0748 9305D00F 		li	a1,253
+ 865 074c 0945     		li	a0,2
+ 866 074e 97000000 		call	l88mem
+ 866      E7800000 
+ 867              	.LVL124:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 868              		.loc 1 50 72 discriminator 1
+ 869 0756 93051008 		li	a1,129
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 23
+
+
+ 870 075a 0D45     		li	a0,3
+ 871 075c 97000000 		call	l88mem
+ 871      E7800000 
+ 872              	.LVL125:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 873              		.loc 1 50 87 discriminator 1
+ 874 0764 93051008 		li	a1,129
+ 875 0768 1145     		li	a0,4
+ 876 076a 97000000 		call	l88mem
+ 876      E7800000 
+ 877              	.LVL126:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 878              		.loc 1 50 102 discriminator 1
+ 879 0772 9305F00B 		li	a1,191
+ 880 0776 1545     		li	a0,5
+ 881 0778 97000000 		call	l88mem
+ 881      E7800000 
+ 882              	.LVL127:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 883              		.loc 1 50 117 discriminator 1
+ 884 0780 93051008 		li	a1,129
+ 885 0784 1945     		li	a0,6
+ 886 0786 97000000 		call	l88mem
+ 886      E7800000 
+ 887              	.LVL128:
+  50:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 888              		.loc 1 50 132 discriminator 1
+ 889 078e 9305F00F 		li	a1,255
+ 890 0792 1D45     		li	a0,7
+ 891 0794 97000000 		call	l88mem
+ 891      E7800000 
+ 892              	.LVL129:
+ 893 079c 1C40     		lw	a5,0(s0)
+ 894 079e 91BC     		j	.L25
+ 895              	.L49:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 896              		.loc 1 18 26 discriminator 1
+ 897 07a0 8145     		li	a1,0
+ 898 07a2 0145     		li	a0,0
+ 899 07a4 97000000 		call	l88mem
+ 899      E7800000 
+ 900              	.LVL130:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 901              		.loc 1 18 38 discriminator 1
+ 902 07ac 9305E007 		li	a1,126
+ 903 07b0 0545     		li	a0,1
+ 904 07b2 97000000 		call	l88mem
+ 904      E7800000 
+ 905              	.LVL131:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 906              		.loc 1 18 53 discriminator 1
+ 907 07ba 8945     		li	a1,2
+ 908 07bc 0945     		li	a0,2
+ 909 07be 97000000 		call	l88mem
+ 909      E7800000 
+ 910              	.LVL132:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 24
+
+
+ 911              		.loc 1 18 66 discriminator 1
+ 912 07c6 9305E007 		li	a1,126
+ 913 07ca 0D45     		li	a0,3
+ 914 07cc 97000000 		call	l88mem
+ 914      E7800000 
+ 915              	.LVL133:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 916              		.loc 1 18 81 discriminator 1
+ 917 07d4 9305E007 		li	a1,126
+ 918 07d8 1145     		li	a0,4
+ 919 07da 97000000 		call	l88mem
+ 919      E7800000 
+ 920              	.LVL134:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 921              		.loc 1 18 96 discriminator 1
+ 922 07e2 93050004 		li	a1,64
+ 923 07e6 1545     		li	a0,5
+ 924 07e8 97000000 		call	l88mem
+ 924      E7800000 
+ 925              	.LVL135:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 926              		.loc 1 18 110 discriminator 1
+ 927 07f0 9305E007 		li	a1,126
+ 928 07f4 1945     		li	a0,6
+ 929 07f6 97000000 		call	l88mem
+ 929      E7800000 
+ 930              	.LVL136:
+  18:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 931              		.loc 1 18 124 discriminator 1
+ 932 07fe 8145     		li	a1,0
+ 933 0800 1D45     		li	a0,7
+ 934 0802 97000000 		call	l88mem
+ 934      E7800000 
+ 935              	.LVL137:
+ 936 080a 1C40     		lw	a5,0(s0)
+ 937 080c E9B8     		j	.L10
+ 938              	.L48:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 939              		.loc 1 17 26 discriminator 1
+ 940 080e 8145     		li	a1,0
+ 941 0810 0145     		li	a0,0
+ 942 0812 97000000 		call	l88mem
+ 942      E7800000 
+ 943              	.LVL138:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 944              		.loc 1 17 38 discriminator 1
+ 945 081a E145     		li	a1,24
+ 946 081c 0545     		li	a0,1
+ 947 081e 97000000 		call	l88mem
+ 947      E7800000 
+ 948              	.LVL139:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 949              		.loc 1 17 52 discriminator 1
+ 950 0826 E145     		li	a1,24
+ 951 0828 0945     		li	a0,2
+ 952 082a 97000000 		call	l88mem
+ 952      E7800000 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 25
+
+
+ 953              	.LVL140:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 954              		.loc 1 17 66 discriminator 1
+ 955 0832 E145     		li	a1,24
+ 956 0834 0D45     		li	a0,3
+ 957 0836 97000000 		call	l88mem
+ 957      E7800000 
+ 958              	.LVL141:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 959              		.loc 1 17 80 discriminator 1
+ 960 083e E145     		li	a1,24
+ 961 0840 1145     		li	a0,4
+ 962 0842 97000000 		call	l88mem
+ 962      E7800000 
+ 963              	.LVL142:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 964              		.loc 1 17 94 discriminator 1
+ 965 084a E145     		li	a1,24
+ 966 084c 1545     		li	a0,5
+ 967 084e 97000000 		call	l88mem
+ 967      E7800000 
+ 968              	.LVL143:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 969              		.loc 1 17 108 discriminator 1
+ 970 0856 E145     		li	a1,24
+ 971 0858 1945     		li	a0,6
+ 972 085a 97000000 		call	l88mem
+ 972      E7800000 
+ 973              	.LVL144:
+  17:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 974              		.loc 1 17 121 discriminator 1
+ 975 0862 8145     		li	a1,0
+ 976 0864 1D45     		li	a0,7
+ 977 0866 97000000 		call	l88mem
+ 977      E7800000 
+ 978              	.LVL145:
+ 979 086e 1C40     		lw	a5,0(s0)
+ 980 0870 BDB0     		j	.L9
+ 981              	.L63:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 982              		.loc 1 60 26 discriminator 1
+ 983 0872 8145     		li	a1,0
+ 984 0874 0145     		li	a0,0
+ 985 0876 97000000 		call	l88mem
+ 985      E7800000 
+ 986              	.LVL146:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 987              		.loc 1 60 38 discriminator 1
+ 988 087e 9305E007 		li	a1,126
+ 989 0882 0545     		li	a0,1
+ 990 0884 97000000 		call	l88mem
+ 990      E7800000 
+ 991              	.LVL147:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 992              		.loc 1 60 53 discriminator 1
+ 993 088c 8945     		li	a1,2
+ 994 088e 0945     		li	a0,2
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 26
+
+
+ 995 0890 97000000 		call	l88mem
+ 995      E7800000 
+ 996              	.LVL148:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 997              		.loc 1 60 66 discriminator 1
+ 998 0898 9305E007 		li	a1,126
+ 999 089c 0D45     		li	a0,3
+ 1000 089e 97000000 		call	l88mem
+ 1000      E7800000 
+ 1001              	.LVL149:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1002              		.loc 1 60 81 discriminator 1
+ 1003 08a6 9305E007 		li	a1,126
+ 1004 08aa 1145     		li	a0,4
+ 1005 08ac 97000000 		call	l88mem
+ 1005      E7800000 
+ 1006              	.LVL150:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1007              		.loc 1 60 96 discriminator 1
+ 1008 08b4 93050004 		li	a1,64
+ 1009 08b8 1545     		li	a0,5
+ 1010 08ba 97000000 		call	l88mem
+ 1010      E7800000 
+ 1011              	.LVL151:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1012              		.loc 1 60 110 discriminator 1
+ 1013 08c2 9305E007 		li	a1,126
+ 1014 08c6 1945     		li	a0,6
+ 1015 08c8 97000000 		call	l88mem
+ 1015      E7800000 
+ 1016              	.LVL152:
+  60:main.c        ****       if(*pthrottle==75){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1017              		.loc 1 60 124 discriminator 1
+ 1018 08d0 8145     		li	a1,0
+ 1019 08d2 1D45     		li	a0,7
+ 1020 08d4 97000000 		call	l88mem
+ 1020      E7800000 
+ 1021              	.LVL153:
+ 1022 08dc 1C40     		lw	a5,0(s0)
+ 1023 08de B5B2     		j	.L32
+ 1024              	.L62:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1025              		.loc 1 59 26 discriminator 1
+ 1026 08e0 8145     		li	a1,0
+ 1027 08e2 0145     		li	a0,0
+ 1028 08e4 97000000 		call	l88mem
+ 1028      E7800000 
+ 1029              	.LVL154:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1030              		.loc 1 59 38 discriminator 1
+ 1031 08ec E145     		li	a1,24
+ 1032 08ee 0545     		li	a0,1
+ 1033 08f0 97000000 		call	l88mem
+ 1033      E7800000 
+ 1034              	.LVL155:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1035              		.loc 1 59 52 discriminator 1
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 27
+
+
+ 1036 08f8 E145     		li	a1,24
+ 1037 08fa 0945     		li	a0,2
+ 1038 08fc 97000000 		call	l88mem
+ 1038      E7800000 
+ 1039              	.LVL156:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1040              		.loc 1 59 66 discriminator 1
+ 1041 0904 E145     		li	a1,24
+ 1042 0906 0D45     		li	a0,3
+ 1043 0908 97000000 		call	l88mem
+ 1043      E7800000 
+ 1044              	.LVL157:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1045              		.loc 1 59 80 discriminator 1
+ 1046 0910 E145     		li	a1,24
+ 1047 0912 1145     		li	a0,4
+ 1048 0914 97000000 		call	l88mem
+ 1048      E7800000 
+ 1049              	.LVL158:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1050              		.loc 1 59 94 discriminator 1
+ 1051 091c E145     		li	a1,24
+ 1052 091e 1545     		li	a0,5
+ 1053 0920 97000000 		call	l88mem
+ 1053      E7800000 
+ 1054              	.LVL159:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1055              		.loc 1 59 108 discriminator 1
+ 1056 0928 E145     		li	a1,24
+ 1057 092a 1945     		li	a0,6
+ 1058 092c 97000000 		call	l88mem
+ 1058      E7800000 
+ 1059              	.LVL160:
+  59:main.c        ****       if(*pthrottle==50){l88mem(0,0);l88mem(1,126); l88mem(2,2); l88mem(3,126); l88mem(4,126); l88m
+ 1060              		.loc 1 59 121 discriminator 1
+ 1061 0934 8145     		li	a1,0
+ 1062 0936 1D45     		li	a0,7
+ 1063 0938 97000000 		call	l88mem
+ 1063      E7800000 
+ 1064              	.LVL161:
+ 1065 0940 1C40     		lw	a5,0(s0)
+ 1066 0942 01B2     		j	.L31
+ 1067              	.L50:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1068              		.loc 1 19 26 discriminator 1
+ 1069 0944 8145     		li	a1,0
+ 1070 0946 0145     		li	a0,0
+ 1071 0948 97000000 		call	l88mem
+ 1071      E7800000 
+ 1072              	.LVL162:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1073              		.loc 1 19 38 discriminator 1
+ 1074 0950 9305E007 		li	a1,126
+ 1075 0954 0545     		li	a0,1
+ 1076 0956 97000000 		call	l88mem
+ 1076      E7800000 
+ 1077              	.LVL163:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 28
+
+
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1078              		.loc 1 19 53 discriminator 1
+ 1079 095e 8945     		li	a1,2
+ 1080 0960 0945     		li	a0,2
+ 1081 0962 97000000 		call	l88mem
+ 1081      E7800000 
+ 1082              	.LVL164:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1083              		.loc 1 19 66 discriminator 1
+ 1084 096a 9305E007 		li	a1,126
+ 1085 096e 0D45     		li	a0,3
+ 1086 0970 97000000 		call	l88mem
+ 1086      E7800000 
+ 1087              	.LVL165:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1088              		.loc 1 19 81 discriminator 1
+ 1089 0978 9305E007 		li	a1,126
+ 1090 097c 1145     		li	a0,4
+ 1091 097e 97000000 		call	l88mem
+ 1091      E7800000 
+ 1092              	.LVL166:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1093              		.loc 1 19 96 discriminator 1
+ 1094 0986 8945     		li	a1,2
+ 1095 0988 1545     		li	a0,5
+ 1096 098a 97000000 		call	l88mem
+ 1096      E7800000 
+ 1097              	.LVL167:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1098              		.loc 1 19 109 discriminator 1
+ 1099 0992 9305E007 		li	a1,126
+ 1100 0996 1945     		li	a0,6
+ 1101 0998 97000000 		call	l88mem
+ 1101      E7800000 
+ 1102              	.LVL168:
+  19:main.c        ****       if(*pthrottle==100){l88mem(0,0);l88mem(1,108); l88mem(2,108); l88mem(3,108); l88mem(4,126); l
+ 1103              		.loc 1 19 123 discriminator 1
+ 1104 09a0 8145     		li	a1,0
+ 1105 09a2 1D45     		li	a0,7
+ 1106 09a4 97000000 		call	l88mem
+ 1106      E7800000 
+ 1107              	.LVL169:
+ 1108 09ac 1C40     		lw	a5,0(s0)
+ 1109 09ae 6FF00FF4 		j	.L11
+ 1110              	.L55:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1111              		.loc 1 29 27 discriminator 1
+ 1112 09b2 9305F00F 		li	a1,255
+ 1113 09b6 0145     		li	a0,0
+ 1114 09b8 97000000 		call	l88mem
+ 1114      E7800000 
+ 1115              	.LVL170:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1116              		.loc 1 29 42 discriminator 1
+ 1117 09c0 93051008 		li	a1,129
+ 1118 09c4 0545     		li	a0,1
+ 1119 09c6 97000000 		call	l88mem
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 29
+
+
+ 1119      E7800000 
+ 1120              	.LVL171:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1121              		.loc 1 29 57 discriminator 1
+ 1122 09ce 9305D00F 		li	a1,253
+ 1123 09d2 0945     		li	a0,2
+ 1124 09d4 97000000 		call	l88mem
+ 1124      E7800000 
+ 1125              	.LVL172:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1126              		.loc 1 29 72 discriminator 1
+ 1127 09dc 93051008 		li	a1,129
+ 1128 09e0 0D45     		li	a0,3
+ 1129 09e2 97000000 		call	l88mem
+ 1129      E7800000 
+ 1130              	.LVL173:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1131              		.loc 1 29 87 discriminator 1
+ 1132 09ea 93051008 		li	a1,129
+ 1133 09ee 1145     		li	a0,4
+ 1134 09f0 97000000 		call	l88mem
+ 1134      E7800000 
+ 1135              	.LVL174:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1136              		.loc 1 29 102 discriminator 1
+ 1137 09f8 9305D00F 		li	a1,253
+ 1138 09fc 1545     		li	a0,5
+ 1139 09fe 97000000 		call	l88mem
+ 1139      E7800000 
+ 1140              	.LVL175:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1141              		.loc 1 29 117 discriminator 1
+ 1142 0a06 93051008 		li	a1,129
+ 1143 0a0a 1945     		li	a0,6
+ 1144 0a0c 97000000 		call	l88mem
+ 1144      E7800000 
+ 1145              	.LVL176:
+  29:main.c        ****       if(*pthrottle==-100){l88mem(0,255); l88mem(1,147); l88mem(2,147); l88mem(3,147); l88mem(4,129
+ 1146              		.loc 1 29 132 discriminator 1
+ 1147 0a14 9305F00F 		li	a1,255
+ 1148 0a18 1D45     		li	a0,7
+ 1149 0a1a 97000000 		call	l88mem
+ 1149      E7800000 
+ 1150              	.LVL177:
+ 1151 0a22 1C40     		lw	a5,0(s0)
+ 1152 0a24 6FF02FF2 		j	.L18
+ 1153              	.L54:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1154              		.loc 1 28 27 discriminator 1
+ 1155 0a28 9305F00F 		li	a1,255
+ 1156 0a2c 0145     		li	a0,0
+ 1157 0a2e 97000000 		call	l88mem
+ 1157      E7800000 
+ 1158              	.LVL178:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1159              		.loc 1 28 42 discriminator 1
+ 1160 0a36 93051008 		li	a1,129
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 30
+
+
+ 1161 0a3a 0545     		li	a0,1
+ 1162 0a3c 97000000 		call	l88mem
+ 1162      E7800000 
+ 1163              	.LVL179:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1164              		.loc 1 28 57 discriminator 1
+ 1165 0a44 9305D00F 		li	a1,253
+ 1166 0a48 0945     		li	a0,2
+ 1167 0a4a 97000000 		call	l88mem
+ 1167      E7800000 
+ 1168              	.LVL180:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1169              		.loc 1 28 72 discriminator 1
+ 1170 0a52 93051008 		li	a1,129
+ 1171 0a56 0D45     		li	a0,3
+ 1172 0a58 97000000 		call	l88mem
+ 1172      E7800000 
+ 1173              	.LVL181:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1174              		.loc 1 28 87 discriminator 1
+ 1175 0a60 93051008 		li	a1,129
+ 1176 0a64 1145     		li	a0,4
+ 1177 0a66 97000000 		call	l88mem
+ 1177      E7800000 
+ 1178              	.LVL182:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1179              		.loc 1 28 102 discriminator 1
+ 1180 0a6e 9305F00B 		li	a1,191
+ 1181 0a72 1545     		li	a0,5
+ 1182 0a74 97000000 		call	l88mem
+ 1182      E7800000 
+ 1183              	.LVL183:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1184              		.loc 1 28 117 discriminator 1
+ 1185 0a7c 93051008 		li	a1,129
+ 1186 0a80 1945     		li	a0,6
+ 1187 0a82 97000000 		call	l88mem
+ 1187      E7800000 
+ 1188              	.LVL184:
+  28:main.c        ****       if(*pthrottle==-75){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1189              		.loc 1 28 132 discriminator 1
+ 1190 0a8a 9305F00F 		li	a1,255
+ 1191 0a8e 1D45     		li	a0,7
+ 1192 0a90 97000000 		call	l88mem
+ 1192      E7800000 
+ 1193              	.LVL185:
+ 1194 0a98 1C40     		lw	a5,0(s0)
+ 1195 0a9a 6FF04FEA 		j	.L17
+ 1196              	.L53:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1197              		.loc 1 27 27 discriminator 1
+ 1198 0a9e 9305F00F 		li	a1,255
+ 1199 0aa2 0145     		li	a0,0
+ 1200 0aa4 97000000 		call	l88mem
+ 1200      E7800000 
+ 1201              	.LVL186:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 31
+
+
+ 1202              		.loc 1 27 42 discriminator 1
+ 1203 0aac 9305700E 		li	a1,231
+ 1204 0ab0 0545     		li	a0,1
+ 1205 0ab2 97000000 		call	l88mem
+ 1205      E7800000 
+ 1206              	.LVL187:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1207              		.loc 1 27 57 discriminator 1
+ 1208 0aba 9305700E 		li	a1,231
+ 1209 0abe 0945     		li	a0,2
+ 1210 0ac0 97000000 		call	l88mem
+ 1210      E7800000 
+ 1211              	.LVL188:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1212              		.loc 1 27 72 discriminator 1
+ 1213 0ac8 9305700E 		li	a1,231
+ 1214 0acc 0D45     		li	a0,3
+ 1215 0ace 97000000 		call	l88mem
+ 1215      E7800000 
+ 1216              	.LVL189:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1217              		.loc 1 27 87 discriminator 1
+ 1218 0ad6 9305700E 		li	a1,231
+ 1219 0ada 1145     		li	a0,4
+ 1220 0adc 97000000 		call	l88mem
+ 1220      E7800000 
+ 1221              	.LVL190:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1222              		.loc 1 27 102 discriminator 1
+ 1223 0ae4 9305700E 		li	a1,231
+ 1224 0ae8 1545     		li	a0,5
+ 1225 0aea 97000000 		call	l88mem
+ 1225      E7800000 
+ 1226              	.LVL191:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1227              		.loc 1 27 117 discriminator 1
+ 1228 0af2 9305700E 		li	a1,231
+ 1229 0af6 1945     		li	a0,6
+ 1230 0af8 97000000 		call	l88mem
+ 1230      E7800000 
+ 1231              	.LVL192:
+  27:main.c        ****       if(*pthrottle==-50){l88mem(0,255); l88mem(1,129); l88mem(2,253); l88mem(3,129); l88mem(4,129)
+ 1232              		.loc 1 27 132 discriminator 1
+ 1233 0b00 9305F00F 		li	a1,255
+ 1234 0b04 1D45     		li	a0,7
+ 1235 0b06 97000000 		call	l88mem
+ 1235      E7800000 
+ 1236              	.LVL193:
+ 1237 0b0e 1C40     		lw	a5,0(s0)
+ 1238 0b10 6FF06FE2 		j	.L16
+ 1239              		.cfi_endproc
+ 1240              	.LFE2:
+ 1242              		.section	.text.startup.main,"ax",@progbits
+ 1243              		.align	1
+ 1244              		.globl	main
+ 1246              	main:
+ 1247              	.LFB3:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 32
+
+
+  67:main.c        **** 
+  68:main.c        **** int main(void){
+ 1248              		.loc 1 68 15
+ 1249              		.cfi_startproc
+  69:main.c        ****     int ms=0, s=0, key;
+ 1250              		.loc 1 69 5
+ 1251              	.LVL194:
+  70:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 1252              		.loc 1 70 5
+ 1253              		.loc 1 70 9 is_stmt 0
+ 1254 0000 B7070000 		lui	a5,%hi(.LANCHOR0)
+  68:main.c        ****     int ms=0, s=0, key;
+ 1255              		.loc 1 68 15
+ 1256 0004 1D71     		addi	sp,sp,-96
+ 1257              	.LCFI5:
+ 1258              		.cfi_def_cfa_offset 96
+ 1259              		.loc 1 70 9
+ 1260 0006 93870700 		addi	a5,a5,%lo(.LANCHOR0)
+  68:main.c        ****     int ms=0, s=0, key;
+ 1261              		.loc 1 68 15
+ 1262 000a 86CE     		sw	ra,92(sp)
+ 1263 000c A2CC     		sw	s0,88(sp)
+ 1264 000e A6CA     		sw	s1,84(sp)
+ 1265              		.cfi_offset 1, -4
+ 1266              		.cfi_offset 8, -8
+ 1267              		.cfi_offset 9, -12
+ 1268              		.loc 1 70 9
+ 1269 0010 1808     		addi	a4,sp,16
+ 1270 0012 93860704 		addi	a3,a5,64
+ 1271              	.L66:
+ 1272 0016 03A80700 		lw	a6,0(a5)
+ 1273 001a C843     		lw	a0,4(a5)
+ 1274 001c 8C47     		lw	a1,8(a5)
+ 1275 001e D047     		lw	a2,12(a5)
+ 1276 0020 23200701 		sw	a6,0(a4)
+ 1277 0024 48C3     		sw	a0,4(a4)
+ 1278 0026 0CC7     		sw	a1,8(a4)
+ 1279 0028 50C7     		sw	a2,12(a4)
+ 1280 002a C107     		addi	a5,a5,16
+ 1281 002c 4107     		addi	a4,a4,16
+ 1282 002e E394D7FE 		bne	a5,a3,.L66
+  71:main.c        ****     int dac=0;
+ 1283              		.loc 1 71 5 is_stmt 1
+ 1284              	.LVL195:
+  72:main.c        ****     int *pthrottle=0;
+ 1285              		.loc 1 72 5
+  73:main.c        ****     T1setPWMch2(0);
+ 1286              		.loc 1 73 5 is_stmt 0
+ 1287 0032 0145     		li	a0,0
+  72:main.c        ****     int *pthrottle=0;
+ 1288              		.loc 1 72 10
+ 1289 0034 02C6     		sw	zero,12(sp)
+ 1290              		.loc 1 73 5 is_stmt 1
+  71:main.c        ****     int dac=0;
+ 1291              		.loc 1 71 9 is_stmt 0
+ 1292 0036 0144     		li	s0,0
+ 1293              		.loc 1 73 5
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 33
+
+
+ 1294 0038 97000000 		call	T1setPWMch2
+ 1294      E7800000 
+ 1295              	.LVL196:
+  74:main.c        ****     t5omsi();                               // Initialize timer5 1kHz
+ 1296              		.loc 1 74 5 is_stmt 1
+ 1297 0040 97000000 		call	t5omsi
+ 1297      E7800000 
+ 1298              	.LVL197:
+  75:main.c        ****     colinit();                              // Initialize column toolbox
+ 1299              		.loc 1 75 5
+ 1300 0048 97000000 		call	colinit
+ 1300      E7800000 
+ 1301              	.LVL198:
+  76:main.c        ****     l88init();                              // Initialize 8*8 led toolbox
+ 1302              		.loc 1 76 5
+ 1303 0050 97000000 		call	l88init
+ 1303      E7800000 
+ 1304              	.LVL199:
+  77:main.c        ****     keyinit();                              // Initialize keyboard toolbox
+ 1305              		.loc 1 77 5
+ 1306 0058 97000000 		call	keyinit
+ 1306      E7800000 
+ 1307              	.LVL200:
+  78:main.c        ****     DAC0powerUpInit();                      // Initialize DAC0/PA4 toolbox
+ 1308              		.loc 1 78 5
+ 1309 0060 97000000 		call	DAC0powerUpInit
+ 1309      E7800000 
+ 1310              	.LVL201:
+ 1311              	.L67:
+  79:main.c        ****     while (1) {                
+ 1312              		.loc 1 79 5
+  80:main.c        ****         if (t5expq()) {                     // Manage periodic tasks
+ 1313              		.loc 1 80 9
+ 1314              		.loc 1 80 13 is_stmt 0
+ 1315 0068 97000000 		call	t5expq
+ 1315      E7800000 
+ 1316              	.LVL202:
+ 1317              		.loc 1 80 12
+ 1318 0070 65DD     		beq	a0,zero,.L67
+  81:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 1319              		.loc 1 81 13 is_stmt 1
+ 1320 0072 97000000 		call	colset
+ 1320      E7800000 
+ 1321              	.LVL203:
+ 1322 007a 97000000 		call	l88row
+ 1322      E7800000 
+ 1323              	.LVL204:
+  82:main.c        ****             ms++;                           // ...One second heart beat
+ 1324              		.loc 1 82 13
+  83:main.c        ****             if (ms==1000){
+ 1325              		.loc 1 83 13
+  84:main.c        ****               ms=0;
+  85:main.c        ****             }
+  86:main.c        ****             if ((key=keyscan())>=0) {       // ...Any key pressed?
+ 1326              		.loc 1 86 13
+ 1327              		.loc 1 86 22 is_stmt 0
+ 1328 0082 97000000 		call	keyscan
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 34
+
+
+ 1328      E7800000 
+ 1329              	.LVL205:
+  87:main.c        ****               engineControl(lookUpTbl[key],&pthrottle);
+ 1330              		.loc 1 87 15 is_stmt 1
+ 1331 008a 93172500 		slli	a5,a0,2
+ 1332 008e 9808     		addi	a4,sp,80
+ 1333 0090 BA97     		add	a5,a4,a5
+ 1334 0092 6C00     		addi	a1,sp,12
+  88:main.c        ****               DAC0set(dac++);                 // DAC0 Unit test         
+ 1335              		.loc 1 88 15 is_stmt 0
+ 1336 0094 93041400 		addi	s1,s0,1
+  86:main.c        ****               engineControl(lookUpTbl[key],&pthrottle);
+ 1337              		.loc 1 86 16
+ 1338 0098 E34805FC 		blt	a0,zero,.L67
+  87:main.c        ****               engineControl(lookUpTbl[key],&pthrottle);
+ 1339              		.loc 1 87 15
+ 1340 009c 03A507FC 		lw	a0,-64(a5)
+ 1341              	.LVL206:
+ 1342 00a0 97000000 		call	engineControl
+ 1342      E7800000 
+ 1343              	.LVL207:
+ 1344              		.loc 1 88 15 is_stmt 1
+ 1345 00a8 2285     		mv	a0,s0
+ 1346 00aa 97000000 		call	DAC0set
+ 1346      E7800000 
+ 1347              	.LVL208:
+ 1348 00b2 2684     		mv	s0,s1
+ 1349 00b4 55BF     		j	.L67
+ 1350              		.cfi_endproc
+ 1351              	.LFE3:
+ 1353              		.section	.rodata
+ 1354              		.align	2
+ 1355              		.set	.LANCHOR0,. + 0
+ 1356              	.LC0:
+ 1357 0000 01000000 		.word	1
+ 1358 0004 04000000 		.word	4
+ 1359 0008 07000000 		.word	7
+ 1360 000c 0E000000 		.word	14
+ 1361 0010 02000000 		.word	2
+ 1362 0014 05000000 		.word	5
+ 1363 0018 08000000 		.word	8
+ 1364 001c 00000000 		.word	0
+ 1365 0020 03000000 		.word	3
+ 1366 0024 06000000 		.word	6
+ 1367 0028 09000000 		.word	9
+ 1368 002c 0F000000 		.word	15
+ 1369 0030 0A000000 		.word	10
+ 1370 0034 0B000000 		.word	11
+ 1371 0038 0C000000 		.word	12
+ 1372 003c 0D000000 		.word	13
+ 1373              		.text
+ 1374              	.Letext0:
+ 1375              		.file 2 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1376              		.file 3 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1377              		.file 4 "pwm.h"
+ 1378              		.file 5 "drivers.h"
+ 1379              		.file 6 "dac.h"
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 35
+
+
+ 1380              		.file 7 "../../firmware/GD32VF103_standard_peripheral/system_gd32vf103.h"
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:13     .text.engineControl:0000000000000000 engineControl
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:17     .text.engineControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:19     .text.engineControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:20     .text.engineControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:21     .text.engineControl:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:23     .text.engineControl:0000000000000002 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:26     .text.engineControl:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:27     .text.engineControl:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:29     .text.engineControl:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:31     .text.engineControl:0000000000000008 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:33     .text.engineControl:000000000000000a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:41     .text.engineControl:000000000000001a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:42     .text.engineControl:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:43     .text.engineControl:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:45     .text.engineControl:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:49     .text.engineControl:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:54     .text.engineControl:0000000000000022 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:56     .text.engineControl:0000000000000022 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:57     .text.engineControl:0000000000000022 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:59     .text.engineControl:0000000000000026 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:64     .text.engineControl:0000000000000030 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:68     .text.engineControl:000000000000003a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:73     .text.engineControl:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:78     .text.engineControl:0000000000000054 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:83     .text.engineControl:0000000000000062 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:88     .text.engineControl:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:93     .text.engineControl:000000000000007e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:98     .text.engineControl:000000000000008c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:101    .text.engineControl:0000000000000090 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:105    .text.engineControl:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:108    .text.engineControl:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:109    .text.engineControl:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:110    .text.engineControl:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:113    .text.engineControl:00000000000000a0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:115    .text.engineControl:00000000000000a0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:117    .text.engineControl:00000000000000a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:119    .text.engineControl:00000000000000a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:121    .text.engineControl:00000000000000a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:125    .text.engineControl:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:127    .text.engineControl:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:128    .text.engineControl:00000000000000ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:130    .text.engineControl:00000000000000ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:132    .text.engineControl:00000000000000b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:134    .text.engineControl:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:136    .text.engineControl:00000000000000b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:137    .text.engineControl:00000000000000b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:139    .text.engineControl:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:140    .text.engineControl:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:143    .text.engineControl:00000000000000be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:148    .text.engineControl:00000000000000c8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:152    .text.engineControl:00000000000000d2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:153    .text.engineControl:00000000000000d2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:155    .text.engineControl:00000000000000d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:158    .text.engineControl:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:159    .text.engineControl:00000000000000d8 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 37
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:163    .text.engineControl:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:164    .text.engineControl:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:168    .text.engineControl:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:169    .text.engineControl:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:173    .text.engineControl:00000000000000ee .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:174    .text.engineControl:00000000000000ee .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:178    .text.engineControl:00000000000000f6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:179    .text.engineControl:00000000000000f6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:182    .text.engineControl:00000000000000f8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:185    .text.engineControl:00000000000000fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:188    .text.engineControl:0000000000000106 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:191    .text.engineControl:000000000000010e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:195    .text.engineControl:0000000000000116 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:199    .text.engineControl:0000000000000120 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:203    .text.engineControl:000000000000012a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:204    .text.engineControl:000000000000012a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:206    .text.engineControl:000000000000012c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:209    .text.engineControl:0000000000000130 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:210    .text.engineControl:0000000000000130 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:214    .text.engineControl:0000000000000136 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:215    .text.engineControl:0000000000000136 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:219    .text.engineControl:000000000000013e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:220    .text.engineControl:000000000000013e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:224    .text.engineControl:0000000000000146 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:225    .text.engineControl:0000000000000146 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:228    .text.engineControl:000000000000014e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:233    .text.engineControl:000000000000015c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:238    .text.engineControl:000000000000016a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:243    .text.engineControl:0000000000000178 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:248    .text.engineControl:0000000000000186 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:253    .text.engineControl:0000000000000194 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:258    .text.engineControl:00000000000001a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:263    .text.engineControl:00000000000001b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:268    .text.engineControl:00000000000001b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:269    .text.engineControl:00000000000001b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:271    .text.engineControl:00000000000001b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:273    .text.engineControl:00000000000001bc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:275    .text.engineControl:00000000000001be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:277    .text.engineControl:00000000000001c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:278    .text.engineControl:00000000000001c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:283    .text.engineControl:00000000000001ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:284    .text.engineControl:00000000000001ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:289    .text.engineControl:00000000000001d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:293    .text.engineControl:00000000000001de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:294    .text.engineControl:00000000000001de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:296    .text.engineControl:00000000000001e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:299    .text.engineControl:00000000000001e4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:300    .text.engineControl:00000000000001e4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:304    .text.engineControl:00000000000001ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:305    .text.engineControl:00000000000001ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:309    .text.engineControl:00000000000001f2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:310    .text.engineControl:00000000000001f2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:314    .text.engineControl:00000000000001fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:315    .text.engineControl:00000000000001fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:319    .text.engineControl:0000000000000202 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:320    .text.engineControl:0000000000000202 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:323    .text.engineControl:0000000000000204 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 38
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:326    .text.engineControl:000000000000020a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:329    .text.engineControl:0000000000000212 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:332    .text.engineControl:000000000000021a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:336    .text.engineControl:0000000000000222 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:340    .text.engineControl:000000000000022c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:344    .text.engineControl:0000000000000236 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:345    .text.engineControl:0000000000000236 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:347    .text.engineControl:0000000000000238 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:350    .text.engineControl:000000000000023c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:351    .text.engineControl:000000000000023c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:355    .text.engineControl:0000000000000242 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:356    .text.engineControl:0000000000000242 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:360    .text.engineControl:000000000000024a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:361    .text.engineControl:000000000000024a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:365    .text.engineControl:0000000000000252 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:366    .text.engineControl:0000000000000252 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:369    .text.engineControl:000000000000025a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:374    .text.engineControl:0000000000000266 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:379    .text.engineControl:0000000000000274 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:384    .text.engineControl:0000000000000282 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:389    .text.engineControl:0000000000000290 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:394    .text.engineControl:000000000000029e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:399    .text.engineControl:00000000000002aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:404    .text.engineControl:00000000000002ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:405    .text.engineControl:00000000000002ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:407    .text.engineControl:00000000000002b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:410    .text.engineControl:00000000000002b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:413    .text.engineControl:00000000000002be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:420    .text.engineControl:00000000000002ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:423    .text.engineControl:00000000000002d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:426    .text.engineControl:00000000000002d6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:429    .text.engineControl:00000000000002de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:435    .text.engineControl:00000000000002e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:439    .text.engineControl:00000000000002f2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:443    .text.engineControl:00000000000002fc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:448    .text.engineControl:0000000000000308 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:453    .text.engineControl:0000000000000316 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:458    .text.engineControl:0000000000000324 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:463    .text.engineControl:0000000000000332 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:468    .text.engineControl:0000000000000340 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:473    .text.engineControl:000000000000034e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:478    .text.engineControl:000000000000035c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:486    .text.engineControl:000000000000036c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:490    .text.engineControl:0000000000000376 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:494    .text.engineControl:0000000000000380 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:499    .text.engineControl:000000000000038c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:504    .text.engineControl:000000000000039a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:509    .text.engineControl:00000000000003a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:514    .text.engineControl:00000000000003b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:519    .text.engineControl:00000000000003c4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:524    .text.engineControl:00000000000003d2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:529    .text.engineControl:00000000000003e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:537    .text.engineControl:00000000000003f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:541    .text.engineControl:00000000000003fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:545    .text.engineControl:0000000000000404 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:550    .text.engineControl:0000000000000410 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:555    .text.engineControl:000000000000041e .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 39
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:560    .text.engineControl:000000000000042c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:565    .text.engineControl:000000000000043a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:570    .text.engineControl:0000000000000448 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:575    .text.engineControl:0000000000000456 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:580    .text.engineControl:0000000000000464 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:588    .text.engineControl:0000000000000474 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:592    .text.engineControl:000000000000047e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:596    .text.engineControl:0000000000000488 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:601    .text.engineControl:0000000000000494 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:606    .text.engineControl:00000000000004a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:611    .text.engineControl:00000000000004b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:616    .text.engineControl:00000000000004be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:621    .text.engineControl:00000000000004cc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:626    .text.engineControl:00000000000004da .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:631    .text.engineControl:00000000000004e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:639    .text.engineControl:00000000000004f8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:644    .text.engineControl:0000000000000506 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:649    .text.engineControl:0000000000000514 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:654    .text.engineControl:0000000000000522 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:659    .text.engineControl:0000000000000530 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:664    .text.engineControl:000000000000053e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:669    .text.engineControl:000000000000054c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:674    .text.engineControl:000000000000055a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:682    .text.engineControl:000000000000056c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:687    .text.engineControl:0000000000000578 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:692    .text.engineControl:0000000000000586 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:697    .text.engineControl:0000000000000594 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:702    .text.engineControl:00000000000005a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:707    .text.engineControl:00000000000005b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:712    .text.engineControl:00000000000005bc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:717    .text.engineControl:00000000000005c8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:725    .text.engineControl:00000000000005d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:730    .text.engineControl:00000000000005e4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:735    .text.engineControl:00000000000005f2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:740    .text.engineControl:00000000000005fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:745    .text.engineControl:000000000000060c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:750    .text.engineControl:000000000000061a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:755    .text.engineControl:0000000000000626 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:760    .text.engineControl:0000000000000634 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:768    .text.engineControl:0000000000000644 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:773    .text.engineControl:0000000000000652 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:778    .text.engineControl:0000000000000660 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:783    .text.engineControl:000000000000066e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:788    .text.engineControl:000000000000067c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:793    .text.engineControl:000000000000068a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:798    .text.engineControl:0000000000000698 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:803    .text.engineControl:00000000000006a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:811    .text.engineControl:00000000000006b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:816    .text.engineControl:00000000000006c6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:821    .text.engineControl:00000000000006d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:826    .text.engineControl:00000000000006e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:831    .text.engineControl:00000000000006f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:836    .text.engineControl:00000000000006fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:841    .text.engineControl:000000000000070c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:846    .text.engineControl:000000000000071a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:854    .text.engineControl:000000000000072c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:859    .text.engineControl:000000000000073a .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 40
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:864    .text.engineControl:0000000000000748 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:869    .text.engineControl:0000000000000756 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:874    .text.engineControl:0000000000000764 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:879    .text.engineControl:0000000000000772 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:884    .text.engineControl:0000000000000780 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:889    .text.engineControl:000000000000078e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:897    .text.engineControl:00000000000007a0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:902    .text.engineControl:00000000000007ac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:907    .text.engineControl:00000000000007ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:912    .text.engineControl:00000000000007c6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:917    .text.engineControl:00000000000007d4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:922    .text.engineControl:00000000000007e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:927    .text.engineControl:00000000000007f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:932    .text.engineControl:00000000000007fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:940    .text.engineControl:000000000000080e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:945    .text.engineControl:000000000000081a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:950    .text.engineControl:0000000000000826 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:955    .text.engineControl:0000000000000832 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:960    .text.engineControl:000000000000083e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:965    .text.engineControl:000000000000084a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:970    .text.engineControl:0000000000000856 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:975    .text.engineControl:0000000000000862 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:983    .text.engineControl:0000000000000872 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:988    .text.engineControl:000000000000087e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:993    .text.engineControl:000000000000088c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:998    .text.engineControl:0000000000000898 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1003   .text.engineControl:00000000000008a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1008   .text.engineControl:00000000000008b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1013   .text.engineControl:00000000000008c2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1018   .text.engineControl:00000000000008d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1026   .text.engineControl:00000000000008e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1031   .text.engineControl:00000000000008ec .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1036   .text.engineControl:00000000000008f8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1041   .text.engineControl:0000000000000904 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1046   .text.engineControl:0000000000000910 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1051   .text.engineControl:000000000000091c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1056   .text.engineControl:0000000000000928 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1061   .text.engineControl:0000000000000934 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1069   .text.engineControl:0000000000000944 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1074   .text.engineControl:0000000000000950 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1079   .text.engineControl:000000000000095e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1084   .text.engineControl:000000000000096a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1089   .text.engineControl:0000000000000978 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1094   .text.engineControl:0000000000000986 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1099   .text.engineControl:0000000000000992 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1104   .text.engineControl:00000000000009a0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1112   .text.engineControl:00000000000009b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1117   .text.engineControl:00000000000009c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1122   .text.engineControl:00000000000009ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1127   .text.engineControl:00000000000009dc .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1132   .text.engineControl:00000000000009ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1137   .text.engineControl:00000000000009f8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1142   .text.engineControl:0000000000000a06 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1147   .text.engineControl:0000000000000a14 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1155   .text.engineControl:0000000000000a28 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1160   .text.engineControl:0000000000000a36 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1165   .text.engineControl:0000000000000a44 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 41
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1170   .text.engineControl:0000000000000a52 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1175   .text.engineControl:0000000000000a60 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1180   .text.engineControl:0000000000000a6e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1185   .text.engineControl:0000000000000a7c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1190   .text.engineControl:0000000000000a8a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1198   .text.engineControl:0000000000000a9e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1203   .text.engineControl:0000000000000aac .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1208   .text.engineControl:0000000000000aba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1213   .text.engineControl:0000000000000ac8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1218   .text.engineControl:0000000000000ad6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1223   .text.engineControl:0000000000000ae4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1228   .text.engineControl:0000000000000af2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1233   .text.engineControl:0000000000000b00 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1239   .text.engineControl:0000000000000b14 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1246   .text.startup.main:0000000000000000 main
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1249   .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1250   .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1252   .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1253   .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1254   .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1256   .text.startup.main:0000000000000004 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1258   .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1260   .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1262   .text.startup.main:000000000000000a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1265   .text.startup.main:0000000000000010 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1266   .text.startup.main:0000000000000010 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1267   .text.startup.main:0000000000000010 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1269   .text.startup.main:0000000000000010 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1285   .text.startup.main:0000000000000032 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1286   .text.startup.main:0000000000000032 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1287   .text.startup.main:0000000000000032 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1289   .text.startup.main:0000000000000034 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1291   .text.startup.main:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1292   .text.startup.main:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1294   .text.startup.main:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1297   .text.startup.main:0000000000000040 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1300   .text.startup.main:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1303   .text.startup.main:0000000000000050 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1306   .text.startup.main:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1309   .text.startup.main:0000000000000060 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1313   .text.startup.main:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1314   .text.startup.main:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1315   .text.startup.main:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1318   .text.startup.main:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1320   .text.startup.main:0000000000000072 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1325   .text.startup.main:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1326   .text.startup.main:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1327   .text.startup.main:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1328   .text.startup.main:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1331   .text.startup.main:000000000000008a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1336   .text.startup.main:0000000000000094 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1338   .text.startup.main:0000000000000098 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1340   .text.startup.main:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1345   .text.startup.main:00000000000000a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1350   .text.startup.main:00000000000000b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1355   .rodata:0000000000000000 .LANCHOR0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1242   .text.engineControl:0000000000000b14 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 42
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1353   .text.startup.main:00000000000000b6 .L0 
+                     .debug_frame:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:52     .text.engineControl:0000000000000022 .L2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:266    .text.engineControl:00000000000001b6 .L3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:123    .text.engineControl:00000000000000ac .L44
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:416    .text.engineControl:00000000000002c8 .L45
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:421    .text.engineControl:00000000000002d0 .L46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:433    .text.engineControl:00000000000002e8 .L47
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:938    .text.engineControl:000000000000080e .L48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:895    .text.engineControl:00000000000007a0 .L49
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1067   .text.engineControl:0000000000000944 .L50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:680    .text.engineControl:000000000000056c .L51
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:193    .text.engineControl:0000000000000116 .L15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:39     .text.engineControl:000000000000001a .L1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:586    .text.engineControl:0000000000000474 .L52
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1196   .text.engineControl:0000000000000a9e .L53
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1153   .text.engineControl:0000000000000a28 .L54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1110   .text.engineControl:00000000000009b2 .L55
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:106    .text.engineControl:000000000000009c .L41
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:402    .text.engineControl:00000000000002ae .L20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:535    .text.engineControl:00000000000003f0 .L56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:766    .text.engineControl:0000000000000644 .L57
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:852    .text.engineControl:000000000000072c .L58
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:809    .text.engineControl:00000000000006b8 .L59
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:637    .text.engineControl:00000000000004f8 .L60
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:334    .text.engineControl:0000000000000222 .L30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:484    .text.engineControl:000000000000036c .L61
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1024   .text.engineControl:00000000000008e0 .L62
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:981    .text.engineControl:0000000000000872 .L63
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:723    .text.engineControl:00000000000005d8 .L64
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:99     .text.engineControl:0000000000000090 .L42
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:282    .text.engineControl:00000000000001ca .L21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:321    .text.engineControl:0000000000000204 .L22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:141    .text.engineControl:00000000000000be .L6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:180    .text.engineControl:00000000000000f8 .L7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:156    .text.engineControl:00000000000000d8 .L8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:348    .text.engineControl:000000000000023c .L29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:297    .text.engineControl:00000000000001e4 .L23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:207    .text.engineControl:0000000000000130 .L14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:317    .text.engineControl:0000000000000202 .L27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:176    .text.engineControl:00000000000000f6 .L12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:363    .text.engineControl:0000000000000252 .L33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:302    .text.engineControl:00000000000001ea .L24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:312    .text.engineControl:00000000000001fa .L26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:307    .text.engineControl:00000000000001f2 .L25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:166    .text.engineControl:00000000000000e6 .L10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:161    .text.engineControl:00000000000000de .L9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:358    .text.engineControl:000000000000024a .L32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:353    .text.engineControl:0000000000000242 .L31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:171    .text.engineControl:00000000000000ee .L11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:222    .text.engineControl:0000000000000146 .L18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:217    .text.engineControl:000000000000013e .L17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:212    .text.engineControl:0000000000000136 .L16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1271   .text.startup.main:0000000000000016 .L66
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1311   .text.startup.main:0000000000000068 .L67
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4465   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4977   .debug_str:0000000000000000 .LASF28
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 43
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5019   .debug_str:00000000000001ac .LASF29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4987   .debug_str:00000000000000ac .LASF30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4967   .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4975   .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5009   .debug_str:000000000000016d .LASF0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5039   .debug_str:000000000000020a .LASF1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4997   .debug_str:000000000000012c .LASF2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5027   .debug_str:00000000000001d1 .LASF3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4993   .debug_str:000000000000010e .LASF4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4983   .debug_str:000000000000008c .LASF5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4995   .debug_str:0000000000000121 .LASF9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4991   .debug_str:00000000000000fc .LASF6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5017   .debug_str:000000000000019e .LASF7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4985   .debug_str:0000000000000095 .LASF8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5031   .debug_str:00000000000001e3 .LASF10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5021   .debug_str:00000000000001b3 .LASF31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5035   .debug_str:00000000000001f4 .LASF11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5005   .debug_str:0000000000000158 .LASF32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1247   .text.startup.main:0000000000000000 .LFB3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1351   .text.startup.main:00000000000000b6 .LFE3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4784   .debug_loc:0000000000000000 .LLST3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4797   .debug_loc:0000000000000021 .LLST4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4805   .debug_loc:0000000000000035 .LLST5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5037   .debug_str:0000000000000200 .LASF12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4812   .debug_loc:0000000000000048 .LLST6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4979   .debug_str:000000000000007a .LASF13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1295   .text.startup.main:0000000000000040 .LVL196
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1298   .text.startup.main:0000000000000048 .LVL197
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1301   .text.startup.main:0000000000000050 .LVL198
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1304   .text.startup.main:0000000000000058 .LVL199
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1307   .text.startup.main:0000000000000060 .LVL200
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1310   .text.startup.main:0000000000000068 .LVL201
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1316   .text.startup.main:0000000000000070 .LVL202
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1321   .text.startup.main:000000000000007a .LVL203
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1323   .text.startup.main:0000000000000082 .LVL204
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1329   .text.startup.main:000000000000008a .LVL205
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1343   .text.startup.main:00000000000000a8 .LVL207
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1347   .text.startup.main:00000000000000b2 .LVL208
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4989   .debug_str:00000000000000ee .LASF33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:14     .text.engineControl:0000000000000000 .LFB2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1240   .text.engineControl:0000000000000b14 .LFE2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4828   .debug_loc:0000000000000072 .LLST0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4861   .debug_loc:00000000000000c2 .LLST1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4919   .debug_loc:0000000000000147 .LLST2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:62     .text.engineControl:0000000000000030 .LVL5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:66     .text.engineControl:000000000000003a .LVL6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:71     .text.engineControl:0000000000000046 .LVL7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:76     .text.engineControl:0000000000000054 .LVL8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:81     .text.engineControl:0000000000000062 .LVL9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:86     .text.engineControl:0000000000000070 .LVL10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:91     .text.engineControl:000000000000007e .LVL11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:96     .text.engineControl:000000000000008c .LVL12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:103    .text.engineControl:000000000000009a .LVL13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:122    .text.engineControl:00000000000000ac .LVL15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:146    .text.engineControl:00000000000000c8 .LVL17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:150    .text.engineControl:00000000000000d2 .LVL18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:197    .text.engineControl:0000000000000120 .LVL19
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 44
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:201    .text.engineControl:000000000000012a .LVL20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:231    .text.engineControl:000000000000015c .LVL21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:236    .text.engineControl:000000000000016a .LVL22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:241    .text.engineControl:0000000000000178 .LVL23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:246    .text.engineControl:0000000000000186 .LVL24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:251    .text.engineControl:0000000000000194 .LVL25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:256    .text.engineControl:00000000000001a2 .LVL26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:261    .text.engineControl:00000000000001b0 .LVL27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:287    .text.engineControl:00000000000001d4 .LVL30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:291    .text.engineControl:00000000000001de .LVL31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:338    .text.engineControl:000000000000022c .LVL32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:342    .text.engineControl:0000000000000236 .LVL33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:372    .text.engineControl:0000000000000266 .LVL34
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:377    .text.engineControl:0000000000000274 .LVL35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:382    .text.engineControl:0000000000000282 .LVL36
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:387    .text.engineControl:0000000000000290 .LVL37
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:392    .text.engineControl:000000000000029e .LVL38
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:397    .text.engineControl:00000000000002aa .LVL39
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:437    .text.engineControl:00000000000002f2 .LVL42
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:441    .text.engineControl:00000000000002fc .LVL43
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:446    .text.engineControl:0000000000000308 .LVL44
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:451    .text.engineControl:0000000000000316 .LVL45
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:456    .text.engineControl:0000000000000324 .LVL46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:461    .text.engineControl:0000000000000332 .LVL47
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:466    .text.engineControl:0000000000000340 .LVL48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:471    .text.engineControl:000000000000034e .LVL49
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:476    .text.engineControl:000000000000035c .LVL50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:481    .text.engineControl:0000000000000368 .LVL51
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:488    .text.engineControl:0000000000000376 .LVL52
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:492    .text.engineControl:0000000000000380 .LVL53
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:497    .text.engineControl:000000000000038c .LVL54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:502    .text.engineControl:000000000000039a .LVL55
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:507    .text.engineControl:00000000000003a8 .LVL56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:512    .text.engineControl:00000000000003b6 .LVL57
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:517    .text.engineControl:00000000000003c4 .LVL58
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:522    .text.engineControl:00000000000003d2 .LVL59
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:527    .text.engineControl:00000000000003e0 .LVL60
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:532    .text.engineControl:00000000000003ec .LVL61
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:539    .text.engineControl:00000000000003fa .LVL62
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:543    .text.engineControl:0000000000000404 .LVL63
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:548    .text.engineControl:0000000000000410 .LVL64
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:553    .text.engineControl:000000000000041e .LVL65
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:558    .text.engineControl:000000000000042c .LVL66
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:563    .text.engineControl:000000000000043a .LVL67
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:568    .text.engineControl:0000000000000448 .LVL68
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:573    .text.engineControl:0000000000000456 .LVL69
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:578    .text.engineControl:0000000000000464 .LVL70
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:583    .text.engineControl:0000000000000470 .LVL71
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:590    .text.engineControl:000000000000047e .LVL72
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:594    .text.engineControl:0000000000000488 .LVL73
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:599    .text.engineControl:0000000000000494 .LVL74
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:604    .text.engineControl:00000000000004a2 .LVL75
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:609    .text.engineControl:00000000000004b0 .LVL76
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:614    .text.engineControl:00000000000004be .LVL77
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:619    .text.engineControl:00000000000004cc .LVL78
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:624    .text.engineControl:00000000000004da .LVL79
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:629    .text.engineControl:00000000000004e8 .LVL80
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 45
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:634    .text.engineControl:00000000000004f4 .LVL81
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:642    .text.engineControl:0000000000000506 .LVL82
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:647    .text.engineControl:0000000000000514 .LVL83
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:652    .text.engineControl:0000000000000522 .LVL84
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:657    .text.engineControl:0000000000000530 .LVL85
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:662    .text.engineControl:000000000000053e .LVL86
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:667    .text.engineControl:000000000000054c .LVL87
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:672    .text.engineControl:000000000000055a .LVL88
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:677    .text.engineControl:0000000000000568 .LVL89
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:685    .text.engineControl:0000000000000578 .LVL90
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:690    .text.engineControl:0000000000000586 .LVL91
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:695    .text.engineControl:0000000000000594 .LVL92
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:700    .text.engineControl:00000000000005a2 .LVL93
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:705    .text.engineControl:00000000000005b0 .LVL94
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:710    .text.engineControl:00000000000005bc .LVL95
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:715    .text.engineControl:00000000000005c8 .LVL96
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:720    .text.engineControl:00000000000005d4 .LVL97
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:728    .text.engineControl:00000000000005e4 .LVL98
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:733    .text.engineControl:00000000000005f2 .LVL99
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:738    .text.engineControl:00000000000005fe .LVL100
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:743    .text.engineControl:000000000000060c .LVL101
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:748    .text.engineControl:000000000000061a .LVL102
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:753    .text.engineControl:0000000000000626 .LVL103
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:758    .text.engineControl:0000000000000634 .LVL104
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:763    .text.engineControl:0000000000000640 .LVL105
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:771    .text.engineControl:0000000000000652 .LVL106
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:776    .text.engineControl:0000000000000660 .LVL107
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:781    .text.engineControl:000000000000066e .LVL108
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:786    .text.engineControl:000000000000067c .LVL109
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:791    .text.engineControl:000000000000068a .LVL110
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:796    .text.engineControl:0000000000000698 .LVL111
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:801    .text.engineControl:00000000000006a6 .LVL112
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:806    .text.engineControl:00000000000006b4 .LVL113
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:814    .text.engineControl:00000000000006c6 .LVL114
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:819    .text.engineControl:00000000000006d4 .LVL115
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:824    .text.engineControl:00000000000006e2 .LVL116
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:829    .text.engineControl:00000000000006f0 .LVL117
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:834    .text.engineControl:00000000000006fe .LVL118
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:839    .text.engineControl:000000000000070c .LVL119
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:844    .text.engineControl:000000000000071a .LVL120
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:849    .text.engineControl:0000000000000728 .LVL121
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:857    .text.engineControl:000000000000073a .LVL122
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:862    .text.engineControl:0000000000000748 .LVL123
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:867    .text.engineControl:0000000000000756 .LVL124
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:872    .text.engineControl:0000000000000764 .LVL125
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:877    .text.engineControl:0000000000000772 .LVL126
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:882    .text.engineControl:0000000000000780 .LVL127
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:887    .text.engineControl:000000000000078e .LVL128
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:892    .text.engineControl:000000000000079c .LVL129
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:900    .text.engineControl:00000000000007ac .LVL130
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:905    .text.engineControl:00000000000007ba .LVL131
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:910    .text.engineControl:00000000000007c6 .LVL132
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:915    .text.engineControl:00000000000007d4 .LVL133
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:920    .text.engineControl:00000000000007e2 .LVL134
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:925    .text.engineControl:00000000000007f0 .LVL135
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:930    .text.engineControl:00000000000007fe .LVL136
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:935    .text.engineControl:000000000000080a .LVL137
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 46
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:943    .text.engineControl:000000000000081a .LVL138
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:948    .text.engineControl:0000000000000826 .LVL139
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:953    .text.engineControl:0000000000000832 .LVL140
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:958    .text.engineControl:000000000000083e .LVL141
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:963    .text.engineControl:000000000000084a .LVL142
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:968    .text.engineControl:0000000000000856 .LVL143
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:973    .text.engineControl:0000000000000862 .LVL144
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:978    .text.engineControl:000000000000086e .LVL145
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:986    .text.engineControl:000000000000087e .LVL146
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:991    .text.engineControl:000000000000088c .LVL147
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:996    .text.engineControl:0000000000000898 .LVL148
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1001   .text.engineControl:00000000000008a6 .LVL149
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1006   .text.engineControl:00000000000008b4 .LVL150
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1011   .text.engineControl:00000000000008c2 .LVL151
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1016   .text.engineControl:00000000000008d0 .LVL152
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1021   .text.engineControl:00000000000008dc .LVL153
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1029   .text.engineControl:00000000000008ec .LVL154
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1034   .text.engineControl:00000000000008f8 .LVL155
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1039   .text.engineControl:0000000000000904 .LVL156
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1044   .text.engineControl:0000000000000910 .LVL157
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1049   .text.engineControl:000000000000091c .LVL158
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1054   .text.engineControl:0000000000000928 .LVL159
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1059   .text.engineControl:0000000000000934 .LVL160
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1064   .text.engineControl:0000000000000940 .LVL161
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1072   .text.engineControl:0000000000000950 .LVL162
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1077   .text.engineControl:000000000000095e .LVL163
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1082   .text.engineControl:000000000000096a .LVL164
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1087   .text.engineControl:0000000000000978 .LVL165
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1092   .text.engineControl:0000000000000986 .LVL166
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1097   .text.engineControl:0000000000000992 .LVL167
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1102   .text.engineControl:00000000000009a0 .LVL168
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1107   .text.engineControl:00000000000009ac .LVL169
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1115   .text.engineControl:00000000000009c0 .LVL170
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1120   .text.engineControl:00000000000009ce .LVL171
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1125   .text.engineControl:00000000000009dc .LVL172
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1130   .text.engineControl:00000000000009ea .LVL173
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1135   .text.engineControl:00000000000009f8 .LVL174
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1140   .text.engineControl:0000000000000a06 .LVL175
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1145   .text.engineControl:0000000000000a14 .LVL176
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1150   .text.engineControl:0000000000000a22 .LVL177
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1158   .text.engineControl:0000000000000a36 .LVL178
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1163   .text.engineControl:0000000000000a44 .LVL179
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1168   .text.engineControl:0000000000000a52 .LVL180
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1173   .text.engineControl:0000000000000a60 .LVL181
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1178   .text.engineControl:0000000000000a6e .LVL182
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1183   .text.engineControl:0000000000000a7c .LVL183
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1188   .text.engineControl:0000000000000a8a .LVL184
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1193   .text.engineControl:0000000000000a98 .LVL185
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1201   .text.engineControl:0000000000000aac .LVL186
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1206   .text.engineControl:0000000000000aba .LVL187
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1211   .text.engineControl:0000000000000ac8 .LVL188
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1216   .text.engineControl:0000000000000ad6 .LVL189
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1221   .text.engineControl:0000000000000ae4 .LVL190
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1226   .text.engineControl:0000000000000af2 .LVL191
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1231   .text.engineControl:0000000000000b00 .LVL192
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1236   .text.engineControl:0000000000000b0e .LVL193
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5015   .debug_str:0000000000000192 .LASF14
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s 			page 47
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5013   .debug_str:000000000000018b .LASF15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4981   .debug_str:0000000000000084 .LASF16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5043   .debug_str:000000000000021d .LASF17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5029   .debug_str:00000000000001db .LASF18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5007   .debug_str:000000000000015d .LASF19
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5023   .debug_str:00000000000001c3 .LASF20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5003   .debug_str:0000000000000151 .LASF21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5025   .debug_str:00000000000001ca .LASF22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5033   .debug_str:00000000000001ec .LASF23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:4999   .debug_str:000000000000013a .LASF24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5001   .debug_str:0000000000000142 .LASF25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5041   .debug_str:0000000000000216 .LASF26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:5011   .debug_str:000000000000017a .LASF27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1257   .text.startup.main:0000000000000006 .LCFI5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1251   .text.startup.main:0000000000000000 .LVL194
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1341   .text.startup.main:00000000000000a0 .LVL206
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1284   .text.startup.main:0000000000000032 .LVL195
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:22     .text.engineControl:0000000000000002 .LCFI0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:48     .text.engineControl:0000000000000020 .LCFI1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:53     .text.engineControl:0000000000000022 .LCFI2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:118    .text.engineControl:00000000000000a4 .LCFI3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:124    .text.engineControl:00000000000000ac .LCFI4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:18     .text.engineControl:0000000000000000 .LVL0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:38     .text.engineControl:000000000000001a .LVL1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:51     .text.engineControl:0000000000000022 .LVL3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:60     .text.engineControl:0000000000000028 .LVL4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:144    .text.engineControl:00000000000000c0 .LVL16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:265    .text.engineControl:00000000000001b6 .LVL28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:285    .text.engineControl:00000000000001cc .LVL29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:401    .text.engineControl:00000000000002ae .LVL40
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:432    .text.engineControl:00000000000002e8 .LVL41
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:46     .text.engineControl:000000000000001e .LVL2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:111    .text.engineControl:000000000000009e .LVL14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccorXeZY.s:1382   .debug_info:0000000000000000 .Ldebug_info0
+
+UNDEFINED SYMBOLS
+T1setPWMch2
+T1setPWMmotorB
+l88mem
+T1powerUpInitPWM
+t5omsi
+colinit
+l88init
+keyinit
+DAC0powerUpInit
+t5expq
+colset
+l88row
+keyscan
+DAC0set

@@ -1,0 +1,2256 @@
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 1
+
+
+   1              		.file	"main.c"
+   2              		.option nopic
+   3              		.attribute arch, "rv32i2p0_m2p0_a2p0_c2p0"
+   4              		.attribute unaligned_access, 0
+   5              		.attribute stack_align, 16
+   6              		.text
+   7              	.Ltext0:
+   8              		.cfi_sections	.debug_frame
+   9              		.section	.text.codeWrite,"ax",@progbits
+  10              		.align	1
+  11              		.globl	codeWrite
+  13              	codeWrite:
+  14              	.LFB2:
+  15              		.file 1 "main.c"
+   1:main.c        **** #include "gd32vf103.h"
+   2:main.c        **** #include "drivers.h"
+   3:main.c        **** #include "lcd.h"
+   4:main.c        **** #include "usart.h"
+   5:main.c        **** #define EI 1
+   6:main.c        **** #define DI 0
+   7:main.c        **** 
+   8:main.c        **** int codeWrite(int key) //TX 
+   9:main.c        **** {
+  16              		.loc 1 9 1
+  17              		.cfi_startproc
+  18              	.LVL0:
+  10:main.c        ****   int nextrow=0;
+  19              		.loc 1 10 3
+  11:main.c        ****   switch(key)
+  20              		.loc 1 11 3
+  21 0000 B547     		li	a5,13
+  22 0002 63EAA716 		bgtu	a0,a5,.L2
+  23 0006 37070000 		lui	a4,%hi(.L4)
+  24 000a 93172500 		slli	a5,a0,2
+  25 000e 13070700 		addi	a4,a4,%lo(.L4)
+  26 0012 BA97     		add	a5,a5,a4
+  27 0014 9C43     		lw	a5,0(a5)
+   9:main.c        ****   int nextrow=0;
+  28              		.loc 1 9 1 is_stmt 0
+  29 0016 4111     		addi	sp,sp,-16
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 16
+  32 0018 22C4     		sw	s0,8(sp)
+  33 001a 06C6     		sw	ra,12(sp)
+  34              		.cfi_offset 8, -8
+  35              		.cfi_offset 1, -4
+  36 001c 2A84     		mv	s0,a0
+  37              		.loc 1 11 3
+  38 001e 8287     		jr	a5
+  39              		.section	.rodata.codeWrite,"a",@progbits
+  40              		.align	2
+  41              		.align	2
+  42              	.L4:
+  43 0000 00000000 		.word	.L17
+  44 0004 00000000 		.word	.L16
+  45 0008 00000000 		.word	.L15
+  46 000c 00000000 		.word	.L14
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 2
+
+
+  47 0010 00000000 		.word	.L13
+  48 0014 00000000 		.word	.L12
+  49 0018 00000000 		.word	.L11
+  50 001c 00000000 		.word	.L10
+  51 0020 00000000 		.word	.L9
+  52 0024 00000000 		.word	.L8
+  53 0028 00000000 		.word	.L7
+  54 002c 00000000 		.word	.L6
+  55 0030 00000000 		.word	.L5
+  56 0034 00000000 		.word	.L3
+  57              		.section	.text.codeWrite
+  58              	.L5:
+  12:main.c        ****   {
+  13:main.c        ****     case 0: usart_data_transmit(USART0, (0)+'0'); return 0; //TX (Transmitt) 0 
+  14:main.c        ****     case 1: usart_data_transmit(USART0, (1)+'0'); return 0; //TX (Transmitt) 1
+  15:main.c        ****     case 2: usart_data_transmit(USART0, (2)+'0'); return 0; //TX (Transmitt) 2
+  16:main.c        ****     case 3: usart_data_transmit(USART0, (3)+'0'); return 0; //TX (Transmitt) 3
+  17:main.c        ****     case 4: usart_data_transmit(USART0, (4)+'0'); return 0; //TX (Transmitt) 4
+  18:main.c        ****     case 5: usart_data_transmit(USART0, (5)+'0'); return 0; //TX (Transmitt) 5
+  19:main.c        ****     case 6: usart_data_transmit(USART0, (6)+'0'); return 0; //TX (Transmitt) 6
+  20:main.c        ****     case 7: usart_data_transmit(USART0, (7)+'0'); return 0; //TX (Transmitt) 7
+  21:main.c        ****     case 8: usart_data_transmit(USART0, (8)+'0'); return 0; //TX (Transmitt) 8
+  22:main.c        ****     case 9: usart_data_transmit(USART0, (9)+'0'); return 0; //TX (Transmitt) 9
+  23:main.c        ****     case 10: usart_data_transmit(USART0, (65)); return 0; //TX (Transmitt) A
+  24:main.c        ****     case 11: usart_data_transmit(USART0, (66)); return 0; //TX (Transmitt) B
+  25:main.c        ****     case 12: usart_data_transmit(USART0, (67)); return 0; //TX (Transmitt) C
+  59              		.loc 1 25 14 is_stmt 1
+  60 0020 37450140 		li	a0,1073823744
+  61              	.LVL1:
+  62 0024 13050580 		addi	a0,a0,-2048
+  63 0028 93053004 		li	a1,67
+  64 002c 97000000 		call	usart_data_transmit
+  64      E7800000 
+  65              	.LVL2:
+  66              		.loc 1 25 49
+  67              		.loc 1 25 56 is_stmt 0
+  68 0034 0145     		li	a0,0
+  69              	.LVL3:
+  70              	.L1:
+  26:main.c        ****     case 13: usart_data_transmit(USART0, (68) ); nextrow=20; return nextrow; //TX (Transmitt) D Nex
+  27:main.c        ****   }
+  28:main.c        **** }
+  71              		.loc 1 28 1
+  72 0036 B240     		lw	ra,12(sp)
+  73              		.cfi_remember_state
+  74              		.cfi_restore 1
+  75 0038 2244     		lw	s0,8(sp)
+  76              		.cfi_restore 8
+  77              	.LVL4:
+  78 003a 4101     		addi	sp,sp,16
+  79              	.LCFI1:
+  80              		.cfi_def_cfa_offset 0
+  81 003c 8280     		jr	ra
+  82              	.LVL5:
+  83              	.L3:
+  84              	.LCFI2:
+  85              		.cfi_restore_state
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 3
+
+
+  26:main.c        ****     case 13: usart_data_transmit(USART0, (68) ); nextrow=20; return nextrow; //TX (Transmitt) D Nex
+  86              		.loc 1 26 14 is_stmt 1
+  87 003e 37450140 		li	a0,1073823744
+  88 0042 13050580 		addi	a0,a0,-2048
+  89 0046 93054004 		li	a1,68
+  90 004a 97000000 		call	usart_data_transmit
+  90      E7800000 
+  91              	.LVL6:
+  26:main.c        ****     case 13: usart_data_transmit(USART0, (68) ); nextrow=20; return nextrow; //TX (Transmitt) D Nex
+  92              		.loc 1 26 50
+  26:main.c        ****     case 13: usart_data_transmit(USART0, (68) ); nextrow=20; return nextrow; //TX (Transmitt) D Nex
+  93              		.loc 1 26 62
+  26:main.c        ****     case 13: usart_data_transmit(USART0, (68) ); nextrow=20; return nextrow; //TX (Transmitt) D Nex
+  94              		.loc 1 26 69 is_stmt 0
+  95 0052 5145     		li	a0,20
+  96 0054 CDB7     		j	.L1
+  97              	.LVL7:
+  98              	.L17:
+  13:main.c        ****     case 1: usart_data_transmit(USART0, (1)+'0'); return 0; //TX (Transmitt) 1
+  99              		.loc 1 13 13 is_stmt 1
+ 100 0056 37450140 		li	a0,1073823744
+ 101 005a 13050580 		addi	a0,a0,-2048
+ 102 005e 93050003 		li	a1,48
+ 103 0062 97000000 		call	usart_data_transmit
+ 103      E7800000 
+ 104              	.LVL8:
+  13:main.c        ****     case 1: usart_data_transmit(USART0, (1)+'0'); return 0; //TX (Transmitt) 1
+ 105              		.loc 1 13 51
+  13:main.c        ****     case 1: usart_data_transmit(USART0, (1)+'0'); return 0; //TX (Transmitt) 1
+ 106              		.loc 1 13 58 is_stmt 0
+ 107 006a 2285     		mv	a0,s0
+ 108 006c E9B7     		j	.L1
+ 109              	.L16:
+  14:main.c        ****     case 2: usart_data_transmit(USART0, (2)+'0'); return 0; //TX (Transmitt) 2
+ 110              		.loc 1 14 13 is_stmt 1
+ 111 006e 37450140 		li	a0,1073823744
+ 112 0072 13050580 		addi	a0,a0,-2048
+ 113 0076 93051003 		li	a1,49
+ 114 007a 97000000 		call	usart_data_transmit
+ 114      E7800000 
+ 115              	.LVL9:
+  14:main.c        ****     case 2: usart_data_transmit(USART0, (2)+'0'); return 0; //TX (Transmitt) 2
+ 116              		.loc 1 14 51
+  14:main.c        ****     case 2: usart_data_transmit(USART0, (2)+'0'); return 0; //TX (Transmitt) 2
+ 117              		.loc 1 14 58 is_stmt 0
+ 118 0082 0145     		li	a0,0
+ 119 0084 4DBF     		j	.L1
+ 120              	.L15:
+  15:main.c        ****     case 3: usart_data_transmit(USART0, (3)+'0'); return 0; //TX (Transmitt) 3
+ 121              		.loc 1 15 13 is_stmt 1
+ 122 0086 37450140 		li	a0,1073823744
+ 123 008a 13050580 		addi	a0,a0,-2048
+ 124 008e 93052003 		li	a1,50
+ 125 0092 97000000 		call	usart_data_transmit
+ 125      E7800000 
+ 126              	.LVL10:
+  15:main.c        ****     case 3: usart_data_transmit(USART0, (3)+'0'); return 0; //TX (Transmitt) 3
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 4
+
+
+ 127              		.loc 1 15 51
+  15:main.c        ****     case 3: usart_data_transmit(USART0, (3)+'0'); return 0; //TX (Transmitt) 3
+ 128              		.loc 1 15 58 is_stmt 0
+ 129 009a 0145     		li	a0,0
+ 130 009c 69BF     		j	.L1
+ 131              	.L14:
+  16:main.c        ****     case 4: usart_data_transmit(USART0, (4)+'0'); return 0; //TX (Transmitt) 4
+ 132              		.loc 1 16 13 is_stmt 1
+ 133 009e 37450140 		li	a0,1073823744
+ 134 00a2 13050580 		addi	a0,a0,-2048
+ 135 00a6 93053003 		li	a1,51
+ 136 00aa 97000000 		call	usart_data_transmit
+ 136      E7800000 
+ 137              	.LVL11:
+  16:main.c        ****     case 4: usart_data_transmit(USART0, (4)+'0'); return 0; //TX (Transmitt) 4
+ 138              		.loc 1 16 51
+  16:main.c        ****     case 4: usart_data_transmit(USART0, (4)+'0'); return 0; //TX (Transmitt) 4
+ 139              		.loc 1 16 58 is_stmt 0
+ 140 00b2 0145     		li	a0,0
+ 141 00b4 49B7     		j	.L1
+ 142              	.L13:
+  17:main.c        ****     case 5: usart_data_transmit(USART0, (5)+'0'); return 0; //TX (Transmitt) 5
+ 143              		.loc 1 17 13 is_stmt 1
+ 144 00b6 37450140 		li	a0,1073823744
+ 145 00ba 13050580 		addi	a0,a0,-2048
+ 146 00be 93054003 		li	a1,52
+ 147 00c2 97000000 		call	usart_data_transmit
+ 147      E7800000 
+ 148              	.LVL12:
+  17:main.c        ****     case 5: usart_data_transmit(USART0, (5)+'0'); return 0; //TX (Transmitt) 5
+ 149              		.loc 1 17 51
+  17:main.c        ****     case 5: usart_data_transmit(USART0, (5)+'0'); return 0; //TX (Transmitt) 5
+ 150              		.loc 1 17 58 is_stmt 0
+ 151 00ca 0145     		li	a0,0
+ 152 00cc ADB7     		j	.L1
+ 153              	.L12:
+  18:main.c        ****     case 6: usart_data_transmit(USART0, (6)+'0'); return 0; //TX (Transmitt) 6
+ 154              		.loc 1 18 13 is_stmt 1
+ 155 00ce 37450140 		li	a0,1073823744
+ 156 00d2 13050580 		addi	a0,a0,-2048
+ 157 00d6 93055003 		li	a1,53
+ 158 00da 97000000 		call	usart_data_transmit
+ 158      E7800000 
+ 159              	.LVL13:
+  18:main.c        ****     case 6: usart_data_transmit(USART0, (6)+'0'); return 0; //TX (Transmitt) 6
+ 160              		.loc 1 18 51
+  18:main.c        ****     case 6: usart_data_transmit(USART0, (6)+'0'); return 0; //TX (Transmitt) 6
+ 161              		.loc 1 18 58 is_stmt 0
+ 162 00e2 0145     		li	a0,0
+ 163 00e4 89BF     		j	.L1
+ 164              	.L11:
+  19:main.c        ****     case 7: usart_data_transmit(USART0, (7)+'0'); return 0; //TX (Transmitt) 7
+ 165              		.loc 1 19 13 is_stmt 1
+ 166 00e6 37450140 		li	a0,1073823744
+ 167 00ea 13050580 		addi	a0,a0,-2048
+ 168 00ee 93056003 		li	a1,54
+ 169 00f2 97000000 		call	usart_data_transmit
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 5
+
+
+ 169      E7800000 
+ 170              	.LVL14:
+  19:main.c        ****     case 7: usart_data_transmit(USART0, (7)+'0'); return 0; //TX (Transmitt) 7
+ 171              		.loc 1 19 51
+  19:main.c        ****     case 7: usart_data_transmit(USART0, (7)+'0'); return 0; //TX (Transmitt) 7
+ 172              		.loc 1 19 58 is_stmt 0
+ 173 00fa 0145     		li	a0,0
+ 174 00fc 2DBF     		j	.L1
+ 175              	.L10:
+  20:main.c        ****     case 8: usart_data_transmit(USART0, (8)+'0'); return 0; //TX (Transmitt) 8
+ 176              		.loc 1 20 13 is_stmt 1
+ 177 00fe 37450140 		li	a0,1073823744
+ 178 0102 13050580 		addi	a0,a0,-2048
+ 179 0106 93057003 		li	a1,55
+ 180 010a 97000000 		call	usart_data_transmit
+ 180      E7800000 
+ 181              	.LVL15:
+  20:main.c        ****     case 8: usart_data_transmit(USART0, (8)+'0'); return 0; //TX (Transmitt) 8
+ 182              		.loc 1 20 51
+  20:main.c        ****     case 8: usart_data_transmit(USART0, (8)+'0'); return 0; //TX (Transmitt) 8
+ 183              		.loc 1 20 58 is_stmt 0
+ 184 0112 0145     		li	a0,0
+ 185 0114 0DB7     		j	.L1
+ 186              	.L9:
+  21:main.c        ****     case 9: usart_data_transmit(USART0, (9)+'0'); return 0; //TX (Transmitt) 9
+ 187              		.loc 1 21 13 is_stmt 1
+ 188 0116 37450140 		li	a0,1073823744
+ 189 011a 13050580 		addi	a0,a0,-2048
+ 190 011e 93058003 		li	a1,56
+ 191 0122 97000000 		call	usart_data_transmit
+ 191      E7800000 
+ 192              	.LVL16:
+  21:main.c        ****     case 9: usart_data_transmit(USART0, (9)+'0'); return 0; //TX (Transmitt) 9
+ 193              		.loc 1 21 51
+  21:main.c        ****     case 9: usart_data_transmit(USART0, (9)+'0'); return 0; //TX (Transmitt) 9
+ 194              		.loc 1 21 58 is_stmt 0
+ 195 012a 0145     		li	a0,0
+ 196 012c 29B7     		j	.L1
+ 197              	.L8:
+  22:main.c        ****     case 10: usart_data_transmit(USART0, (65)); return 0; //TX (Transmitt) A
+ 198              		.loc 1 22 13 is_stmt 1
+ 199 012e 37450140 		li	a0,1073823744
+ 200 0132 13050580 		addi	a0,a0,-2048
+ 201 0136 93059003 		li	a1,57
+ 202 013a 97000000 		call	usart_data_transmit
+ 202      E7800000 
+ 203              	.LVL17:
+  22:main.c        ****     case 10: usart_data_transmit(USART0, (65)); return 0; //TX (Transmitt) A
+ 204              		.loc 1 22 51
+  22:main.c        ****     case 10: usart_data_transmit(USART0, (65)); return 0; //TX (Transmitt) A
+ 205              		.loc 1 22 58 is_stmt 0
+ 206 0142 0145     		li	a0,0
+ 207 0144 CDBD     		j	.L1
+ 208              	.L7:
+  23:main.c        ****     case 11: usart_data_transmit(USART0, (66)); return 0; //TX (Transmitt) B
+ 209              		.loc 1 23 14 is_stmt 1
+ 210 0146 37450140 		li	a0,1073823744
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 6
+
+
+ 211 014a 13050580 		addi	a0,a0,-2048
+ 212 014e 93051004 		li	a1,65
+ 213 0152 97000000 		call	usart_data_transmit
+ 213      E7800000 
+ 214              	.LVL18:
+  23:main.c        ****     case 11: usart_data_transmit(USART0, (66)); return 0; //TX (Transmitt) B
+ 215              		.loc 1 23 49
+  23:main.c        ****     case 11: usart_data_transmit(USART0, (66)); return 0; //TX (Transmitt) B
+ 216              		.loc 1 23 56 is_stmt 0
+ 217 015a 0145     		li	a0,0
+ 218 015c E9BD     		j	.L1
+ 219              	.L6:
+  24:main.c        ****     case 12: usart_data_transmit(USART0, (67)); return 0; //TX (Transmitt) C
+ 220              		.loc 1 24 14 is_stmt 1
+ 221 015e 37450140 		li	a0,1073823744
+ 222 0162 13050580 		addi	a0,a0,-2048
+ 223 0166 93052004 		li	a1,66
+ 224 016a 97000000 		call	usart_data_transmit
+ 224      E7800000 
+ 225              	.LVL19:
+  24:main.c        ****     case 12: usart_data_transmit(USART0, (67)); return 0; //TX (Transmitt) C
+ 226              		.loc 1 24 49
+  24:main.c        ****     case 12: usart_data_transmit(USART0, (67)); return 0; //TX (Transmitt) C
+ 227              		.loc 1 24 56 is_stmt 0
+ 228 0172 0145     		li	a0,0
+ 229 0174 C9B5     		j	.L1
+ 230              	.LVL20:
+ 231              	.L2:
+ 232              	.LCFI3:
+ 233              		.cfi_def_cfa_offset 0
+ 234              		.cfi_restore 1
+ 235              		.cfi_restore 8
+ 236              	.LVL21:
+ 237              		.loc 1 28 1
+ 238 0176 8280     		ret
+ 239              		.cfi_endproc
+ 240              	.LFE2:
+ 242              		.section	.text.numberComp,"ax",@progbits
+ 243              		.align	1
+ 244              		.globl	numberComp
+ 246              	numberComp:
+ 247              	.LFB3:
+  29:main.c        **** 
+  30:main.c        **** int numberComp(int key, int *temp1,int *temp2,int *temp3,int *temp4,int *checkLetter)
+  31:main.c        **** {
+ 248              		.loc 1 31 1 is_stmt 1
+ 249              		.cfi_startproc
+ 250              	.LVL22:
+  32:main.c        ****   switch(key) //Protocol Counter
+ 251              		.loc 1 32 3
+ 252 0000 3548     		li	a6,13
+ 253 0002 636CA808 		bgtu	a0,a6,.L25
+ 254 0006 37080000 		lui	a6,%hi(.L27)
+ 255 000a 0A05     		slli	a0,a0,2
+ 256              	.LVL23:
+ 257 000c 13080800 		addi	a6,a6,%lo(.L27)
+ 258 0010 4295     		add	a0,a0,a6
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 7
+
+
+ 259 0012 0841     		lw	a0,0(a0)
+ 260 0014 0285     		jr	a0
+ 261              		.section	.rodata.numberComp,"a",@progbits
+ 262              		.align	2
+ 263              		.align	2
+ 264              	.L27:
+ 265 0000 00000000 		.word	.L31
+ 266 0004 00000000 		.word	.L31
+ 267 0008 00000000 		.word	.L31
+ 268 000c 00000000 		.word	.L31
+ 269 0010 00000000 		.word	.L31
+ 270 0014 00000000 		.word	.L31
+ 271 0018 00000000 		.word	.L31
+ 272 001c 00000000 		.word	.L31
+ 273 0020 00000000 		.word	.L31
+ 274 0024 00000000 		.word	.L31
+ 275 0028 00000000 		.word	.L30
+ 276 002c 00000000 		.word	.L29
+ 277 0030 00000000 		.word	.L28
+ 278 0034 00000000 		.word	.L26
+ 279              		.section	.text.numberComp
+ 280              	.L31:
+  33:main.c        ****   {
+  34:main.c        ****     case 0: *checkLetter=*checkLetter+1; return 0; //Counter +1
+ 281              		.loc 1 34 13
+ 282              		.loc 1 34 38 is_stmt 0
+ 283 0016 9843     		lw	a4,0(a5)
+ 284              	.LVL24:
+ 285              		.loc 1 34 49
+ 286 0018 0145     		li	a0,0
+ 287              		.loc 1 34 38
+ 288 001a 0507     		addi	a4,a4,1
+ 289              		.loc 1 34 25
+ 290 001c 98C3     		sw	a4,0(a5)
+ 291              		.loc 1 34 42 is_stmt 1
+ 292              		.loc 1 34 49 is_stmt 0
+ 293 001e 8280     		ret
+ 294              	.LVL25:
+ 295              	.L29:
+  35:main.c        ****     case 1: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  36:main.c        ****     case 2: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  37:main.c        ****     case 3: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  38:main.c        ****     case 4: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  39:main.c        ****     case 5: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  40:main.c        ****     case 6: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  41:main.c        ****     case 7: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  42:main.c        ****     case 8: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  43:main.c        ****     case 9: *checkLetter=*checkLetter+1; return 0; //Counter +1
+  44:main.c        ****     case 10: *checkLetter=*checkLetter+1; if(*checkLetter==1){*temp1=*temp1+1;} if(*checkLetter!=1)
+  45:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 296              		.loc 1 45 14 is_stmt 1
+ 297              		.loc 1 45 39 is_stmt 0
+ 298 0020 9843     		lw	a4,0(a5)
+ 299              	.LVL26:
+ 300              		.loc 1 45 45
+ 301 0022 8946     		li	a3,2
+ 302              	.LVL27:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 8
+
+
+ 303              		.loc 1 45 39
+ 304 0024 0507     		addi	a4,a4,1
+ 305              		.loc 1 45 26
+ 306 0026 98C3     		sw	a4,0(a5)
+ 307              		.loc 1 45 43 is_stmt 1
+ 308              		.loc 1 45 45 is_stmt 0
+ 309 0028 6306D708 		beq	a4,a3,.L36
+ 310              	.LVL28:
+ 311              	.L39:
+  46:main.c        ****     case 12: *checkLetter=*checkLetter+1; if(*checkLetter==8){*temp3=*temp3+1;} if(*checkLetter!=8)
+ 312              		.loc 1 46 101 is_stmt 1
+ 313              		.loc 1 46 114 is_stmt 0
+ 314 002c 9C41     		lw	a5,0(a1)
+ 315              		.loc 1 46 126
+ 316 002e 0145     		li	a0,0
+ 317              		.loc 1 46 114
+ 318 0030 FD17     		addi	a5,a5,-1
+ 319              		.loc 1 46 107
+ 320 0032 9CC1     		sw	a5,0(a1)
+ 321 0034 8280     		ret
+ 322              	.LVL29:
+ 323              	.L30:
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 324              		.loc 1 44 14 is_stmt 1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 325              		.loc 1 44 39 is_stmt 0
+ 326 0036 9843     		lw	a4,0(a5)
+ 327              	.LVL30:
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 328              		.loc 1 44 45
+ 329 0038 8546     		li	a3,1
+ 330              	.LVL31:
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 331              		.loc 1 44 39
+ 332 003a 0507     		addi	a4,a4,1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 333              		.loc 1 44 26
+ 334 003c 98C3     		sw	a4,0(a5)
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 335              		.loc 1 44 43 is_stmt 1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 336              		.loc 1 44 45 is_stmt 0
+ 337 003e 6303D708 		beq	a4,a3,.L33
+ 338 0042 9441     		lw	a3,0(a1)
+ 339              	.LVL32:
+ 340              	.L34:
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 341              		.loc 1 44 101 is_stmt 1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 342              		.loc 1 44 114 is_stmt 0
+ 343 0044 FD16     		addi	a3,a3,-1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 344              		.loc 1 44 107
+ 345 0046 94C1     		sw	a3,0(a1)
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 346              		.loc 1 44 126
+ 347 0048 0145     		li	a0,0
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 9
+
+
+ 348 004a 8280     		ret
+ 349              	.LVL33:
+ 350              	.L26:
+  47:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 351              		.loc 1 47 14 is_stmt 1
+ 352              		.loc 1 47 39 is_stmt 0
+ 353 004c 8843     		lw	a0,0(a5)
+ 354              		.loc 1 47 45
+ 355 004e 2D48     		li	a6,11
+ 356              		.loc 1 47 39
+ 357 0050 0505     		addi	a0,a0,1
+ 358              		.loc 1 47 26
+ 359 0052 88C3     		sw	a0,0(a5)
+ 360              		.loc 1 47 43 is_stmt 1
+ 361              		.loc 1 47 45 is_stmt 0
+ 362 0054 63040505 		beq	a0,a6,.L43
+ 363              	.L40:
+ 364              		.loc 1 47 103 is_stmt 1
+ 365              		.loc 1 47 116 is_stmt 0
+ 366 0058 03A80500 		lw	a6,0(a1)
+ 367 005c 7D18     		addi	a6,a6,-1
+ 368              		.loc 1 47 109
+ 369 005e 23A00501 		sw	a6,0(a1)
+ 370              	.L41:
+  48:main.c        ****     if(*temp1==1 && *temp2==1 && *temp3==1 && *temp4==1 ){*temp1=0; *temp2=0;*temp3=0;*temp4=0;*che
+ 371              		.loc 1 48 5 is_stmt 1
+ 372              		.loc 1 48 7 is_stmt 0
+ 373 0062 0545     		li	a0,1
+ 374 0064 6307A806 		beq	a6,a0,.L44
+ 375              	.L42:
+  49:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 376              		.loc 1 49 5 is_stmt 1
+ 377              		.loc 1 49 11 is_stmt 0
+ 378 0068 23A00500 		sw	zero,0(a1)
+ 379              		.loc 1 49 15 is_stmt 1
+ 380              		.loc 1 49 21 is_stmt 0
+ 381 006c 23200600 		sw	zero,0(a2)
+ 382              		.loc 1 49 24 is_stmt 1
+ 383              		.loc 1 49 30 is_stmt 0
+ 384 0070 23A00600 		sw	zero,0(a3)
+ 385              		.loc 1 49 33 is_stmt 1
+ 386              		.loc 1 49 39 is_stmt 0
+ 387 0074 23200700 		sw	zero,0(a4)
+ 388              		.loc 1 49 42 is_stmt 1
+ 389              		.loc 1 49 54 is_stmt 0
+ 390 0078 23A00700 		sw	zero,0(a5)
+ 391              		.loc 1 49 58 is_stmt 1
+ 392              		.loc 1 49 65 is_stmt 0
+ 393 007c 0145     		li	a0,0
+ 394 007e 8280     		ret
+ 395              	.L28:
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 396              		.loc 1 46 14 is_stmt 1
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 397              		.loc 1 46 39 is_stmt 0
+ 398 0080 9843     		lw	a4,0(a5)
+ 399              	.LVL34:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 10
+
+
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 400              		.loc 1 46 45
+ 401 0082 2146     		li	a2,8
+ 402              	.LVL35:
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 403              		.loc 1 46 39
+ 404 0084 0507     		addi	a4,a4,1
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 405              		.loc 1 46 26
+ 406 0086 98C3     		sw	a4,0(a5)
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 407              		.loc 1 46 43 is_stmt 1
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 408              		.loc 1 46 45 is_stmt 0
+ 409 0088 E312C7FA 		bne	a4,a2,.L39
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 410              		.loc 1 46 63 is_stmt 1 discriminator 1
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 411              		.loc 1 46 76 is_stmt 0 discriminator 1
+ 412 008c 9042     		lw	a2,0(a3)
+ 413 008e 0506     		addi	a2,a2,1
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 414              		.loc 1 46 69 discriminator 1
+ 415 0090 90C2     		sw	a2,0(a3)
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 416              		.loc 1 46 81 is_stmt 1 discriminator 1
+  46:main.c        ****     case 13: *checkLetter=*checkLetter+1; if(*checkLetter==11){*temp4=*temp4+1;} if(*checkLetter!=1
+ 417              		.loc 1 46 83 is_stmt 0 discriminator 1
+ 418 0092 9C43     		lw	a5,0(a5)
+ 419              	.LVL36:
+ 420 0094 6386E702 		beq	a5,a4,.L35
+ 421 0098 51BF     		j	.L39
+ 422              	.LVL37:
+ 423              	.L25:
+ 424              	.LVL38:
+  50:main.c        ****   }
+  51:main.c        **** }
+ 425              		.loc 1 51 1
+ 426 009a 8280     		ret
+ 427              	.L43:
+  47:main.c        ****     if(*temp1==1 && *temp2==1 && *temp3==1 && *temp4==1 ){*temp1=0; *temp2=0;*temp3=0;*temp4=0;*che
+ 428              		.loc 1 47 64 is_stmt 1 discriminator 1
+  47:main.c        ****     if(*temp1==1 && *temp2==1 && *temp3==1 && *temp4==1 ){*temp1=0; *temp2=0;*temp3=0;*temp4=0;*che
+ 429              		.loc 1 47 77 is_stmt 0 discriminator 1
+ 430 009c 03280700 		lw	a6,0(a4)
+ 431 00a0 0508     		addi	a6,a6,1
+  47:main.c        ****     if(*temp1==1 && *temp2==1 && *temp3==1 && *temp4==1 ){*temp1=0; *temp2=0;*temp3=0;*temp4=0;*che
+ 432              		.loc 1 47 70 discriminator 1
+ 433 00a2 23200701 		sw	a6,0(a4)
+  47:main.c        ****     if(*temp1==1 && *temp2==1 && *temp3==1 && *temp4==1 ){*temp1=0; *temp2=0;*temp3=0;*temp4=0;*che
+ 434              		.loc 1 47 82 is_stmt 1 discriminator 1
+  47:main.c        ****     if(*temp1==1 && *temp2==1 && *temp3==1 && *temp4==1 ){*temp1=0; *temp2=0;*temp3=0;*temp4=0;*che
+ 435              		.loc 1 47 84 is_stmt 0 discriminator 1
+ 436 00a6 03A80700 		lw	a6,0(a5)
+ 437 00aa E317A8FA 		bne	a6,a0,.L40
+ 438 00ae 03A80500 		lw	a6,0(a1)
+ 439 00b2 45BF     		j	.L41
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 11
+
+
+ 440              	.LVL39:
+ 441              	.L36:
+  45:main.c        ****     case 12: *checkLetter=*checkLetter+1; if(*checkLetter==8){*temp3=*temp3+1;} if(*checkLetter!=8)
+ 442              		.loc 1 45 63 is_stmt 1 discriminator 1
+  45:main.c        ****     case 12: *checkLetter=*checkLetter+1; if(*checkLetter==8){*temp3=*temp3+1;} if(*checkLetter!=8)
+ 443              		.loc 1 45 76 is_stmt 0 discriminator 1
+ 444 00b4 1442     		lw	a3,0(a2)
+ 445 00b6 8506     		addi	a3,a3,1
+  45:main.c        ****     case 12: *checkLetter=*checkLetter+1; if(*checkLetter==8){*temp3=*temp3+1;} if(*checkLetter!=8)
+ 446              		.loc 1 45 69 discriminator 1
+ 447 00b8 14C2     		sw	a3,0(a2)
+  45:main.c        ****     case 12: *checkLetter=*checkLetter+1; if(*checkLetter==8){*temp3=*temp3+1;} if(*checkLetter!=8)
+ 448              		.loc 1 45 81 is_stmt 1 discriminator 1
+  45:main.c        ****     case 12: *checkLetter=*checkLetter+1; if(*checkLetter==8){*temp3=*temp3+1;} if(*checkLetter!=8)
+ 449              		.loc 1 45 83 is_stmt 0 discriminator 1
+ 450 00ba 9C43     		lw	a5,0(a5)
+ 451              	.LVL40:
+ 452 00bc E398E7F6 		bne	a5,a4,.L39
+ 453              	.LVL41:
+ 454              	.L35:
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 455              		.loc 1 44 126
+ 456 00c0 0145     		li	a0,0
+ 457              		.loc 1 51 1
+ 458 00c2 8280     		ret
+ 459              	.LVL42:
+ 460              	.L33:
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 461              		.loc 1 44 63 is_stmt 1 discriminator 1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 462              		.loc 1 44 76 is_stmt 0 discriminator 1
+ 463 00c4 9441     		lw	a3,0(a1)
+ 464 00c6 8506     		addi	a3,a3,1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 465              		.loc 1 44 69 discriminator 1
+ 466 00c8 94C1     		sw	a3,0(a1)
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 467              		.loc 1 44 81 is_stmt 1 discriminator 1
+  44:main.c        ****     case 11: *checkLetter=*checkLetter+1; if(*checkLetter==2){*temp2=*temp2+1;} if(*checkLetter!=2)
+ 468              		.loc 1 44 83 is_stmt 0 discriminator 1
+ 469 00ca 9C43     		lw	a5,0(a5)
+ 470              	.LVL43:
+ 471 00cc E38AE7FE 		beq	a5,a4,.L35
+ 472 00d0 95BF     		j	.L34
+ 473              	.LVL44:
+ 474              	.L44:
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 475              		.loc 1 48 18 discriminator 1
+ 476 00d2 0842     		lw	a0,0(a2)
+ 477 00d4 E31A05F9 		bne	a0,a6,.L42
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 478              		.loc 1 48 31 discriminator 2
+ 479 00d8 8842     		lw	a0,0(a3)
+ 480 00da E31705F9 		bne	a0,a6,.L42
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 481              		.loc 1 48 47 discriminator 3
+ 482 00de 0843     		lw	a0,0(a4)
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 12
+
+
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 483              		.loc 1 48 44 discriminator 3
+ 484 00e0 E31405F9 		bne	a0,a6,.L42
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 485              		.loc 1 48 59 is_stmt 1 discriminator 4
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 486              		.loc 1 48 65 is_stmt 0 discriminator 4
+ 487 00e4 23A00500 		sw	zero,0(a1)
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 488              		.loc 1 48 69 is_stmt 1 discriminator 4
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 489              		.loc 1 48 75 is_stmt 0 discriminator 4
+ 490 00e8 23200600 		sw	zero,0(a2)
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 491              		.loc 1 48 78 is_stmt 1 discriminator 4
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 492              		.loc 1 48 84 is_stmt 0 discriminator 4
+ 493 00ec 23A00600 		sw	zero,0(a3)
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 494              		.loc 1 48 87 is_stmt 1 discriminator 4
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 495              		.loc 1 48 93 is_stmt 0 discriminator 4
+ 496 00f0 23200700 		sw	zero,0(a4)
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 497              		.loc 1 48 96 is_stmt 1 discriminator 4
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 498              		.loc 1 48 108 is_stmt 0 discriminator 4
+ 499 00f4 23A00700 		sw	zero,0(a5)
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 500              		.loc 1 48 112 is_stmt 1 discriminator 4
+  48:main.c        ****     *temp1=0; *temp2=0;*temp3=0;*temp4=0;*checkLetter=0; return 0;
+ 501              		.loc 1 48 119 is_stmt 0 discriminator 4
+ 502 00f8 8280     		ret
+ 503              		.cfi_endproc
+ 504              	.LFE3:
+ 506              		.section	.text.startup.main,"ax",@progbits
+ 507              		.align	1
+ 508              		.globl	main
+ 510              	main:
+ 511              	.LFB4:
+  52:main.c        **** 
+  53:main.c        **** int main(void){
+ 512              		.loc 1 53 15 is_stmt 1
+ 513              		.cfi_startproc
+  54:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0, idle=0;
+ 514              		.loc 1 54 5
+ 515              	.LVL45:
+  55:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 516              		.loc 1 55 5
+ 517              		.loc 1 55 9 is_stmt 0
+ 518 0000 B7070000 		lui	a5,%hi(.LANCHOR0)
+  53:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0, idle=0;
+ 519              		.loc 1 53 15
+ 520 0004 7171     		addi	sp,sp,-176
+ 521              	.LCFI4:
+ 522              		.cfi_def_cfa_offset 176
+ 523              		.loc 1 55 9
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 13
+
+
+ 524 0006 93870700 		addi	a5,a5,%lo(.LANCHOR0)
+  53:main.c        ****     int ms=0, s=0, key, pKey=-1, c=0, idle=0;
+ 525              		.loc 1 53 15
+ 526 000a 06D7     		sw	ra,172(sp)
+ 527 000c 22D5     		sw	s0,168(sp)
+ 528 000e 26D3     		sw	s1,164(sp)
+ 529 0010 4AD1     		sw	s2,160(sp)
+ 530 0012 4ECF     		sw	s3,156(sp)
+ 531 0014 52CD     		sw	s4,152(sp)
+ 532 0016 56CB     		sw	s5,148(sp)
+ 533 0018 5AC9     		sw	s6,144(sp)
+ 534 001a 5EC7     		sw	s7,140(sp)
+ 535 001c 62C5     		sw	s8,136(sp)
+ 536 001e 66C3     		sw	s9,132(sp)
+ 537 0020 6AC1     		sw	s10,128(sp)
+ 538 0022 EEDE     		sw	s11,124(sp)
+ 539              		.cfi_offset 1, -4
+ 540              		.cfi_offset 8, -8
+ 541              		.cfi_offset 9, -12
+ 542              		.cfi_offset 18, -16
+ 543              		.cfi_offset 19, -20
+ 544              		.cfi_offset 20, -24
+ 545              		.cfi_offset 21, -28
+ 546              		.cfi_offset 22, -32
+ 547              		.cfi_offset 23, -36
+ 548              		.cfi_offset 24, -40
+ 549              		.cfi_offset 25, -44
+ 550              		.cfi_offset 26, -48
+ 551              		.cfi_offset 27, -52
+ 552              		.loc 1 55 9
+ 553 0024 1818     		addi	a4,sp,48
+ 554 0026 93860704 		addi	a3,a5,64
+ 555              	.L46:
+ 556 002a 03A80700 		lw	a6,0(a5)
+ 557 002e C843     		lw	a0,4(a5)
+ 558 0030 8C47     		lw	a1,8(a5)
+ 559 0032 D047     		lw	a2,12(a5)
+ 560 0034 23200701 		sw	a6,0(a4)
+ 561 0038 48C3     		sw	a0,4(a4)
+ 562 003a 0CC7     		sw	a1,8(a4)
+ 563 003c 50C7     		sw	a2,12(a4)
+ 564 003e C107     		addi	a5,a5,16
+ 565 0040 4107     		addi	a4,a4,16
+ 566 0042 E394D7FE 		bne	a5,a3,.L46
+  56:main.c        ****     int dac=0, speed=-100;
+ 567              		.loc 1 56 5 is_stmt 1
+ 568              	.LVL46:
+  57:main.c        ****     int adcr, tmpr;
+ 569              		.loc 1 57 5
+  58:main.c        ****     char digits[10][10]={"Zero ","One  ","Two  ","Three","Four ","Five ","Six  ","Seven","Eight","N
+ 570              		.loc 1 58 5
+  59:main.c        ****     char msg[]="*";
+ 571              		.loc 1 59 5
+  60:main.c        ****     int counterX=0; int counterY=10; int returnCounter=0;
+ 572              		.loc 1 60 5
+ 573              		.loc 1 60 21
+ 574              		.loc 1 60 38
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 14
+
+
+  61:main.c        ****     int *temp1=0,*temp2=0,*temp3=0,*temp4=0;
+ 575              		.loc 1 61 5
+ 576              		.loc 1 61 10 is_stmt 0
+ 577 0046 02CE     		sw	zero,28(sp)
+ 578              		.loc 1 61 19
+ 579 0048 02D0     		sw	zero,32(sp)
+ 580              		.loc 1 61 28
+ 581 004a 02D2     		sw	zero,36(sp)
+ 582              		.loc 1 61 37
+ 583 004c 02D4     		sw	zero,40(sp)
+  62:main.c        ****     int *checkLetter=0;
+ 584              		.loc 1 62 5 is_stmt 1
+ 585              		.loc 1 62 10 is_stmt 0
+ 586 004e 02D6     		sw	zero,44(sp)
+  63:main.c        ****     int okOrError;
+ 587              		.loc 1 63 5 is_stmt 1
+  64:main.c        **** 
+  65:main.c        ****     t5omsi();                               // Initialize timer5 1kHz
+ 588              		.loc 1 65 5
+ 589 0050 97000000 		call	t5omsi
+ 589      E7800000 
+ 590              	.LVL47:
+  66:main.c        ****     colinit();                              // Initialize column toolbox
+ 591              		.loc 1 66 5
+ 592 0058 97000000 		call	colinit
+ 592      E7800000 
+ 593              	.LVL48:
+  67:main.c        ****     l88init();                              // Initialize 8*8 led toolbox
+ 594              		.loc 1 67 5
+ 595 0060 97000000 		call	l88init
+ 595      E7800000 
+ 596              	.LVL49:
+  68:main.c        ****     keyinit();                              // Initialize keyboard toolbox
+ 597              		.loc 1 68 5
+ 598 0068 97000000 		call	keyinit
+ 598      E7800000 
+ 599              	.LVL50:
+  69:main.c        ****     Lcd_SetType(LCD_NORMAL);                // or use LCD_INVERTED!
+ 600              		.loc 1 69 5
+ 601 0070 0145     		li	a0,0
+ 602 0072 97000000 		call	Lcd_SetType
+ 602      E7800000 
+ 603              	.LVL51:
+  70:main.c        ****     Lcd_Init();
+ 604              		.loc 1 70 5
+ 605 007a 97000000 		call	Lcd_Init
+ 605      E7800000 
+ 606              	.LVL52:
+  71:main.c        ****     LCD_Clear(BLACK);
+ 607              		.loc 1 71 5
+ 608 0082 0145     		li	a0,0
+ 609 0084 97000000 		call	LCD_Clear
+ 609      E7800000 
+ 610              	.LVL53:
+  72:main.c        ****     //LCD_ShowStr(10, 10, "POLL VERSION", WHITE, TRANSPARENT);
+  73:main.c        ****     u0init(EI);                             // Initialize USART0 toolbox
+ 611              		.loc 1 73 5
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 15
+
+
+ 612 008c 0545     		li	a0,1
+ 613              	.LBB2:
+  74:main.c        **** 
+  75:main.c        ****     eclic_global_interrupt_enable();        // !!! INTERRUPT ENABLED !!!
+  76:main.c        **** 
+  77:main.c        ****     while (1) {
+  78:main.c        ****         idle++;                             // Manage Async events
+  79:main.c        ****         LCD_WR_Queue();                     // Manage LCD com queue!
+  80:main.c        ****         u0_TX_Queue();                      // Manage U(S)ART TX Queue!
+  81:main.c        **** 
+  82:main.c        ****         if (usart_flag_get(USART0,USART_FLAG_RBNE)){ // USART0 RX?
+ 614              		.loc 1 82 13 is_stmt 0
+ 615 008e B7490140 		li	s3,1073823744
+  83:main.c        ****           LCD_ShowChar(counterX,counterY,usart_data_receive(USART0), OPAQUE, WHITE); //RX - Read TX
+ 616              		.loc 1 83 11
+ 617 0092 C16A     		li	s5,65536
+ 618              	.LBE2:
+  73:main.c        **** 
+ 619              		.loc 1 73 5
+ 620 0094 97000000 		call	u0init
+ 620      E7800000 
+ 621              	.LVL54:
+  75:main.c        **** 
+ 622              		.loc 1 75 5 is_stmt 1
+  60:main.c        ****     int *temp1=0,*temp2=0,*temp3=0,*temp4=0;
+ 623              		.loc 1 60 42 is_stmt 0
+ 624 009c 014A     		li	s4,0
+  75:main.c        **** 
+ 625              		.loc 1 75 5
+ 626 009e 97000000 		call	eclic_global_interrupt_enable
+ 626      E7800000 
+ 627              	.LVL55:
+  60:main.c        ****     int *temp1=0,*temp2=0,*temp3=0,*temp4=0;
+ 628              		.loc 1 60 25
+ 629 00a6 A944     		li	s1,10
+  60:main.c        ****     int *temp1=0,*temp2=0,*temp3=0,*temp4=0;
+ 630              		.loc 1 60 9
+ 631 00a8 0149     		li	s2,0
+  54:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 632              		.loc 1 54 34
+ 633 00aa 02C4     		sw	zero,8(sp)
+  54:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 634              		.loc 1 54 25
+ 635 00ac 7D5D     		li	s10,-1
+  54:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 636              		.loc 1 54 15
+ 637 00ae 02C6     		sw	zero,12(sp)
+  54:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 638              		.loc 1 54 9
+ 639 00b0 814B     		li	s7,0
+ 640              	.LBB3:
+  82:main.c        ****           LCD_ShowChar(counterX,counterY,usart_data_receive(USART0), OPAQUE, WHITE); //RX - Read TX
+ 641              		.loc 1 82 13
+ 642 00b2 93890980 		addi	s3,s3,-2048
+ 643              		.loc 1 83 11
+ 644 00b6 FD1A     		addi	s5,s5,-1
+  84:main.c        ****           counterX=counterX+10; //Move X to the Right
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 16
+
+
+  85:main.c        ****           if(returnCounter>0) 
+  86:main.c        ****           {
+  87:main.c        ****             if(okOrError==0) //Show ERR
+  88:main.c        ****             {
+  89:main.c        ****               LCD_ShowChar(counterX+10,counterY,69, OPAQUE, WHITE);
+  90:main.c        ****               LCD_ShowChar(counterX+20,counterY,82, OPAQUE, WHITE);
+  91:main.c        ****               LCD_ShowChar(counterX+30,counterY,82, OPAQUE, WHITE);
+  92:main.c        ****             }
+  93:main.c        ****             if(okOrError==1) //Show OK!
+  94:main.c        ****             {
+  95:main.c        ****               LCD_ShowChar(counterX+10,counterY,79, OPAQUE, WHITE);
+  96:main.c        ****               LCD_ShowChar(counterX+20,counterY,75, OPAQUE, WHITE);
+  97:main.c        ****               LCD_ShowChar(counterX+30,counterY,33, OPAQUE, WHITE);
+  98:main.c        ****               okOrError=0; //Reset OK/ERR
+  99:main.c        ****             }          
+ 100:main.c        ****               counterY=counterY+returnCounter; //Move Y Down
+ 101:main.c        ****               counterX=0; //Move X to Start
+ 102:main.c        ****           }
+ 103:main.c        ****           returnCounter=0;
+ 104:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 645              		.loc 1 104 13
+ 646 00b8 794C     		li	s8,30
+ 105:main.c        ****           if(counterY==50 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 647              		.loc 1 105 13
+ 648 00ba 930C2003 		li	s9,50
+ 106:main.c        ****           if(counterX==160 && counterY==10){counterY=30; counterX=0;} //if Max X Length Pressed Nex
+ 649              		.loc 1 106 13
+ 650 00be 930D000A 		li	s11,160
+ 651              	.LVL56:
+ 652              	.L59:
+ 653              	.LBE3:
+  54:main.c        ****     int lookUpTbl[16]={1,4,7,14,2,5,8,0,3,6,9,15,10,11,12,13};
+ 654              		.loc 1 54 9
+ 655 00c2 0144     		li	s0,0
+ 656 00c4 31A0     		j	.L55
+ 657              	.LVL57:
+ 658              	.L47:
+ 659              	.LBB4:
+ 107:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 108:main.c        ****           if(counterX==160 && counterY==50){counterY=70; counterX=0;} //if Max X Length Pressed Nex
+ 109:main.c        ****         }
+ 110:main.c        **** 
+ 111:main.c        ****         if (t5expq()) {                     // Manage periodic tasks
+ 660              		.loc 1 111 9 is_stmt 1
+ 661              		.loc 1 111 13 is_stmt 0
+ 662 00c6 97000000 		call	t5expq
+ 662      E7800000 
+ 663              	.LVL58:
+ 664              		.loc 1 111 12
+ 665 00ce 3DE1     		bne	a0,zero,.L79
+ 666              	.LVL59:
+ 667              	.L55:
+ 668              	.LBE4:
+  77:main.c        ****         idle++;                             // Manage Async events
+ 669              		.loc 1 77 5 is_stmt 1
+ 670              	.LBB5:
+  78:main.c        ****         LCD_WR_Queue();                     // Manage LCD com queue!
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 17
+
+
+ 671              		.loc 1 78 9
+  79:main.c        ****         u0_TX_Queue();                      // Manage U(S)ART TX Queue!
+ 672              		.loc 1 79 9 is_stmt 0
+ 673 00d0 97000000 		call	LCD_WR_Queue
+ 673      E7800000 
+ 674              	.LVL60:
+  80:main.c        **** 
+ 675              		.loc 1 80 9
+ 676 00d8 97000000 		call	u0_TX_Queue
+ 676      E7800000 
+ 677              	.LVL61:
+  82:main.c        ****           LCD_ShowChar(counterX,counterY,usart_data_receive(USART0), OPAQUE, WHITE); //RX - Read TX
+ 678              		.loc 1 82 13
+ 679 00e0 9545     		li	a1,5
+ 680 00e2 4E85     		mv	a0,s3
+  78:main.c        ****         LCD_WR_Queue();                     // Manage LCD com queue!
+ 681              		.loc 1 78 13
+ 682 00e4 0504     		addi	s0,s0,1
+ 683              	.LVL62:
+  79:main.c        ****         u0_TX_Queue();                      // Manage U(S)ART TX Queue!
+ 684              		.loc 1 79 9 is_stmt 1
+  80:main.c        **** 
+ 685              		.loc 1 80 9
+  82:main.c        ****           LCD_ShowChar(counterX,counterY,usart_data_receive(USART0), OPAQUE, WHITE); //RX - Read TX
+ 686              		.loc 1 82 9
+  82:main.c        ****           LCD_ShowChar(counterX,counterY,usart_data_receive(USART0), OPAQUE, WHITE); //RX - Read TX
+ 687              		.loc 1 82 13 is_stmt 0
+ 688 00e6 97000000 		call	usart_flag_get
+ 688      E7800000 
+ 689              	.LVL63:
+  82:main.c        ****           LCD_ShowChar(counterX,counterY,usart_data_receive(USART0), OPAQUE, WHITE); //RX - Read TX
+ 690              		.loc 1 82 12
+ 691 00ee 61DD     		beq	a0,zero,.L47
+  83:main.c        ****           counterX=counterX+10; //Move X to the Right
+ 692              		.loc 1 83 11 is_stmt 1
+  83:main.c        ****           counterX=counterX+10; //Move X to the Right
+ 693              		.loc 1 83 42 is_stmt 0
+ 694 00f0 4E85     		mv	a0,s3
+ 695 00f2 97000000 		call	usart_data_receive
+ 695      E7800000 
+ 696              	.LVL64:
+  83:main.c        ****           counterX=counterX+10; //Move X to the Right
+ 697              		.loc 1 83 11
+ 698 00fa 1376F50F 		andi	a2,a0,0xff
+ 699 00fe 5687     		mv	a4,s5
+ 700 0100 8146     		li	a3,0
+ 701 0102 A685     		mv	a1,s1
+ 702 0104 4A85     		mv	a0,s2
+ 703 0106 97000000 		call	LCD_ShowChar
+ 703      E7800000 
+ 704              	.LVL65:
+  84:main.c        ****           if(returnCounter>0) 
+ 705              		.loc 1 84 11 is_stmt 1
+  85:main.c        ****           {
+ 706              		.loc 1 85 11
+  85:main.c        ****           {
+ 707              		.loc 1 85 13 is_stmt 0
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 18
+
+
+ 708 010e 6355400D 		ble	s4,zero,.L48
+  87:main.c        ****             {
+ 709              		.loc 1 87 13 is_stmt 1
+  87:main.c        ****             {
+ 710              		.loc 1 87 15 is_stmt 0
+ 711 0112 63010B0E 		beq	s6,zero,.L80
+  93:main.c        ****             {
+ 712              		.loc 1 93 13 is_stmt 1
+  93:main.c        ****             {
+ 713              		.loc 1 93 15 is_stmt 0
+ 714 0116 8547     		li	a5,1
+ 715 0118 630EFB12 		beq	s6,a5,.L81
+ 716              	.LVL66:
+ 717              	.L50:
+ 100:main.c        ****               counterX=0; //Move X to Start
+ 718              		.loc 1 100 15 is_stmt 1
+ 100:main.c        ****               counterX=0; //Move X to Start
+ 719              		.loc 1 100 23 is_stmt 0
+ 720 011c D294     		add	s1,s1,s4
+ 721              	.LVL67:
+ 101:main.c        ****           }
+ 722              		.loc 1 101 15 is_stmt 1
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 723              		.loc 1 103 11
+ 104:main.c        ****           if(counterY==50 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 724              		.loc 1 104 11
+ 104:main.c        ****           if(counterY==50 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 725              		.loc 1 104 13 is_stmt 0
+ 726 011e 638A840B 		beq	s1,s8,.L63
+ 105:main.c        ****           if(counterX==160 && counterY==10){counterY=30; counterX=0;} //if Max X Length Pressed Nex
+ 727              		.loc 1 105 11 is_stmt 1
+ 101:main.c        ****           }
+ 728              		.loc 1 101 23 is_stmt 0
+ 729 0122 0149     		li	s2,0
+ 105:main.c        ****           if(counterX==160 && counterY==10){counterY=30; counterX=0;} //if Max X Length Pressed Nex
+ 730              		.loc 1 105 13
+ 731 0124 6387940B 		beq	s1,s9,.L63
+ 732              	.LVL68:
+ 733              	.L54:
+ 107:main.c        ****           if(counterX==160 && counterY==50){counterY=70; counterX=0;} //if Max X Length Pressed Nex
+ 734              		.loc 1 107 11 is_stmt 1
+ 108:main.c        ****         }
+ 735              		.loc 1 108 11
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 736              		.loc 1 103 24 is_stmt 0
+ 737 0128 014A     		li	s4,0
+ 738              	.LVL69:
+ 739              		.loc 1 111 9 is_stmt 1
+ 740              		.loc 1 111 13 is_stmt 0
+ 741 012a 97000000 		call	t5expq
+ 741      E7800000 
+ 742              	.LVL70:
+ 743              		.loc 1 111 12
+ 744 0132 59DD     		beq	a0,zero,.L55
+ 745              	.L79:
+ 112:main.c        ****             l88row(colset());               // ...8*8LED and Keyboard
+ 746              		.loc 1 112 13 is_stmt 1
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 19
+
+
+ 747 0134 97000000 		call	colset
+ 747      E7800000 
+ 748              	.LVL71:
+ 749 013c 97000000 		call	l88row
+ 749      E7800000 
+ 750              	.LVL72:
+ 113:main.c        ****             ms++;                           // ...One second heart beat
+ 751              		.loc 1 113 13
+ 752              		.loc 1 113 15 is_stmt 0
+ 753 0144 850B     		addi	s7,s7,1
+ 754              	.LVL73:
+ 114:main.c        ****             if (ms==1000){
+ 755              		.loc 1 114 13 is_stmt 1
+ 756              		.loc 1 114 16 is_stmt 0
+ 757 0146 9307803E 		li	a5,1000
+ 758 014a 638EFB14 		beq	s7,a5,.L82
+ 759              	.LVL74:
+ 760              	.L56:
+ 115:main.c        ****               ms=0;
+ 116:main.c        ****               l88mem(0,s++);
+ 117:main.c        ****               //LCD_ShowStr(10, 30, digits[s%10], WHITE, OPAQUE);
+ 118:main.c        ****               //usart_data_transmit(USART0, (s%10)+'0'); // USRAT0 TX!
+ 119:main.c        ****               //msg[0]=(s%10)+'0'; putstr(msg);
+ 120:main.c        ****             }
+ 121:main.c        ****             if ((key=keyscan())>=0) {       // ...Any key pressed?
+ 761              		.loc 1 121 13 is_stmt 1
+ 762              		.loc 1 121 22 is_stmt 0
+ 763 014e 97000000 		call	keyscan
+ 763      E7800000 
+ 764              	.LVL75:
+ 765 0156 AA87     		mv	a5,a0
+ 766              	.LVL76:
+ 767              		.loc 1 121 16
+ 768 0158 634F0504 		blt	a0,zero,.L57
+ 122:main.c        ****               if (pKey==key) c++; else {c=0; pKey=key;}
+ 769              		.loc 1 122 15 is_stmt 1
+ 770              		.loc 1 122 18 is_stmt 0
+ 771 015c 630FAD12 		beq	s10,a0,.L83
+ 772 0160 8145     		li	a1,0
+ 773              		.loc 1 122 42
+ 774 0162 02C4     		sw	zero,8(sp)
+ 775              	.LVL77:
+ 776              	.L58:
+ 123:main.c        ****               l88mem(1,lookUpTbl[key]+(c<<4));
+ 777              		.loc 1 123 15 is_stmt 1
+ 778              		.loc 1 123 33 is_stmt 0
+ 779 0164 13972700 		slli	a4,a5,2
+ 780 0168 9418     		addi	a3,sp,112
+ 781 016a 3697     		add	a4,a3,a4
+ 782 016c 032B07FC 		lw	s6,-64(a4)
+ 783              	.LVL78:
+ 784              		.loc 1 123 15
+ 785 0170 0545     		li	a0,1
+ 786              	.LVL79:
+ 787 0172 3E8D     		mv	s10,a5
+ 788 0174 DA95     		add	a1,s6,a1
+ 789 0176 97000000 		call	l88mem
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 20
+
+
+ 789      E7800000 
+ 790              	.LVL80:
+ 124:main.c        ****               returnCounter=codeWrite(lookUpTbl[key]); //TX Function & Next Row if D
+ 791              		.loc 1 124 15 is_stmt 1
+ 792              		.loc 1 124 29 is_stmt 0
+ 793 017e 5A85     		mv	a0,s6
+ 794 0180 97000000 		call	codeWrite
+ 794      E7800000 
+ 795              	.LVL81:
+ 125:main.c        ****               okOrError=numberComp(lookUpTbl[key],&temp1,&temp2,&temp3,&temp4,&checkLetter); //Chec
+ 796              		.loc 1 125 25
+ 797 0188 7C10     		addi	a5,sp,44
+ 124:main.c        ****               returnCounter=codeWrite(lookUpTbl[key]); //TX Function & Next Row if D
+ 798              		.loc 1 124 29
+ 799 018a 2A8A     		mv	s4,a0
+ 800              	.LVL82:
+ 801              		.loc 1 125 15 is_stmt 1
+ 802              		.loc 1 125 25 is_stmt 0
+ 803 018c 3810     		addi	a4,sp,40
+ 804 018e 5A85     		mv	a0,s6
+ 805              	.LVL83:
+ 806 0190 5410     		addi	a3,sp,36
+ 807 0192 1010     		addi	a2,sp,32
+ 808 0194 6C08     		addi	a1,sp,28
+ 809 0196 97000000 		call	numberComp
+ 809      E7800000 
+ 810              	.LVL84:
+ 126:main.c        ****               if(counterY==70){counterY=10; LCD_Clear(BLACK); counterX=0;} //If Full Then Reset
+ 811              		.loc 1 126 17
+ 812 019e 93076004 		li	a5,70
+ 125:main.c        ****               okOrError=numberComp(lookUpTbl[key],&temp1,&temp2,&temp3,&temp4,&checkLetter); //Chec
+ 813              		.loc 1 125 25
+ 814 01a2 2A8B     		mv	s6,a0
+ 815              	.LVL85:
+ 816              		.loc 1 126 15 is_stmt 1
+ 817              		.loc 1 126 17 is_stmt 0
+ 818 01a4 6399F400 		bne	s1,a5,.L57
+ 819              		.loc 1 126 32 is_stmt 1 discriminator 1
+ 820              	.LVL86:
+ 821              		.loc 1 126 45 discriminator 1
+ 822 01a8 0145     		li	a0,0
+ 823              	.LVL87:
+ 824 01aa 97000000 		call	LCD_Clear
+ 824      E7800000 
+ 825              	.LVL88:
+ 826              		.loc 1 126 63 discriminator 1
+ 827              		.loc 1 126 40 is_stmt 0 discriminator 1
+ 828 01b2 A944     		li	s1,10
+ 829              		.loc 1 126 71 discriminator 1
+ 830 01b4 0149     		li	s2,0
+ 831              	.LVL89:
+ 832              	.L57:
+ 127:main.c        ****             }
+ 128:main.c        ****             l88mem(2,idle>>8);              // ...Performance monitor
+ 833              		.loc 1 128 13 is_stmt 1
+ 834 01b6 93558440 		srai	a1,s0,8
+ 835 01ba 0945     		li	a0,2
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 21
+
+
+ 836 01bc 97000000 		call	l88mem
+ 836      E7800000 
+ 837              	.LVL90:
+ 129:main.c        ****             l88mem(3,idle); idle=0;
+ 838              		.loc 1 129 13
+ 839 01c4 A285     		mv	a1,s0
+ 840 01c6 0D45     		li	a0,3
+ 841 01c8 97000000 		call	l88mem
+ 841      E7800000 
+ 842              	.LVL91:
+ 843              		.loc 1 129 29
+ 844 01d0 CDBD     		j	.L59
+ 845              	.LVL92:
+ 846              	.L63:
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 847              		.loc 1 103 24 is_stmt 0
+ 848 01d2 014A     		li	s4,0
+ 849 01d4 0149     		li	s2,0
+ 850 01d6 C5BD     		j	.L47
+ 851              	.LVL93:
+ 852              	.L48:
+  84:main.c        ****           if(returnCounter>0) 
+ 853              		.loc 1 84 19
+ 854 01d8 2909     		addi	s2,s2,10
+ 855              	.LVL94:
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 856              		.loc 1 103 11 is_stmt 1
+ 104:main.c        ****           if(counterY==50 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 857              		.loc 1 104 11
+ 104:main.c        ****           if(counterY==50 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 858              		.loc 1 104 13 is_stmt 0
+ 859 01da 63868407 		beq	s1,s8,.L84
+ 105:main.c        ****           if(counterX==160 && counterY==10){counterY=30; counterX=0;} //if Max X Length Pressed Nex
+ 860              		.loc 1 105 11 is_stmt 1
+ 105:main.c        ****           if(counterX==160 && counterY==10){counterY=30; counterX=0;} //if Max X Length Pressed Nex
+ 861              		.loc 1 105 13 is_stmt 0
+ 862 01de 638D9405 		beq	s1,s9,.L85
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 863              		.loc 1 106 11 is_stmt 1
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 864              		.loc 1 106 13 is_stmt 0
+ 865 01e2 E313B9F5 		bne	s2,s11,.L54
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 866              		.loc 1 106 28 discriminator 1
+ 867 01e6 A947     		li	a5,10
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 868              		.loc 1 103 24 discriminator 1
+ 869 01e8 014A     		li	s4,0
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 870              		.loc 1 106 28 discriminator 1
+ 871 01ea E39EF4EC 		bne	s1,a5,.L47
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 872              		.loc 1 106 53
+ 873 01ee F944     		li	s1,30
+ 874              	.LVL95:
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 875              		.loc 1 106 28
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 22
+
+
+ 876 01f0 0149     		li	s2,0
+ 877              	.LVL96:
+ 878 01f2 D1BD     		j	.L47
+ 879              	.LVL97:
+ 880              	.L80:
+  89:main.c        ****               LCD_ShowChar(counterX+20,counterY,82, OPAQUE, WHITE);
+ 881              		.loc 1 89 15 is_stmt 1
+ 882 01f4 A685     		mv	a1,s1
+ 883 01f6 13054901 		addi	a0,s2,20
+ 884 01fa 5687     		mv	a4,s5
+ 885 01fc 8146     		li	a3,0
+ 886 01fe 13065004 		li	a2,69
+ 887 0202 97000000 		call	LCD_ShowChar
+ 887      E7800000 
+ 888              	.LVL98:
+  90:main.c        ****               LCD_ShowChar(counterX+30,counterY,82, OPAQUE, WHITE);
+ 889              		.loc 1 90 15
+ 890 020a 5687     		mv	a4,s5
+ 891 020c A685     		mv	a1,s1
+ 892 020e 1305E901 		addi	a0,s2,30
+ 893 0212 8146     		li	a3,0
+ 894 0214 13062005 		li	a2,82
+ 895 0218 97000000 		call	LCD_ShowChar
+ 895      E7800000 
+ 896              	.LVL99:
+  91:main.c        ****             }
+ 897              		.loc 1 91 15
+ 898 0220 5687     		mv	a4,s5
+ 899 0222 8146     		li	a3,0
+ 900 0224 13062005 		li	a2,82
+ 901 0228 A685     		mv	a1,s1
+ 902 022a 13058902 		addi	a0,s2,40
+ 903 022e 97000000 		call	LCD_ShowChar
+ 903      E7800000 
+ 904              	.LVL100:
+  93:main.c        ****             {
+ 905              		.loc 1 93 13
+ 906 0236 DDB5     		j	.L50
+ 907              	.LVL101:
+ 908              	.L85:
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 909              		.loc 1 106 11
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 910              		.loc 1 106 13 is_stmt 0
+ 911 0238 E318B9EF 		bne	s2,s11,.L54
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 912              		.loc 1 103 24
+ 913 023c 014A     		li	s4,0
+ 108:main.c        ****         }
+ 914              		.loc 1 108 53
+ 915 023e 93046004 		li	s1,70
+ 916              	.LVL102:
+ 108:main.c        ****         }
+ 917              		.loc 1 108 66
+ 918 0242 0149     		li	s2,0
+ 919              	.LVL103:
+ 920 0244 49B5     		j	.L47
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 23
+
+
+ 921              	.LVL104:
+ 922              	.L84:
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 923              		.loc 1 106 11 is_stmt 1
+ 106:main.c        ****           if(counterX==160 && counterY==30){counterY=50; counterX=0;} //if Max X Length Pressed Nex
+ 924              		.loc 1 106 13 is_stmt 0
+ 925 0246 E311B9EF 		bne	s2,s11,.L54
+ 103:main.c        ****           if(counterY==30 && counterX==0){counterX=0;} //if D Pressed Next Row
+ 926              		.loc 1 103 24
+ 927 024a 014A     		li	s4,0
+ 107:main.c        ****           if(counterX==160 && counterY==50){counterY=70; counterX=0;} //if Max X Length Pressed Nex
+ 928              		.loc 1 107 53
+ 929 024c 93042003 		li	s1,50
+ 930              	.LVL105:
+ 107:main.c        ****           if(counterX==160 && counterY==50){counterY=70; counterX=0;} //if Max X Length Pressed Nex
+ 931              		.loc 1 107 66
+ 932 0250 0149     		li	s2,0
+ 933              	.LVL106:
+ 934 0252 95BD     		j	.L47
+ 935              	.LVL107:
+ 936              	.L81:
+  95:main.c        ****               LCD_ShowChar(counterX+20,counterY,75, OPAQUE, WHITE);
+ 937              		.loc 1 95 15 is_stmt 1
+ 938 0254 8146     		li	a3,0
+ 939 0256 1306F004 		li	a2,79
+ 940 025a A685     		mv	a1,s1
+ 941 025c 13054901 		addi	a0,s2,20
+ 942 0260 5687     		mv	a4,s5
+ 943 0262 97000000 		call	LCD_ShowChar
+ 943      E7800000 
+ 944              	.LVL108:
+  96:main.c        ****               LCD_ShowChar(counterX+30,counterY,33, OPAQUE, WHITE);
+ 945              		.loc 1 96 15
+ 946 026a 5687     		mv	a4,s5
+ 947 026c 8146     		li	a3,0
+ 948 026e 1306B004 		li	a2,75
+ 949 0272 A685     		mv	a1,s1
+ 950 0274 1305E901 		addi	a0,s2,30
+ 951 0278 97000000 		call	LCD_ShowChar
+ 951      E7800000 
+ 952              	.LVL109:
+  97:main.c        ****               okOrError=0; //Reset OK/ERR
+ 953              		.loc 1 97 15
+ 954 0280 5687     		mv	a4,s5
+ 955 0282 8146     		li	a3,0
+ 956 0284 13061002 		li	a2,33
+ 957 0288 A685     		mv	a1,s1
+ 958 028a 13058902 		addi	a0,s2,40
+ 959 028e 97000000 		call	LCD_ShowChar
+ 959      E7800000 
+ 960              	.LVL110:
+  98:main.c        ****             }          
+ 961              		.loc 1 98 15
+  98:main.c        ****             }          
+ 962              		.loc 1 98 24 is_stmt 0
+ 963 0296 014B     		li	s6,0
+ 964 0298 51B5     		j	.L50
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 24
+
+
+ 965              	.LVL111:
+ 966              	.L83:
+ 122:main.c        ****               l88mem(1,lookUpTbl[key]+(c<<4));
+ 967              		.loc 1 122 30 is_stmt 1 discriminator 1
+ 122:main.c        ****               l88mem(1,lookUpTbl[key]+(c<<4));
+ 968              		.loc 1 122 31 is_stmt 0 discriminator 1
+ 969 029a 2247     		lw	a4,8(sp)
+ 970 029c 0507     		addi	a4,a4,1
+ 971 029e 3AC4     		sw	a4,8(sp)
+ 972              	.LVL112:
+ 973 02a0 93154700 		slli	a1,a4,4
+ 974 02a4 C1B5     		j	.L58
+ 975              	.LVL113:
+ 976              	.L82:
+ 115:main.c        ****               l88mem(0,s++);
+ 977              		.loc 1 115 15 is_stmt 1
+ 116:main.c        ****               //LCD_ShowStr(10, 30, digits[s%10], WHITE, OPAQUE);
+ 978              		.loc 1 116 15
+ 979 02a6 B247     		lw	a5,12(sp)
+ 980 02a8 0145     		li	a0,0
+ 981 02aa 938B1700 		addi	s7,a5,1
+ 982              	.LVL114:
+ 983 02ae BE85     		mv	a1,a5
+ 984 02b0 97000000 		call	l88mem
+ 984      E7800000 
+ 985              	.LVL115:
+ 986 02b8 5EC6     		sw	s7,12(sp)
+ 115:main.c        ****               l88mem(0,s++);
+ 987              		.loc 1 115 17 is_stmt 0
+ 988 02ba 814B     		li	s7,0
+ 989              	.LVL116:
+ 990 02bc 49BD     		j	.L56
+ 991              	.LBE5:
+ 992              		.cfi_endproc
+ 993              	.LFE4:
+ 995              		.section	.rodata
+ 996              		.align	2
+ 997              		.set	.LANCHOR0,. + 0
+ 998              	.LC0:
+ 999 0000 01000000 		.word	1
+ 1000 0004 04000000 		.word	4
+ 1001 0008 07000000 		.word	7
+ 1002 000c 0E000000 		.word	14
+ 1003 0010 02000000 		.word	2
+ 1004 0014 05000000 		.word	5
+ 1005 0018 08000000 		.word	8
+ 1006 001c 00000000 		.word	0
+ 1007 0020 03000000 		.word	3
+ 1008 0024 06000000 		.word	6
+ 1009 0028 09000000 		.word	9
+ 1010 002c 0F000000 		.word	15
+ 1011 0030 0A000000 		.word	10
+ 1012 0034 0B000000 		.word	11
+ 1013 0038 0C000000 		.word	12
+ 1014 003c 0D000000 		.word	13
+ 1015              		.text
+ 1016              	.Letext0:
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 25
+
+
+ 1017              		.file 2 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1018              		.file 3 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1019              		.file 4 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\lib\\gcc\\riscv64-unkno
+ 1020              		.file 5 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1021              		.file 6 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1022              		.file 7 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1023              		.file 8 "../../firmware/GD32VF103_standard_peripheral/system_gd32vf103.h"
+ 1024              		.file 9 "c:\\users\\gtsa infinity\\desktop\\toolchain-gd32v-win\\compiler\\riscv64-unknown-elf\\in
+ 1025              		.file 10 "lcd.h"
+ 1026              		.file 11 "drivers.h"
+ 1027              		.file 12 "../../firmware/GD32VF103_standard_peripheral/Include/gd32vf103_usart.h"
+ 1028              		.file 13 "usart.h"
+ 1029              		.file 14 "../../firmware/GD32VF103_standard_peripheral/Include/gd32vf103_eclic.h"
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:13     .text.codeWrite:0000000000000000 codeWrite
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:17     .text.codeWrite:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:19     .text.codeWrite:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:20     .text.codeWrite:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:21     .text.codeWrite:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:29     .text.codeWrite:0000000000000016 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:31     .text.codeWrite:0000000000000018 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:34     .text.codeWrite:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:35     .text.codeWrite:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:38     .text.codeWrite:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:60     .text.codeWrite:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:67     .text.codeWrite:0000000000000034 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:68     .text.codeWrite:0000000000000034 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:72     .text.codeWrite:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:73     .text.codeWrite:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:74     .text.codeWrite:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:76     .text.codeWrite:000000000000003a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:80     .text.codeWrite:000000000000003c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:85     .text.codeWrite:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:87     .text.codeWrite:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:93     .text.codeWrite:0000000000000052 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:94     .text.codeWrite:0000000000000052 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:95     .text.codeWrite:0000000000000052 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:100    .text.codeWrite:0000000000000056 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:106    .text.codeWrite:000000000000006a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:107    .text.codeWrite:000000000000006a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:111    .text.codeWrite:000000000000006e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:117    .text.codeWrite:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:118    .text.codeWrite:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:122    .text.codeWrite:0000000000000086 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:128    .text.codeWrite:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:129    .text.codeWrite:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:133    .text.codeWrite:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:139    .text.codeWrite:00000000000000b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:140    .text.codeWrite:00000000000000b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:144    .text.codeWrite:00000000000000b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:150    .text.codeWrite:00000000000000ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:151    .text.codeWrite:00000000000000ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:155    .text.codeWrite:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:161    .text.codeWrite:00000000000000e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:162    .text.codeWrite:00000000000000e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:166    .text.codeWrite:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:172    .text.codeWrite:00000000000000fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:173    .text.codeWrite:00000000000000fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:177    .text.codeWrite:00000000000000fe .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:183    .text.codeWrite:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:184    .text.codeWrite:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:188    .text.codeWrite:0000000000000116 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:194    .text.codeWrite:000000000000012a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:195    .text.codeWrite:000000000000012a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:199    .text.codeWrite:000000000000012e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:205    .text.codeWrite:0000000000000142 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:206    .text.codeWrite:0000000000000142 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:210    .text.codeWrite:0000000000000146 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:216    .text.codeWrite:000000000000015a .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 27
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:217    .text.codeWrite:000000000000015a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:221    .text.codeWrite:000000000000015e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:227    .text.codeWrite:0000000000000172 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:228    .text.codeWrite:0000000000000172 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:233    .text.codeWrite:0000000000000176 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:234    .text.codeWrite:0000000000000176 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:235    .text.codeWrite:0000000000000176 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:238    .text.codeWrite:0000000000000176 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:239    .text.codeWrite:0000000000000178 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:246    .text.numberComp:0000000000000000 numberComp
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:249    .text.numberComp:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:251    .text.numberComp:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:252    .text.numberComp:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:282    .text.numberComp:0000000000000016 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:283    .text.numberComp:0000000000000016 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:286    .text.numberComp:0000000000000018 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:288    .text.numberComp:000000000000001a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:290    .text.numberComp:000000000000001c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:292    .text.numberComp:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:293    .text.numberComp:000000000000001e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:297    .text.numberComp:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:298    .text.numberComp:0000000000000020 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:301    .text.numberComp:0000000000000022 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:304    .text.numberComp:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:306    .text.numberComp:0000000000000026 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:308    .text.numberComp:0000000000000028 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:309    .text.numberComp:0000000000000028 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:313    .text.numberComp:000000000000002c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:314    .text.numberComp:000000000000002c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:316    .text.numberComp:000000000000002e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:318    .text.numberComp:0000000000000030 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:320    .text.numberComp:0000000000000032 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:325    .text.numberComp:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:326    .text.numberComp:0000000000000036 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:329    .text.numberComp:0000000000000038 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:332    .text.numberComp:000000000000003a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:334    .text.numberComp:000000000000003c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:336    .text.numberComp:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:337    .text.numberComp:000000000000003e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:342    .text.numberComp:0000000000000044 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:343    .text.numberComp:0000000000000044 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:345    .text.numberComp:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:347    .text.numberComp:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:352    .text.numberComp:000000000000004c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:353    .text.numberComp:000000000000004c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:355    .text.numberComp:000000000000004e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:357    .text.numberComp:0000000000000050 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:359    .text.numberComp:0000000000000052 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:361    .text.numberComp:0000000000000054 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:362    .text.numberComp:0000000000000054 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:365    .text.numberComp:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:366    .text.numberComp:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:369    .text.numberComp:000000000000005e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:372    .text.numberComp:0000000000000062 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:373    .text.numberComp:0000000000000062 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:377    .text.numberComp:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:378    .text.numberComp:0000000000000068 .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 28
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:380    .text.numberComp:000000000000006c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:381    .text.numberComp:000000000000006c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:383    .text.numberComp:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:384    .text.numberComp:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:386    .text.numberComp:0000000000000074 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:387    .text.numberComp:0000000000000074 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:389    .text.numberComp:0000000000000078 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:390    .text.numberComp:0000000000000078 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:392    .text.numberComp:000000000000007c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:393    .text.numberComp:000000000000007c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:397    .text.numberComp:0000000000000080 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:398    .text.numberComp:0000000000000080 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:401    .text.numberComp:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:404    .text.numberComp:0000000000000084 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:406    .text.numberComp:0000000000000086 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:408    .text.numberComp:0000000000000088 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:409    .text.numberComp:0000000000000088 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:411    .text.numberComp:000000000000008c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:412    .text.numberComp:000000000000008c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:415    .text.numberComp:0000000000000090 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:417    .text.numberComp:0000000000000092 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:418    .text.numberComp:0000000000000092 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:426    .text.numberComp:000000000000009a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:429    .text.numberComp:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:430    .text.numberComp:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:433    .text.numberComp:00000000000000a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:435    .text.numberComp:00000000000000a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:436    .text.numberComp:00000000000000a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:443    .text.numberComp:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:444    .text.numberComp:00000000000000b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:447    .text.numberComp:00000000000000b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:449    .text.numberComp:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:450    .text.numberComp:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:456    .text.numberComp:00000000000000c0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:458    .text.numberComp:00000000000000c2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:462    .text.numberComp:00000000000000c4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:463    .text.numberComp:00000000000000c4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:466    .text.numberComp:00000000000000c8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:468    .text.numberComp:00000000000000ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:469    .text.numberComp:00000000000000ca .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:476    .text.numberComp:00000000000000d2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:479    .text.numberComp:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:482    .text.numberComp:00000000000000de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:484    .text.numberComp:00000000000000e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:486    .text.numberComp:00000000000000e4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:487    .text.numberComp:00000000000000e4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:489    .text.numberComp:00000000000000e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:490    .text.numberComp:00000000000000e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:492    .text.numberComp:00000000000000ec .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:493    .text.numberComp:00000000000000ec .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:495    .text.numberComp:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:496    .text.numberComp:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:498    .text.numberComp:00000000000000f4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:499    .text.numberComp:00000000000000f4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:501    .text.numberComp:00000000000000f8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:502    .text.numberComp:00000000000000f8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:503    .text.numberComp:00000000000000fa .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 29
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:510    .text.startup.main:0000000000000000 main
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:513    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:514    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:516    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:517    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:518    .text.startup.main:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:520    .text.startup.main:0000000000000004 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:522    .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:524    .text.startup.main:0000000000000006 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:526    .text.startup.main:000000000000000a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:539    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:540    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:541    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:542    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:543    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:544    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:545    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:546    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:547    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:548    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:549    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:550    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:551    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:553    .text.startup.main:0000000000000024 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:569    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:570    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:571    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:572    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:573    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:574    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:575    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:576    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:577    .text.startup.main:0000000000000046 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:579    .text.startup.main:0000000000000048 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:581    .text.startup.main:000000000000004a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:583    .text.startup.main:000000000000004c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:585    .text.startup.main:000000000000004e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:586    .text.startup.main:000000000000004e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:588    .text.startup.main:0000000000000050 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:589    .text.startup.main:0000000000000050 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:592    .text.startup.main:0000000000000058 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:595    .text.startup.main:0000000000000060 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:598    .text.startup.main:0000000000000068 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:601    .text.startup.main:0000000000000070 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:605    .text.startup.main:000000000000007a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:608    .text.startup.main:0000000000000082 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:612    .text.startup.main:000000000000008c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:615    .text.startup.main:000000000000008e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:617    .text.startup.main:0000000000000092 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:620    .text.startup.main:0000000000000094 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:623    .text.startup.main:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:624    .text.startup.main:000000000000009c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:626    .text.startup.main:000000000000009e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:629    .text.startup.main:00000000000000a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:631    .text.startup.main:00000000000000a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:633    .text.startup.main:00000000000000aa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:635    .text.startup.main:00000000000000ac .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 30
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:637    .text.startup.main:00000000000000ae .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:639    .text.startup.main:00000000000000b0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:642    .text.startup.main:00000000000000b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:644    .text.startup.main:00000000000000b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:646    .text.startup.main:00000000000000b8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:648    .text.startup.main:00000000000000ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:650    .text.startup.main:00000000000000be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:655    .text.startup.main:00000000000000c2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:661    .text.startup.main:00000000000000c6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:662    .text.startup.main:00000000000000c6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:665    .text.startup.main:00000000000000ce .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:671    .text.startup.main:00000000000000d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:672    .text.startup.main:00000000000000d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:673    .text.startup.main:00000000000000d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:676    .text.startup.main:00000000000000d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:679    .text.startup.main:00000000000000e0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:682    .text.startup.main:00000000000000e4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:685    .text.startup.main:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:686    .text.startup.main:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:687    .text.startup.main:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:688    .text.startup.main:00000000000000e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:691    .text.startup.main:00000000000000ee .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:693    .text.startup.main:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:694    .text.startup.main:00000000000000f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:698    .text.startup.main:00000000000000fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:706    .text.startup.main:000000000000010e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:707    .text.startup.main:000000000000010e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:708    .text.startup.main:000000000000010e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:710    .text.startup.main:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:711    .text.startup.main:0000000000000112 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:713    .text.startup.main:0000000000000116 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:714    .text.startup.main:0000000000000116 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:719    .text.startup.main:000000000000011c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:720    .text.startup.main:000000000000011c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:723    .text.startup.main:000000000000011e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:724    .text.startup.main:000000000000011e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:725    .text.startup.main:000000000000011e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:726    .text.startup.main:000000000000011e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:728    .text.startup.main:0000000000000122 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:729    .text.startup.main:0000000000000122 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:731    .text.startup.main:0000000000000124 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:735    .text.startup.main:0000000000000128 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:736    .text.startup.main:0000000000000128 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:737    .text.startup.main:0000000000000128 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:740    .text.startup.main:000000000000012a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:741    .text.startup.main:000000000000012a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:744    .text.startup.main:0000000000000132 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:747    .text.startup.main:0000000000000134 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:752    .text.startup.main:0000000000000144 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:753    .text.startup.main:0000000000000144 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:756    .text.startup.main:0000000000000146 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:757    .text.startup.main:0000000000000146 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:762    .text.startup.main:000000000000014e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:763    .text.startup.main:000000000000014e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:768    .text.startup.main:0000000000000158 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:770    .text.startup.main:000000000000015c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:771    .text.startup.main:000000000000015c .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 31
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:774    .text.startup.main:0000000000000162 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:778    .text.startup.main:0000000000000164 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:779    .text.startup.main:0000000000000164 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:785    .text.startup.main:0000000000000170 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:792    .text.startup.main:000000000000017e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:793    .text.startup.main:000000000000017e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:797    .text.startup.main:0000000000000188 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:799    .text.startup.main:000000000000018a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:802    .text.startup.main:000000000000018c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:803    .text.startup.main:000000000000018c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:812    .text.startup.main:000000000000019e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:814    .text.startup.main:00000000000001a2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:817    .text.startup.main:00000000000001a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:818    .text.startup.main:00000000000001a4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:821    .text.startup.main:00000000000001a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:822    .text.startup.main:00000000000001a8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:827    .text.startup.main:00000000000001b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:828    .text.startup.main:00000000000001b2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:830    .text.startup.main:00000000000001b4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:834    .text.startup.main:00000000000001b6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:839    .text.startup.main:00000000000001c4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:844    .text.startup.main:00000000000001d0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:848    .text.startup.main:00000000000001d2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:854    .text.startup.main:00000000000001d8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:857    .text.startup.main:00000000000001da .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:858    .text.startup.main:00000000000001da .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:859    .text.startup.main:00000000000001da .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:861    .text.startup.main:00000000000001de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:862    .text.startup.main:00000000000001de .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:864    .text.startup.main:00000000000001e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:865    .text.startup.main:00000000000001e2 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:867    .text.startup.main:00000000000001e6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:869    .text.startup.main:00000000000001e8 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:871    .text.startup.main:00000000000001ea .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:873    .text.startup.main:00000000000001ee .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:876    .text.startup.main:00000000000001f0 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:882    .text.startup.main:00000000000001f4 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:890    .text.startup.main:000000000000020a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:898    .text.startup.main:0000000000000220 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:906    .text.startup.main:0000000000000236 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:910    .text.startup.main:0000000000000238 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:911    .text.startup.main:0000000000000238 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:913    .text.startup.main:000000000000023c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:915    .text.startup.main:000000000000023e .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:918    .text.startup.main:0000000000000242 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:924    .text.startup.main:0000000000000246 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:925    .text.startup.main:0000000000000246 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:927    .text.startup.main:000000000000024a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:929    .text.startup.main:000000000000024c .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:932    .text.startup.main:0000000000000250 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:938    .text.startup.main:0000000000000254 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:946    .text.startup.main:000000000000026a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:954    .text.startup.main:0000000000000280 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:962    .text.startup.main:0000000000000296 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:963    .text.startup.main:0000000000000296 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:968    .text.startup.main:000000000000029a .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:969    .text.startup.main:000000000000029a .L0 
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 32
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:978    .text.startup.main:00000000000002a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:979    .text.startup.main:00000000000002a6 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:988    .text.startup.main:00000000000002ba .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:992    .text.startup.main:00000000000002be .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:997    .rodata:0000000000000000 .LANCHOR0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:242    .text.codeWrite:0000000000000178 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:506    .text.numberComp:00000000000000fa .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:995    .text.startup.main:00000000000002be .L0 
+                     .debug_frame:0000000000000000 .L0 
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:42     .rodata.codeWrite:0000000000000000 .L4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:231    .text.codeWrite:0000000000000176 .L2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:70     .text.codeWrite:0000000000000036 .L1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:98     .text.codeWrite:0000000000000056 .L17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:109    .text.codeWrite:000000000000006e .L16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:120    .text.codeWrite:0000000000000086 .L15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:131    .text.codeWrite:000000000000009e .L14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:142    .text.codeWrite:00000000000000b6 .L13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:153    .text.codeWrite:00000000000000ce .L12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:164    .text.codeWrite:00000000000000e6 .L11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:175    .text.codeWrite:00000000000000fe .L10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:186    .text.codeWrite:0000000000000116 .L9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:197    .text.codeWrite:000000000000012e .L8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:208    .text.codeWrite:0000000000000146 .L7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:219    .text.codeWrite:000000000000015e .L6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:58     .text.codeWrite:0000000000000020 .L5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:83     .text.codeWrite:000000000000003e .L3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:264    .rodata.numberComp:0000000000000000 .L27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:423    .text.numberComp:000000000000009a .L25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:441    .text.numberComp:00000000000000b4 .L36
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:460    .text.numberComp:00000000000000c4 .L33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:427    .text.numberComp:000000000000009c .L43
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:474    .text.numberComp:00000000000000d2 .L44
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:311    .text.numberComp:000000000000002c .L39
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:454    .text.numberComp:00000000000000c0 .L35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:363    .text.numberComp:0000000000000058 .L40
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:370    .text.numberComp:0000000000000062 .L41
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:340    .text.numberComp:0000000000000044 .L34
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:375    .text.numberComp:0000000000000068 .L42
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:280    .text.numberComp:0000000000000016 .L31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:323    .text.numberComp:0000000000000036 .L30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:295    .text.numberComp:0000000000000020 .L29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:395    .text.numberComp:0000000000000080 .L28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:350    .text.numberComp:000000000000004c .L26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:555    .text.startup.main:000000000000002a .L46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:667    .text.startup.main:00000000000000d0 .L55
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:745    .text.startup.main:0000000000000134 .L79
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:658    .text.startup.main:00000000000000c6 .L47
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:852    .text.startup.main:00000000000001d8 .L48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:880    .text.startup.main:00000000000001f4 .L80
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:936    .text.startup.main:0000000000000254 .L81
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:846    .text.startup.main:00000000000001d2 .L63
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:976    .text.startup.main:00000000000002a6 .L82
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:832    .text.startup.main:00000000000001b6 .L57
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:966    .text.startup.main:000000000000029a .L83
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:652    .text.startup.main:00000000000000c2 .L59
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:922    .text.startup.main:0000000000000246 .L84
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:908    .text.startup.main:0000000000000238 .L85
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 33
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:733    .text.startup.main:0000000000000128 .L54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:717    .text.startup.main:000000000000011c .L50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:776    .text.startup.main:0000000000000164 .L58
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:760    .text.startup.main:000000000000014e .L56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:3652   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5291   .debug_str:00000000000003ae .LASF175
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5263   .debug_str:0000000000000327 .LASF176
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5121   .debug_str:000000000000001c .LASF177
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5095   .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5115   .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5395   .debug_str:000000000000061f .LASF0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5163   .debug_str:0000000000000135 .LASF1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5323   .debug_str:00000000000004c9 .LASF2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5399   .debug_str:000000000000063a .LASF3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5409   .debug_str:0000000000000665 .LASF4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5131   .debug_str:0000000000000082 .LASF5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5207   .debug_str:000000000000020a .LASF9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5235   .debug_str:000000000000028b .LASF6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5193   .debug_str:00000000000001c3 .LASF7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5169   .debug_str:000000000000014f .LASF8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5425   .debug_str:00000000000006b8 .LASF10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5229   .debug_str:000000000000026b .LASF130
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5147   .debug_str:00000000000000e6 .LASF11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5429   .debug_str:00000000000006ce .LASF12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5269   .debug_str:000000000000033c .LASF13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5391   .debug_str:000000000000060b .LASF14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5321   .debug_str:00000000000004b9 .LASF15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5119   .debug_str:000000000000000c .LASF16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5285   .debug_str:000000000000038a .LASF17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5139   .debug_str:00000000000000b6 .LASF18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5303   .debug_str:000000000000045b .LASF19
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5339   .debug_str:000000000000050e .LASF20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5283   .debug_str:000000000000037e .LASF21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5305   .debug_str:000000000000046b .LASF22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5159   .debug_str:0000000000000127 .LASF23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5379   .debug_str:00000000000005d5 .LASF24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5435   .debug_str:00000000000006e8 .LASF25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5259   .debug_str:0000000000000319 .LASF26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5227   .debug_str:0000000000000264 .LASF27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5371   .debug_str:00000000000005b5 .LASF28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5373   .debug_str:00000000000005bd .LASF29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5343   .debug_str:0000000000000525 .LASF30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5415   .debug_str:0000000000000684 .LASF31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5313   .debug_str:000000000000048e .LASF32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5329   .debug_str:00000000000004e6 .LASF33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5215   .debug_str:000000000000022f .LASF38
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5403   .debug_str:000000000000064b .LASF34
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5365   .debug_str:00000000000005a0 .LASF35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5209   .debug_str:0000000000000215 .LASF36
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5431   .debug_str:00000000000006dd .LASF37
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5225   .debug_str:000000000000025f .LASF39
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5155   .debug_str:0000000000000117 .LASF40
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5453   .debug_str:000000000000073d .LASF41
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5173   .debug_str:000000000000016e .LASF42
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5471   .debug_str:0000000000000782 .LASF43
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5293   .debug_str:0000000000000428 .LASF44
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5277   .debug_str:000000000000035e .LASF45
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 34
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5377   .debug_str:00000000000005cb .LASF46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5331   .debug_str:00000000000004ef .LASF47
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5449   .debug_str:0000000000000723 .LASF48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5177   .debug_str:000000000000017d .LASF49
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5123   .debug_str:000000000000005e .LASF50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5117   .debug_str:0000000000000000 .LASF51
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5381   .debug_str:00000000000005dd .LASF52
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5189   .debug_str:00000000000001b4 .LASF53
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5295   .debug_str:0000000000000431 .LASF54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5357   .debug_str:0000000000000570 .LASF55
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5205   .debug_str:0000000000000205 .LASF56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5469   .debug_str:000000000000077b .LASF57
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5319   .debug_str:00000000000004b3 .LASF58
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5393   .debug_str:0000000000000619 .LASF59
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5347   .debug_str:000000000000053a .LASF60
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5187   .debug_str:00000000000001ad .LASF61
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5237   .debug_str:000000000000029d .LASF62
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5141   .debug_str:00000000000000c6 .LASF63
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5181   .debug_str:0000000000000193 .LASF64
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5221   .debug_str:000000000000024f .LASF65
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5275   .debug_str:0000000000000357 .LASF66
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5375   .debug_str:00000000000005c5 .LASF67
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5161   .debug_str:000000000000012e .LASF68
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5165   .debug_str:0000000000000141 .LASF69
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5443   .debug_str:000000000000070f .LASF70
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5219   .debug_str:0000000000000246 .LASF71
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5197   .debug_str:00000000000001d9 .LASF72
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5243   .debug_str:00000000000002b3 .LASF73
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5271   .debug_str:000000000000034b .LASF74
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5349   .debug_str:0000000000000542 .LASF75
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5335   .debug_str:00000000000004ff .LASF76
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5367   .debug_str:00000000000005a8 .LASF77
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5385   .debug_str:00000000000005ec .LASF78
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5191   .debug_str:00000000000001bc .LASF79
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5231   .debug_str:000000000000027b .LASF80
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5213   .debug_str:0000000000000227 .LASF81
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5355   .debug_str:000000000000056b .LASF82
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5127   .debug_str:000000000000006e .LASF83
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5363   .debug_str:0000000000000587 .LASF84
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5359   .debug_str:0000000000000575 .LASF85
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5301   .debug_str:0000000000000450 .LASF86
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5361   .debug_str:000000000000057d .LASF87
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5257   .debug_str:0000000000000311 .LASF88
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5223   .debug_str:0000000000000255 .LASF89
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5463   .debug_str:000000000000076c .LASF90
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5309   .debug_str:0000000000000477 .LASF91
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5233   .debug_str:0000000000000283 .LASF92
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5195   .debug_str:00000000000001d1 .LASF93
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5267   .debug_str:0000000000000337 .LASF94
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5129   .debug_str:0000000000000079 .LASF95
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5439   .debug_str:00000000000006fb .LASF96
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5183   .debug_str:000000000000019b .LASF97
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5175   .debug_str:0000000000000178 .LASF98
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5387   .debug_str:00000000000005f3 .LASF99
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5341   .debug_str:000000000000051e .LASF100
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5433   .debug_str:00000000000006e2 .LASF101
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5245   .debug_str:00000000000002b9 .LASF102
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 35
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5325   .debug_str:00000000000004d7 .LASF103
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5125   .debug_str:0000000000000066 .LASF104
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5369   .debug_str:00000000000005af .LASF105
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5273   .debug_str:0000000000000351 .LASF106
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5411   .debug_str:0000000000000678 .LASF107
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5427   .debug_str:00000000000006c1 .LASF108
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5405   .debug_str:0000000000000651 .LASF109
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5253   .debug_str:00000000000002f5 .LASF110
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5451   .debug_str:000000000000072e .LASF111
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5217   .debug_str:0000000000000237 .LASF112
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5249   .debug_str:00000000000002de .LASF113
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5455   .debug_str:0000000000000746 .LASF114
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5299   .debug_str:0000000000000443 .LASF115
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5461   .debug_str:000000000000075e .LASF116
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5153   .debug_str:0000000000000109 .LASF117
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5437   .debug_str:00000000000006f1 .LASF118
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5251   .debug_str:00000000000002e9 .LASF119
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5419   .debug_str:0000000000000692 .LASF120
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5201   .debug_str:00000000000001f2 .LASF121
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5151   .debug_str:00000000000000fa .LASF122
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5199   .debug_str:00000000000001e1 .LASF123
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5133   .debug_str:000000000000008b .LASF124
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5135   .debug_str:000000000000009a .LASF125
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5327   .debug_str:00000000000004dd .LASF126
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5287   .debug_str:000000000000039b .LASF127
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5281   .debug_str:0000000000000375 .LASF128
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5445   .debug_str:0000000000000715 .LASF129
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5145   .debug_str:00000000000000db .LASF178
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5211   .debug_str:000000000000021b .LASF131
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5423   .debug_str:00000000000006a5 .LASF132
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5297   .debug_str:0000000000000439 .LASF133
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5137   .debug_str:00000000000000ab .LASF134
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5467   .debug_str:0000000000000776 .LASF151
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:511    .text.startup.main:0000000000000000 .LFB4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:993    .text.startup.main:00000000000002be .LFE4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4438   .debug_loc:0000000000000000 .LLST8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4451   .debug_loc:0000000000000021 .LLST9
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4468   .debug_loc:000000000000004c .LLST10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4490   .debug_loc:0000000000000085 .LLST11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5149   .debug_str:00000000000000f5 .LASF135
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4509   .debug_loc:00000000000000b9 .LLST12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4534   .debug_loc:00000000000000fa .LLST13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5307   .debug_str:0000000000000472 .LASF136
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4556   .debug_loc:0000000000000133 .LLST14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5457   .debug_str:000000000000074b .LASF137
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5447   .debug_str:000000000000071d .LASF138
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5465   .debug_str:0000000000000771 .LASF139
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5203   .debug_str:0000000000000200 .LASF140
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5407   .debug_str:000000000000065e .LASF141
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5265   .debug_str:000000000000032e .LASF142
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4577   .debug_loc:0000000000000169 .LLST15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5241   .debug_str:00000000000002aa .LASF143
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4652   .debug_loc:0000000000000222 .LLST16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5397   .debug_str:000000000000062c .LASF144
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4685   .debug_loc:0000000000000279 .LLST17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5333   .debug_str:00000000000004f9 .LASF145
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5383   .debug_str:00000000000005e6 .LASF146
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 36
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5417   .debug_str:000000000000068c .LASF147
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5421   .debug_str:000000000000069f .LASF148
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5143   .debug_str:00000000000000cf .LASF149
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5345   .debug_str:0000000000000530 .LASF150
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4741   .debug_loc:000000000000030a .LLST18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5289   .debug_str:00000000000003a2 .LASF157
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:663    .text.startup.main:00000000000000ce .LVL58
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:674    .text.startup.main:00000000000000d8 .LVL60
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:677    .text.startup.main:00000000000000e0 .LVL61
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:689    .text.startup.main:00000000000000ee .LVL63
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:696    .text.startup.main:00000000000000fa .LVL64
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:704    .text.startup.main:000000000000010e .LVL65
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:742    .text.startup.main:0000000000000132 .LVL70
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:748    .text.startup.main:000000000000013c .LVL71
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:750    .text.startup.main:0000000000000144 .LVL72
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:764    .text.startup.main:0000000000000156 .LVL75
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:790    .text.startup.main:000000000000017e .LVL80
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:795    .text.startup.main:0000000000000188 .LVL81
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:810    .text.startup.main:000000000000019e .LVL84
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:825    .text.startup.main:00000000000001b2 .LVL88
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:837    .text.startup.main:00000000000001c4 .LVL90
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:842    .text.startup.main:00000000000001d0 .LVL91
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:888    .text.startup.main:000000000000020a .LVL98
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:896    .text.startup.main:0000000000000220 .LVL99
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:904    .text.startup.main:0000000000000236 .LVL100
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:944    .text.startup.main:000000000000026a .LVL108
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:952    .text.startup.main:0000000000000280 .LVL109
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:960    .text.startup.main:0000000000000296 .LVL110
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:985    .text.startup.main:00000000000002b8 .LVL115
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:590    .text.startup.main:0000000000000058 .LVL47
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:593    .text.startup.main:0000000000000060 .LVL48
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:596    .text.startup.main:0000000000000068 .LVL49
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:599    .text.startup.main:0000000000000070 .LVL50
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:603    .text.startup.main:000000000000007a .LVL51
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:606    .text.startup.main:0000000000000082 .LVL52
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:610    .text.startup.main:000000000000008c .LVL53
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:621    .text.startup.main:000000000000009c .LVL54
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:627    .text.startup.main:00000000000000a6 .LVL55
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5315   .debug_str:00000000000004a0 .LASF152
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:247    .text.numberComp:0000000000000000 .LFB3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:504    .text.numberComp:00000000000000fa .LFE3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4765   .debug_loc:000000000000034a .LLST3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4790   .debug_loc:0000000000000384 .LLST4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4830   .debug_loc:00000000000003e2 .LLST5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4870   .debug_loc:0000000000000440 .LLST6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4932   .debug_loc:00000000000004d0 .LLST7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5441   .debug_str:0000000000000705 .LASF153
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:14     .text.codeWrite:0000000000000000 .LFB2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:240    .text.codeWrite:0000000000000178 .LFE2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:4994   .debug_loc:0000000000000560 .LLST0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5022   .debug_loc:00000000000005a4 .LLST1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5261   .debug_str:000000000000031f .LASF154
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5055   .debug_loc:00000000000005f4 .LLST2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:65     .text.codeWrite:0000000000000034 .LVL2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:91     .text.codeWrite:0000000000000052 .LVL6
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:104    .text.codeWrite:000000000000006a .LVL8
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:115    .text.codeWrite:0000000000000082 .LVL9
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 37
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:126    .text.codeWrite:000000000000009a .LVL10
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:137    .text.codeWrite:00000000000000b2 .LVL11
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:148    .text.codeWrite:00000000000000ca .LVL12
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:159    .text.codeWrite:00000000000000e2 .LVL13
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:170    .text.codeWrite:00000000000000fa .LVL14
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:181    .text.codeWrite:0000000000000112 .LVL15
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:192    .text.codeWrite:000000000000012a .LVL16
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:203    .text.codeWrite:0000000000000142 .LVL17
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:214    .text.codeWrite:000000000000015a .LVL18
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:225    .text.codeWrite:0000000000000172 .LVL19
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5337   .debug_str:0000000000000507 .LASF155
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5311   .debug_str:0000000000000481 .LASF156
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5255   .debug_str:0000000000000302 .LASF158
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5389   .debug_str:00000000000005f8 .LASF159
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5279   .debug_str:0000000000000368 .LASF160
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5157   .debug_str:0000000000000120 .LASF161
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5401   .debug_str:0000000000000644 .LASF162
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5171   .debug_str:0000000000000166 .LASF163
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5239   .debug_str:00000000000002a3 .LASF164
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5185   .debug_str:00000000000001a3 .LASF165
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5413   .debug_str:000000000000067d .LASF166
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5179   .debug_str:000000000000018b .LASF167
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5317   .debug_str:00000000000004ab .LASF168
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5167   .debug_str:0000000000000147 .LASF169
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5353   .debug_str:000000000000055f .LASF170
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5459   .debug_str:0000000000000755 .LASF171
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5473   .debug_str:000000000000078c .LASF172
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5247   .debug_str:00000000000002c0 .LASF173
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:5351   .debug_str:000000000000054b .LASF174
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:521    .text.startup.main:0000000000000006 .LCFI4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:515    .text.startup.main:0000000000000000 .LVL45
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:651    .text.startup.main:00000000000000c2 .LVL56
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:657    .text.startup.main:00000000000000c6 .LVL57
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:975    .text.startup.main:00000000000002a6 .LVL113
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:982    .text.startup.main:00000000000002ae .LVL114
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:989    .text.startup.main:00000000000002bc .LVL116
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:766    .text.startup.main:0000000000000158 .LVL76
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:786    .text.startup.main:0000000000000172 .LVL79
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:831    .text.startup.main:00000000000001b6 .LVL89
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:965    .text.startup.main:000000000000029a .LVL111
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:775    .text.startup.main:0000000000000164 .LVL77
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:972    .text.startup.main:00000000000002a0 .LVL112
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:845    .text.startup.main:00000000000001d2 .LVL92
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:568    .text.startup.main:0000000000000046 .LVL46
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:721    .text.startup.main:000000000000011e .LVL67
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:732    .text.startup.main:0000000000000128 .LVL68
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:851    .text.startup.main:00000000000001d8 .LVL93
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:855    .text.startup.main:00000000000001da .LVL94
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:877    .text.startup.main:00000000000001f2 .LVL96
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:879    .text.startup.main:00000000000001f4 .LVL97
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:907    .text.startup.main:0000000000000238 .LVL101
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:919    .text.startup.main:0000000000000244 .LVL103
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:921    .text.startup.main:0000000000000246 .LVL104
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:933    .text.startup.main:0000000000000252 .LVL106
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:935    .text.startup.main:0000000000000254 .LVL107
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:820    .text.startup.main:00000000000001a8 .LVL86
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:874    .text.startup.main:00000000000001f0 .LVL95
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 38
+
+
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:916    .text.startup.main:0000000000000242 .LVL102
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:930    .text.startup.main:0000000000000250 .LVL105
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:738    .text.startup.main:000000000000012a .LVL69
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:800    .text.startup.main:000000000000018c .LVL82
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:805    .text.startup.main:0000000000000190 .LVL83
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:783    .text.startup.main:0000000000000170 .LVL78
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:815    .text.startup.main:00000000000001a4 .LVL85
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:823    .text.startup.main:00000000000001aa .LVL87
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:250    .text.numberComp:0000000000000000 .LVL22
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:256    .text.numberComp:000000000000000c .LVL23
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:422    .text.numberComp:000000000000009a .LVL37
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:424    .text.numberComp:000000000000009a .LVL38
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:310    .text.numberComp:000000000000002c .LVL28
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:322    .text.numberComp:0000000000000036 .LVL29
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:402    .text.numberComp:0000000000000084 .LVL35
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:453    .text.numberComp:00000000000000c0 .LVL41
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:459    .text.numberComp:00000000000000c4 .LVL42
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:302    .text.numberComp:0000000000000024 .LVL27
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:330    .text.numberComp:000000000000003a .LVL31
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:349    .text.numberComp:000000000000004c .LVL33
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:440    .text.numberComp:00000000000000b4 .LVL39
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:473    .text.numberComp:00000000000000d2 .LVL44
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:284    .text.numberComp:0000000000000018 .LVL24
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:294    .text.numberComp:0000000000000020 .LVL25
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:299    .text.numberComp:0000000000000022 .LVL26
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:327    .text.numberComp:0000000000000038 .LVL30
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:399    .text.numberComp:0000000000000082 .LVL34
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:339    .text.numberComp:0000000000000044 .LVL32
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:419    .text.numberComp:0000000000000094 .LVL36
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:451    .text.numberComp:00000000000000bc .LVL40
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:470    .text.numberComp:00000000000000cc .LVL43
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:30     .text.codeWrite:0000000000000018 .LCFI0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:79     .text.codeWrite:000000000000003c .LCFI1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:84     .text.codeWrite:000000000000003e .LCFI2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:232    .text.codeWrite:0000000000000176 .LCFI3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:18     .text.codeWrite:0000000000000000 .LVL0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:61     .text.codeWrite:0000000000000024 .LVL1
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:77     .text.codeWrite:000000000000003a .LVL4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:82     .text.codeWrite:000000000000003e .LVL5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:230    .text.codeWrite:0000000000000176 .LVL20
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:236    .text.codeWrite:0000000000000176 .LVL21
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:69     .text.codeWrite:0000000000000036 .LVL3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:97     .text.codeWrite:0000000000000056 .LVL7
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:1031   .debug_info:0000000000000000 .Ldebug_info0
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:613    .text.startup.main:000000000000008e .LBB2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:618    .text.startup.main:0000000000000094 .LBE2
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:640    .text.startup.main:00000000000000b2 .LBB3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:653    .text.startup.main:00000000000000c2 .LBE3
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:659    .text.startup.main:00000000000000c6 .LBB4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:668    .text.startup.main:00000000000000d0 .LBE4
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:670    .text.startup.main:00000000000000d0 .LBB5
+C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s:991    .text.startup.main:00000000000002be .LBE5
+
+UNDEFINED SYMBOLS
+usart_data_transmit
+t5omsi
+colinit
+GAS LISTING C:\Users\GTSAIN~1\AppData\Local\Temp\ccBfa7td.s 			page 39
+
+
+l88init
+keyinit
+Lcd_SetType
+Lcd_Init
+LCD_Clear
+u0init
+eclic_global_interrupt_enable
+t5expq
+LCD_WR_Queue
+u0_TX_Queue
+usart_flag_get
+usart_data_receive
+LCD_ShowChar
+colset
+l88row
+keyscan
+l88mem
